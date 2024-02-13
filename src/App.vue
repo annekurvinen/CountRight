@@ -1,5 +1,7 @@
 <script setup>
-import Sofia from './components/SofiasComponent.vue';
+import Sofia from "./components/SofiasComponent.vue";
+
+import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
