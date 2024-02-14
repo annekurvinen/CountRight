@@ -4,7 +4,7 @@
       <li :class="{ backgorundColor: navBarClasses }">
         <RouterLink to="/">Klasser</RouterLink>
       </li>
-      <!--sätter en klass med v-bind och backgroundcolor påsen länk man har tryckt på---->
+      <!--sätter en klass med v-bind och backgroundcolor på den länk man har tryckt på---->
       <li :class="{ backgorundColor: navBarTest }">
         <RouterLink to="/test">Prov</RouterLink>
       </li>
@@ -44,13 +44,13 @@ ul {
   list-style-type: none;
 }
 li {
-  background-color: #f4e2d1;
+  background-color: #eac8a9;
   margin: auto;
   padding: 1rem;
   border-radius: 0.5rem;
 }
 .backgorundColor {
-  background-color: #eac8a9;
+  background-color: #dca572;
 }
 /* style för tablet */
 @media only screen and (min-width: 600px) {
