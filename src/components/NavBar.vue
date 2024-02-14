@@ -4,7 +4,7 @@
       <li :class="{ backgorundColor: navBarClasses }">
         <RouterLink to="/">Klasser</RouterLink>
       </li>
-      <!--sätter en klass med v-bind och backgroundcolor på varje länk-->
+      <!--sätter en klass med v-bind och backgroundcolor påsen länk man har tryckt på---->
       <li :class="{ backgorundColor: navBarTest }">
         <RouterLink to="/test">Prov</RouterLink>
       </li>
@@ -16,25 +16,18 @@
 </template>
 <script>
 export default {
-  //beräknande egenskap som kollar vilken sida man ör på om man är på respektive sida så sätts den bakgrundsfärg som klassen backgroundcolor har till respektive länk
+  //kollar vilken sida man är på, om den ser att man är på en path som matchar någon av de vi har i computed så lägger man till en klass på länken. på så vis kan färgen på länken ändras beroende på vart vilken path man är på
   computed: {
     navBarClasses() {
-      if (this.$route.path === "/") {
-        return true;
-      }
-      return false;
+      return this.$route.path === "/";
     },
+
     navBarTest() {
-      if (this.$route.path === "/test") {
-        return true;
-      }
-      return false;
+      return this.$route.path === "/test";
     },
+
     navBarSettings() {
-      if (this.$route.path === "/settings") {
-        return true;
-      }
-      return false;
+      return this.$route.path === "/settings";
     },
   },
 };
@@ -77,3 +70,6 @@ li {
   }
 } */
 </style>
+
+<!-- källa för conputed-egenskapen
+  https://stackoverflow.com/questions/71800155vue-3-how-to-change-body-background-color-only-in-specific-page -->
