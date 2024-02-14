@@ -1,4 +1,14 @@
-<script setup>
+<template>
+  <main>
+    <RouterView />
+  </main>
+</template>
+
+<script></script>
+
+<style scoped></style>
+
+<!-- <script setup>
 import Sofia from "./components/SofiasComponent.vue";
 
 import HelloWorld from "./components/HelloWorld.vue";
@@ -29,6 +39,7 @@ import HelloWorld from "./components/HelloWorld.vue";
     </ul>
   </nav>
 
+
   <main>
     <RouterView />
   </main>
@@ -47,4 +58,4 @@ import HelloWorld from "./components/HelloWorld.vue";
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
-</style>
+</style> -->

@@ -1,23 +1,28 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 
-import AboutView from './views/AboutView.vue'
-import ContactView from './views/ContactView.vue'
-import HomeView from './views/HomeView.vue'
+import HomeView from "./views/HomeView.vue";
 
+// import LandingpageTeacher from "./view/LandingpageTeacher";
+import SettingsTeacher from "./views/SettingsTeacher.vue";
+import TestpageTeacher from "./views/TestpageTeacher.vue";
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      component: AboutView,
-      path: '/about'
-    },
-    {
-      component: ContactView,
-      path: '/contact'
-    },
-    {
       component: HomeView,
-      path: '/'
-    }
-  ]
-})
+      path: "/",
+    },
+    // {
+    //   component: LandingpageTeacher,
+    //   path: "/LandingpageTeacher",
+    // },
+    {
+      component: SettingsTeacher,
+      path: "/settings",
+    },
+    {
+      component: TestpageTeacher,
+      path: "/test",
+    },
+  ],
+});
