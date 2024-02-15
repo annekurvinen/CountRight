@@ -1,5 +1,4 @@
 <template>
-  <header-logo></header-logo>
   <main></main>
 </template>
 
