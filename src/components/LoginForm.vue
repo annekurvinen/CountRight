@@ -5,21 +5,18 @@
         type="text"
         v-model="skola"
         class="input-field"
-        placeholder="Skola"
-      />
+        placeholder="Skola" />
       {{ skola }}
       <input
         type="text"
         v-model="mail"
         class="input-field"
-        placeholder="Email"
-      />
+        placeholder="Email" />
       <input
         type="password"
         v-model="lös"
         class="input-field"
-        placeholder="Password"
-      />
+        placeholder="Password" />
 
       <div class="checkbox-container">
         <label for="Elev">
@@ -42,11 +39,15 @@
 <script>
 export default {
   data() {
-    return { skola: "", mail: "", lös: "" };
+    return { skola: '', mail: '', lös: '' };
   },
 };
 </script>
 <style scoped>
+:root {
+  --mörkbrun: #150b04;
+}
+
 .login-container {
   min-height: 100vh;
   display: flex;
