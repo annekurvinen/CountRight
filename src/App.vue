@@ -3,7 +3,6 @@
   <main>
     <RouterView />
   </main>
-  <h1>hej</h1>
 </template>
 
 <script>
