@@ -1,5 +1,5 @@
 <template>
-  <h1>korv</h1>
+  <h1>ladingpage STUDENT</h1>
   <main></main>
 </template>
 
