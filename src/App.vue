@@ -1,22 +1,29 @@
 <template>
   <header-logo></header-logo>
-  <LoginForm></LoginForm>
   <main>
     <RouterView />
   </main>
 </template>
 
 <script>
+<<<<<<< HEAD
 import HeaderLogo from './components/HeaderLogo.vue';
 import LoginForm from './components/LoginForm.vue';
 export default {
   components: {
     HeaderLogo,
     LoginForm,
+=======
+import HeaderLogo from "../components/HeaderLogo.vue";
+export default {
+  components: {
+    HeaderLogo,
+>>>>>>> 8064254a8c98c2ae1f9fc3686490a8d560719844
   },
 };
 </script>
 
+<<<<<<< HEAD
 <style scoped>
 .login-container {
   min-height: 100vh;
@@ -68,3 +75,6 @@ export default {
   background-color: #b38900;
 }
 </style>
+=======
+<style scoped></style>
+>>>>>>> 8064254a8c98c2ae1f9fc3686490a8d560719844
