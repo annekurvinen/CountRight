@@ -1,10 +1,10 @@
 <template>
   <nav>
     <ul>
+      <!--sätter en klass med v-bind och backgroundcolor på den länk man har tryckt på---->
       <li :class="{ backgorundColor: navBarClasses }">
         <RouterLink to="/">Klasser</RouterLink>
       </li>
-      <!--sätter en klass med v-bind och backgroundcolor på den länk man har tryckt på---->
       <li :class="{ backgorundColor: navBarTest }">
         <RouterLink to="/testT">Prov</RouterLink>
       </li>
@@ -23,7 +23,7 @@ export default {
     },
 
     navBarTest() {
-      return this.$route.path === "/test";
+      return this.$route.path === "/testT";
     },
 
     navBarSettings() {
@@ -62,13 +62,6 @@ li {
     padding: 1rem;
   }
 }
-/*style för desktop  */
-/* @media only screen and (min-width: 980px) {
-  li {
-    margin-left: 15rem;
-    padding: 1rem;
-  }
-} */
 </style>
 
 <!-- källa för conputed-egenskapen

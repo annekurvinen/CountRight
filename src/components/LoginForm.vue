@@ -31,7 +31,7 @@
           Är lärare
         </label>
       </div>
-      <RouterLink to="/landingpageStudent"
+      <RouterLink to="/landingPageStudent"
         ><input type="button" class="submit-button" value="Logga in"
       /></RouterLink>
     </div>

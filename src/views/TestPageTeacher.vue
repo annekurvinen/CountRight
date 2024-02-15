@@ -1,5 +1,4 @@
 <template>
-  <header-logo></header-logo>
   <nav-bar></nav-bar>
   <h1>inne i provsidan</h1>
   <main></main>
