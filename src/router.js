@@ -8,14 +8,15 @@ import SettingsTeacher from "./views/SettingsTeacher.vue";
 import TestpageTeacher from "./views/TestpageTeacher.vue";
 
 //för elever
-// import LandingpageStudent from "./views/LandingpageStudent.vue"
+import LoginpageStudent from "./views/LoginpageStudent.vue";
+import LandingpageStudent from "./views/LandingpageStudent.vue";
 // import TestpageStudent from "./views/TestpageStudent.vue"
 // import RestultpageStudent from "./views/RestultpageStudent.vue"
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      component: StartingPage,
+      component: LoginpageStudent,
       path: "/",
     },
     // {
@@ -35,9 +36,13 @@ export default createRouter({
     //   path: "/resultTeacher",
     // },
     // {
-    //   component: LandingpageStudent,
-    //   path: "/landingpageStudent",
+    //   component: LoginpageStudent,
+    //   path: "/loginpageStudent",
     // },
+    {
+      component: LandingpageStudent,
+      path: "/landingpageStudent",
+    },
     // {
     //   component: TestpageStudent,
     //   path: "/testStudent",
