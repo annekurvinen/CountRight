@@ -19,24 +19,23 @@ export default {
   //kollar vilken sida man är på, om den ser att man är på en path som matchar någon av de vi har i computed så lägger man till en klass på länken. på så vis kan färgen på länken ändras beroende på vart vilken path man är på
   computed: {
     navBarClasses() {
-      return this.$route.path === "/";
+      return this.$route.path === '/';
     },
 
     navBarTest() {
-      return this.$route.path === "/testT";
+      return this.$route.path === '/testT';
     },
 
     navBarSettings() {
-      return this.$route.path === "/settings";
+      return this.$route.path === '/settings';
     },
   },
 };
 </script>
 <style scoped>
+@import '../style.css';
 /* style för mobil*/
 a {
-  font-family: "Lexend", sans-serif;
-  color: black;
   text-decoration: none;
 }
 ul {
