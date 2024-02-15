@@ -1,26 +1,26 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import StartingPage from "./views/StartingPage.vue";
+// import StartingPage from "./views/StartingPage.vue";
 //för lärare
-// import LandingpageTeacher from "./views/LandingpageTeacher";
-// import ResultpageTeacher from "./views/ResultpageTeacher.vue"
+// import LandingpageTeacher from "./views/LandingPageTeacher";
+// import ResultpageTeacher from "./views/ResultPageTeacher.vue"
 import SettingsTeacher from "./views/SettingsTeacher.vue";
-import TestpageTeacher from "./views/TestpageTeacher.vue";
+import TestPageTeacher from "./views/TestpageTeacher.vue";
 
 //för elever
-import LoginpageStudent from "./views/LoginpageStudent.vue";
-import LandingpageStudent from "./views/LandingpageStudent.vue";
-// import TestpageStudent from "./views/TestpageStudent.vue"
-// import RestultpageStudent from "./views/RestultpageStudent.vue"
+import LoginPageStudent from "./views/LoginPageStudent.vue";
+import LandingPageStudent from "./views/LandingPageStudent.vue";
+// import TestPageStudent from "./views/TestPageStudent.vue"
+// import RestultPageStudent from "./views/RestultPageStudent.vue"
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      component: LoginpageStudent,
+      component: LoginPageStudent,
       path: "/",
     },
     // {
-    //   component: LandingpageTeacher,
+    //   component: LandingPageTeacher,
     //   path: "/landingpageTeacher",
     // },
     {
@@ -28,27 +28,27 @@ export default createRouter({
       path: "/settings",
     },
     {
-      component: TestpageTeacher,
+      component: TestPageTeacher,
       path: "/testT",
     },
     // {
-    //   component: ResultpageTeacher,
+    //   component: ResultPageTeacher,
     //   path: "/resultTeacher",
     // },
     // {
-    //   component: LoginpageStudent,
+    //   component: LoginPageStudent,
     //   path: "/loginpageStudent",
     // },
     {
-      component: LandingpageStudent,
+      component: LandingPageStudent,
       path: "/landingpageStudent",
     },
     // {
-    //   component: TestpageStudent,
+    //   component: TestPageStudent,
     //   path: "/testStudent",
     // },
     // {
-    //   component: RestultpageStudent,
+    //   component: RestultPageStudent,
     //   path: "/resultStudent",
     // },
   ],
