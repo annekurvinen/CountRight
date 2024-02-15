@@ -8,3 +8,16 @@
 * {
   color: var(--mörkbrun);
 }
+h1 {
+  font-family: 'Expletus Sans', sans-serif;
+}
+p {
+  font-family: 'Lexend', sans-serif;
+  color: var(--mörkbrun);
+}
+
+a {
+  font-family: 'Lexend', sans-serif;
+  color: var(--mörkbrun);
+  text-decoration: none;
+}
