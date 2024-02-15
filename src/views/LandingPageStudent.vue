@@ -2,14 +2,14 @@
   <h1 id="studentName">Hej Alice</h1>
   <main id="studentButton">
     <RouterLink to="/testStudent"
-      ><b-button variant="none" class="studentLandingButton"
+      ><b-button variant="warning" class="studentLandingButton"
         >Starta prov</b-button
       ></RouterLink
     >
-    <b-button variant="none" class="studentLandingButton"
+    <b-button variant="warning" class="studentLandingButton"
       >Se tidigare prov</b-button
     >
-    <b-button variant="none" class="studentLandingButton"
+    <b-button variant="warning" class="studentLandingButton"
       >Ändra lösenord
     </b-button>
   </main>
@@ -17,8 +17,15 @@
 
 <script></script>
 <style scoped>
+.active {
+  background: var(--orange) !important;
+}
+
 .studentLandingButton {
   margin: 4rem;
+  /* background-color: var(--orange); */
+}
+:hover .studentLandingButton {
   background-color: var(--orange);
 }
 #studentName {
