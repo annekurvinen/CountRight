@@ -1,11 +1,15 @@
 <template>
   <header-logo></header-logo>
+
   <main>
     <RouterView />
   </main>
 </template>
 
 <script>
+<<<<<<< HEAD
+import HeaderLogo from "./components/HeaderLogo.vue";
+=======
 <<<<<<< HEAD
 import HeaderLogo from './components/HeaderLogo.vue';
 import LoginForm from './components/LoginForm.vue';
@@ -15,6 +19,7 @@ export default {
     LoginForm,
 =======
 import HeaderLogo from "../components/HeaderLogo.vue";
+>>>>>>> 46b01701702b2b51393ef059c9d40715f86a405d
 export default {
   components: {
     HeaderLogo,

@@ -1,12 +1,3 @@
-<template>
-  <main></main>
-</template>
+<template></template>
 
-<script>
-import HeaderLogo from "../components/HeaderLogo.vue";
-export default {
-  components: {
-    HeaderLogo,
-  },
-};
-</script>
+<script></script>

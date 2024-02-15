@@ -6,7 +6,7 @@
       </li>
       <!--sätter en klass med v-bind och backgroundcolor på den länk man har tryckt på---->
       <li :class="{ backgorundColor: navBarTest }">
-        <RouterLink to="/test">Prov</RouterLink>
+        <RouterLink to="/testT">Prov</RouterLink>
       </li>
       <li :class="{ backgorundColor: navBarSettings }">
         <RouterLink to="/settings">Inställningar</RouterLink>
