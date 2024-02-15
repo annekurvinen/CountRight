@@ -5,7 +5,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 // import LandingpageTeacher from "./views/LandingPageTeacher";
 // import ResultpageTeacher from "./views/ResultPageTeacher.vue"
 import SettingsTeacher from "./views/SettingsTeacher.vue";
-import TestPageTeacher from "./views/TestpageTeacher.vue";
+import TestPageTeacher from "./views/TestPageTeacher.vue";
 
 //för elever
 import LoginPageStudent from "./views/LoginPageStudent.vue";
