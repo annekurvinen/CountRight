@@ -1,18 +1,13 @@
 <template>
-  <header-logo></header-logo>
   <nav-bar></nav-bar>
   <h1>inne i settings</h1>
-  <main>
-    <RouterView />
-  </main>
+  <main></main>
 </template>
 
 <script>
-import HeaderLogo from "../components/HeaderLogo.vue";
 import NavBar from "../components/NavBar.vue";
 export default {
   components: {
-    HeaderLogo,
     NavBar,
   },
 };

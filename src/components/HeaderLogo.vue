@@ -6,9 +6,7 @@
 </template>
 
 <script></script>
-<style>
-/* @import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400..700;1,400..700&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap') */
-
+<style scoped>
 * {
   margin: 0;
   padding: 0;
