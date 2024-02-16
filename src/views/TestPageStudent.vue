@@ -1,6 +1,20 @@
 <template>
-  <h1>provsidan</h1>
-  <main></main>
+  <div>
+    <h1>Välkommen till dagens prov</h1>
+    <ul>
+      <li v-for="(question, index) in combinedQuestions" :key="index">{{ question.fråga }}</li>
+    </ul>
+  </div>
 </template>
 
-<script></script>
+<script>
+import questionData from "../JSON/questions.json"
+
+export default {
+  data() {
+    return {
+      combinedQuestions: questionData.algebra
+    }
+  }
+}
+</script>
