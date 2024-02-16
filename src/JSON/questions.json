@@ -1,50 +1,62 @@
 {
   "algebra": [
     {
+      "questionNumber": 1,
       "question": "Vad är resultatet av 3x + 7 när x = 4?",
       "answer": 19
     },
     {
+      "questionNumber": 2,
       "question": "Lös ekvationen: 2y - 5 = 11",
       "answer": 8
     },
     {
+      "questionNumber": 3,
       "question": "Vilket är det korrekta värdet för a i ekvationen 2a + 6 = 18?",
       "answer": 6
     },
     {
+      "questionNumber": 4,
       "question": "Vad är kvadratroten av 81?",
       "answer": 9
     },
     {
+      "questionNumber": 5,
       "question": "Förenkla uttrycket: 4x + 2x - 5x",
       "answer": 1
     },
     {
+      "questionNumber": 6,
       "question": "Lös ekvationen: 3(x - 2) = 15",
       "answer": 7
     },
     {
+      "questionNumber": 7,
       "question": "Vad är produkten av 5 och (2 + 3)?",
       "answer": 25
     },
     {
+      "questionNumber": 8,
       "question": "Om n + 8 = 15, vad är värdet av n?",
       "answer": 7
     },
     {
+      "questionNumber": 9,
       "question": "Vilket är det korrekta värdet för b i ekvationen 2b - 3 = 13?",
       "answer": 8
     },
     {
+      "questionNumber": 10,
       "question": "Lös ekvationen: 4a + 7 = 23",
       "answer": 4
     },
     {
+      "questionNumber": 11,
       "question": "Vad är skillnaden mellan 15 och 8?",
       "answer": 7
     },
     {
+      "questionNumber": 12,
       "question": "Om 2c = 14, vad är värdet av c?",
       "answer": 7
     }
