@@ -1,0 +1,100 @@
+{
+  "algebra": [
+    {
+      "fråga": "Vad är resultatet av 3x + 7 när x = 4?",
+      "svar": 19
+    },
+    {
+      "fråga": "Lös ekvationen: 2y - 5 = 11",
+      "svar": 8
+    },
+    {
+      "fråga": "Vilket är det korrekta värdet för a i ekvationen 2a + 6 = 18?",
+      "svar": 6
+    },
+    {
+      "fråga": "Vad är kvadratroten av 81?",
+      "svar": 9
+    },
+    {
+      "fråga": "Förenkla uttrycket: 4x + 2x - 5x",
+      "svar": 1
+    },
+    {
+      "fråga": "Lös ekvationen: 3(x - 2) = 15",
+      "svar": 7
+    },
+    {
+      "fråga": "Vad är produkten av 5 och (2 + 3)?",
+      "svar": 25
+    },
+    {
+      "fråga": "Om n + 8 = 15, vad är värdet av n?",
+      "svar": 7
+    },
+    {
+      "fråga": "Vilket är det korrekta värdet för b i ekvationen 2b - 3 = 13?",
+      "svar": 8
+    },
+    {
+      "fråga": "Lös ekvationen: 4a + 7 = 23",
+      "svar": 4
+    },
+    {
+      "fråga": "Vad är skillnaden mellan 15 och 8?",
+      "svar": 7
+    },
+    {
+      "fråga": "Om 2c = 14, vad är värdet av c?",
+      "svar": 7
+    }
+  ],
+  "statistik": [
+    {
+      "fråga": "Vad är medianvärdet av följande dataset: 12, 15, 8, 20, 17?",
+      "svar": 15
+    },
+    {
+      "fråga": "Beräkna genomsnittet (medelvärdet) av dessa tal: 25, 30, 35, 40, 45",
+      "svar": 35
+    },
+    {
+      "fråga": "Vad är det lägsta värdet i datasetet: 18, 22, 15, 27, 14?",
+      "svar": 14
+    },
+
+    {
+      "fråga": "Vad är det högsta värdet i datasetet: 32, 28, 35, 40, 38?",
+      "svar": 40
+    },
+    {
+      "fråga": "Beräkna kvartilavståndet för dessa tal: 10, 15, 20, 25, 30",
+      "svar": 15
+    },
+    {
+      "fråga": "Beräkna interkvartilavståndet för dessa tal: 12, 18, 22, 26, 30",
+      "svar": 14
+    },
+
+    {
+      "fråga": "Vad är det vanligaste värdet i datasetet: 5, 8, 10, 8, 5, 12, 8?",
+      "svar": 8
+    },
+    {
+      "fråga": "Om 40 utgör 16% av ett tal, vad är detta tal?",
+      "svar": 250
+    },
+    {
+      "fråga": "En vara kostar 120 kr. Om priset ökar med 15%, vad blir det nya priset?",
+      "svar": 138
+    },
+    {
+      "fråga": "Om 80 är 25% av ett tal, vad är detta tal?",
+      "svar": 320
+    },
+    {
+      "fråga": "Vad är 20% av 150?",
+      "svar": 30
+    }
+  ]
+}
