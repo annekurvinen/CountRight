@@ -39,10 +39,6 @@
             >Elev</b-form-radio
           >
         </b-form-group>
-
-        <div class="mt-3">
-          Selected: <strong>{{ selected }}</strong>
-        </div>
       </div>
       <button class="submit-button">Logga in</button>
     </div>
