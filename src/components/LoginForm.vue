@@ -40,12 +40,16 @@
           >
         </b-form-group>
       </div>
-      <button class="submit-button">Logga in</button>
+      <RouterLink to="/landingpageStudent">
+        <button class="submit-button">Logga in</button>
+      </RouterLink>
     </div>
   </div>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
   data() {
     return {
@@ -66,6 +70,7 @@ export default {
       return this.lös.length >= 8;
     },
   },
+  components: { RouterLink },
 };
 </script>
 <style scoped>
