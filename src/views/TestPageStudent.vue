@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div id="question">
     <h1>Välkommen till dagens prov</h1>
-    <ul>
-      <li v-for="(question, index) in combinedQuestions" :key="index">{{ question.fråga }}</li>
-    </ul>
+    <div>
+      <section v-for="(question, index) in combinedQuestions" :key="index">{{ question.fråga }}</section>
+    </div>
   </div>
 </template>
 
@@ -18,3 +18,12 @@ export default {
   }
 }
 </script>
+
+<style>
+#question {
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+</style>
