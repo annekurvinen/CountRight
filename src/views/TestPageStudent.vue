@@ -7,8 +7,8 @@
         <p>{{ question.question }}</p>
         <input type="text" />
       </section>
-      <button>Nästa fråga</button>
-      <button>Lämna in</button>
+      <button @click="nextQuestion">Nästa fråga</button>
+      <button @click="submitTest">Lämna in</button>
     </div>
   </div>
 </template>
