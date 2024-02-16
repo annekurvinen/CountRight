@@ -3,7 +3,6 @@
 
 :root {
   --mörkbrun: #150b04;
-  --orange: #dca572;
 }
 
 * {
@@ -21,8 +20,4 @@ a {
   font-family: 'Lexend', sans-serif;
   color: var(--mörkbrun);
   text-decoration: none;
-}
-
-.backgroundButton {
-  background-color: var(--orange);
 }

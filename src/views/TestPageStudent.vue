@@ -1,6 +1,5 @@
-<template>
-  <h1>provsidan</h1>
+<!-- <template>
   <main></main>
 </template>
 
-<script></script>
+<script></script> -->
