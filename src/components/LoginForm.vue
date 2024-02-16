@@ -44,6 +44,10 @@ export default {
 };
 </script>
 <style scoped>
+:root {
+  --mörkbrun: #150b04;
+}
+
 .login-container {
   min-height: 100vh;
   display: flex;
