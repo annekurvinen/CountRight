@@ -6,9 +6,9 @@
         >Starta prov</b-button
       ></RouterLink
     >
-    <b-button variant="warning" class="studentLandingButton"
+    <!-- <b-button variant="warning" class="studentLandingButton"
       >Se tidigare prov</b-button
-    >
+    > -->
     <b-button variant="warning" class="studentLandingButton"
       >Ändra lösenord
     </b-button>

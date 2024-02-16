@@ -1,100 +1,112 @@
 {
   "algebra": [
     {
-      "fråga": "Vad är resultatet av 3x + 7 när x = 4?",
-      "svar": 19
+      "questionNumber": 1,
+      "question": "Vad är resultatet av 3x + 7 när x = 4?",
+      "answer": 19
     },
     {
-      "fråga": "Lös ekvationen: 2y - 5 = 11",
-      "svar": 8
+      "questionNumber": 2,
+      "question": "Lös ekvationen: 2y - 5 = 11",
+      "answer": 8
     },
     {
-      "fråga": "Vilket är det korrekta värdet för a i ekvationen 2a + 6 = 18?",
-      "svar": 6
+      "questionNumber": 3,
+      "question": "Vilket är det korrekta värdet för a i ekvationen 2a + 6 = 18?",
+      "answer": 6
     },
     {
-      "fråga": "Vad är kvadratroten av 81?",
-      "svar": 9
+      "questionNumber": 4,
+      "question": "Vad är kvadratroten av 81?",
+      "answer": 9
     },
     {
-      "fråga": "Förenkla uttrycket: 4x + 2x - 5x",
-      "svar": 1
+      "questionNumber": 5,
+      "question": "Förenkla uttrycket: 4x + 2x - 5x",
+      "answer": 1
     },
     {
-      "fråga": "Lös ekvationen: 3(x - 2) = 15",
-      "svar": 7
+      "questionNumber": 6,
+      "question": "Lös ekvationen: 3(x - 2) = 15",
+      "answer": 7
     },
     {
-      "fråga": "Vad är produkten av 5 och (2 + 3)?",
-      "svar": 25
+      "questionNumber": 7,
+      "question": "Vad är produkten av 5 och (2 + 3)?",
+      "answer": 25
     },
     {
-      "fråga": "Om n + 8 = 15, vad är värdet av n?",
-      "svar": 7
+      "questionNumber": 8,
+      "question": "Om n + 8 = 15, vad är värdet av n?",
+      "answer": 7
     },
     {
-      "fråga": "Vilket är det korrekta värdet för b i ekvationen 2b - 3 = 13?",
-      "svar": 8
+      "questionNumber": 9,
+      "question": "Vilket är det korrekta värdet för b i ekvationen 2b - 3 = 13?",
+      "answer": 8
     },
     {
-      "fråga": "Lös ekvationen: 4a + 7 = 23",
-      "svar": 4
+      "questionNumber": 10,
+      "question": "Lös ekvationen: 4a + 7 = 23",
+      "answer": 4
     },
     {
-      "fråga": "Vad är skillnaden mellan 15 och 8?",
-      "svar": 7
+      "questionNumber": 11,
+      "question": "Vad är skillnaden mellan 15 och 8?",
+      "answer": 7
     },
     {
-      "fråga": "Om 2c = 14, vad är värdet av c?",
-      "svar": 7
+      "questionNumber": 12,
+      "question": "Om 2c = 14, vad är värdet av c?",
+      "answer": 7
     }
   ],
-  "statistik": [
+  "statistic": [
     {
-      "fråga": "Vad är medianvärdet av följande dataset: 12, 15, 8, 20, 17?",
-      "svar": 15
+      "question": "Vad är medianvärdet av följande dataset: 12, 15, 8, 20, 17?",
+      "answer": 15
     },
     {
-      "fråga": "Beräkna genomsnittet (medelvärdet) av dessa tal: 25, 30, 35, 40, 45",
-      "svar": 35
+      "question": "Beräkna genomsnittet (medelvärdet) av dessa tal: 25, 30, 35, 40, 45",
+      "answer": 35
     },
     {
-      "fråga": "Vad är det lägsta värdet i datasetet: 18, 22, 15, 27, 14?",
-      "svar": 14
-    },
-
-    {
-      "fråga": "Vad är det högsta värdet i datasetet: 32, 28, 35, 40, 38?",
-      "svar": 40
-    },
-    {
-      "fråga": "Beräkna kvartilavståndet för dessa tal: 10, 15, 20, 25, 30",
-      "svar": 15
-    },
-    {
-      "fråga": "Beräkna interkvartilavståndet för dessa tal: 12, 18, 22, 26, 30",
-      "svar": 14
+      "question": "Vad är det lägsta värdet i datasetet: 18, 22, 15, 27, 14?",
+      "answer": 14
     },
 
     {
-      "fråga": "Vad är det vanligaste värdet i datasetet: 5, 8, 10, 8, 5, 12, 8?",
-      "svar": 8
+      "question": "Vad är det högsta värdet i datasetet: 32, 28, 35, 40, 38?",
+      "answer": 40
     },
     {
-      "fråga": "Om 40 utgör 16% av ett tal, vad är detta tal?",
-      "svar": 250
+      "question": "Beräkna kvartilavståndet för dessa tal: 10, 15, 20, 25, 30",
+      "answer": 15
     },
     {
-      "fråga": "En vara kostar 120 kr. Om priset ökar med 15%, vad blir det nya priset?",
-      "svar": 138
+      "question": "Beräkna interkvartilavståndet för dessa tal: 12, 18, 22, 26, 30",
+      "answer": 14
+    },
+
+    {
+      "question": "Vad är det vanligaste värdet i datasetet: 5, 8, 10, 8, 5, 12, 8?",
+      "answer": 8
     },
     {
-      "fråga": "Om 80 är 25% av ett tal, vad är detta tal?",
-      "svar": 320
+      "question": "Om 40 utgör 16% av ett tal, vad är detta tal?",
+      "answer": 250
     },
     {
-      "fråga": "Vad är 20% av 150?",
-      "svar": 30
+      "question": "En vara kostar 120 kr. Om priset ökar med 15%, vad blir det nya priset?",
+      "answer": 138
+    },
+    {
+      "question": "Om 80 är 25% av ett tal, vad är detta tal?",
+      "answer": 320
+    },
+    {
+      "question": "Vad är 20% av 150?",
+      "answer": 30
     }
   ]
 }
