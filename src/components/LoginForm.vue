@@ -22,6 +22,28 @@
         :state="Lös() ? true : false"
         placeholder="Skriv din lösnord (Minst 8 tecken)"
       />
+      <div class="teacherStudent">
+        <b-form-group label="" v-slot="{ ariaDescribedby }">
+          <b-form-radio
+            v-model="selected"
+            :aria-describedby="ariaDescribedby"
+            name="some-radios"
+            value="teacher"
+            >Lärare</b-form-radio
+          >
+          <b-form-radio
+            v-model="selected"
+            :aria-describedby="ariaDescribedby"
+            name="some-radios"
+            value="student"
+            >Elev</b-form-radio
+          >
+        </b-form-group>
+
+        <div class="mt-3">
+          Selected: <strong>{{ selected }}</strong>
+        </div>
+      </div>
       <button class="submit-button">Logga in</button>
     </div>
   </div>
@@ -30,10 +52,11 @@
 <script>
 export default {
   data() {
-    return { 
-      skola: "", 
-      mail: "", 
-      lös: ""
+    return {
+      skola: '',
+      mail: '',
+      lös: '',
+      selected: '',
     };
   },
   methods: {
@@ -45,8 +68,8 @@ export default {
     },
     Lös() {
       return this.lös.length >= 8;
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
