@@ -6,8 +6,9 @@
         <h2>Fråga nummer {{ question.questionNumber }}</h2>
         <p>{{ question.question }}</p>
         <input type="text" />
+        <button :disabled="!text">Nästa fråga</button>
       </section>
-      <button>Nästa fråga</button>
+
       <button>Lämna in</button>
     </div>
   </div>
@@ -20,6 +21,7 @@ export default {
   data() {
     return {
       algebraQuestions: questionData.algebra,
+      text: '',
     };
   },
 };
