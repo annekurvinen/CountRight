@@ -3,7 +3,7 @@
     <h1>Välkommen till dagens prov</h1>
     <div>
       <section v-for="(question, index) in combinedQuestions" :key="index">
-        {{ question.fråga }}
+        {{ question.question }}
       </section>
     </div>
   </div>
