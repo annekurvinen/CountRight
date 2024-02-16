@@ -5,10 +5,9 @@
       <section v-for="question in algebraQuestions" :key="index">
         <h2>Fråga nummer {{ question.questionNumber }}</h2>
         <p>{{ question.question }}</p>
-        <input type="text" />
-        <button :disabled="!text">Nästa fråga</button>
+        <input type="text" v-model="text" />
       </section>
-
+      <button :disabled="!text">Nästa fråga</button>
       <button>Lämna in</button>
     </div>
   </div>
@@ -23,6 +22,11 @@ export default {
       algebraQuestions: questionData.algebra,
       text: '',
     };
+  },
+  methods: {
+    isDisable() {
+      return text.lenght > 0;
+    },
   },
 };
 </script>
