@@ -1,53 +1,55 @@
 <template>
   <div class="login-container">
     <div class="form-container">
-      <input
+      <b-form-input
         type="text"
         v-model="skola"
         class="input-field"
-        placeholder="Skola" />
-      {{ skola }}
-      <input
+        :state="Skola() ? true : false"
+        placeholder="Skriv din skola (Minst tre tecken)"
+      />
+      <b-form-input
         type="text"
         v-model="mail"
         class="input-field"
-        placeholder="Email" />
-      <input
+        :state="Email() ? true : false"
+        placeholder="Skriv din email (e.g., example@example.com)"
+      />
+      <b-form-input
         type="password"
         v-model="lös"
         class="input-field"
-        placeholder="Password" />
-
-      <div class="checkbox-container">
-        <label for="Elev">
-          <input type="checkbox" name="Elev" id="elevCheckbox" />
-          Är Elev
-        </label>
-        <label for="Lärare">
-          <input type="checkbox" name="Lärare" id="larareCheckbox" />
-          Är lärare
-        </label>
-      </div>
-      <RouterLink to="/landingPageStudent"
-        ><input type="button" class="submit-button" value="Logga in"
-      /></RouterLink>
+        :state="Lös() ? true : false"
+        placeholder="Skriv din lösnord (Minst 8 tecken)"
+      />
+      <button class="submit-button">Logga in</button>
     </div>
   </div>
-  <main></main>
 </template>
 
 <script>
 export default {
   data() {
-    return { skola: '', mail: '', lös: '' };
+    return { 
+      skola: "", 
+      mail: "", 
+      lös: ""
+    };
   },
+  methods: {
+    Skola() {
+      return this.skola.length >= 3;
+    },
+    Email() {
+      return this.mail.includes('@') && this.mail.length >= 3;
+    },
+    Lös() {
+      return this.lös.length >= 8;
+    }
+  }
 };
 </script>
 <style scoped>
-:root {
-  --mörkbrun: #150b04;
-}
-
 .login-container {
   min-height: 100vh;
   display: flex;
