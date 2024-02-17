@@ -1,30 +1,41 @@
 <template>
   <div id="question">
     <h1>Välkommen till dagens prov</h1>
-    <div>
-      <!---vi använder (question, index) för att vi ska kunna ha reda på vilket index vi senare vill visa, vi använder v-show för att visa en fråga i taget basserat på indexet.--->
-      <section
-        v-for="(question, index) in algebraQuestions"
-        :key="index"
-        v-show="currentIndex === index"
-      >
-        <h2>Fråga nummer {{ question.questionNumber }}</h2>
-        <p>{{ question.question }}</p>
-        <input type="text" v-model="text" />
-        {{ this.points }}
-      </section>
+
+    <!---vi använder (question, index) för att vi ska kunna ha reda på vilket index vi senare vill visa, vi använder v-show för att visa en fråga i taget basserat på indexet.--->
+    <section
+      v-for="(question, index) in algebraQuestions"
+      :key="index"
+      v-show="currentIndex === index"
+      id="questionSection"
+    >
+      <h2>Fråga nummer {{ question.questionNumber }}</h2>
+      <p>{{ question.question }}</p>
+    </section>
+
+    <div id="inputAndBtn">
+      Svar:
+      <input type="text" v-model="text" id="answerText" />
+      <!-- {{ this.points }} -->
       <!---knappen för nästa fråga går ej att trycka på tills du fyllt i din placeholder v-show gör att knappen visas om man inte är på sista frågan.--->
-      <button
+      <b-button
+        variant="warning"
+        class="StudentTestBtn"
         :disabled="!text"
         @click="nextQuestion"
         v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
       >
         Nästa fråga
-      </button>
+      </b-button>
       <!----v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på -->
-      <button v-show="this.currentIndex === this.algebraQuestions.length - 1">
-        Lämna in
-      </button>
+      <RouterLink to="/resultStudent">
+        <b-button
+          variant="warning"
+          class="studentLandingButton"
+          v-show="this.currentIndex === this.algebraQuestions.length - 1"
+          >Lämna in
+        </b-button>
+      </RouterLink>
     </div>
   </div>
 </template>
@@ -67,10 +78,27 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+* {
+  color: #150b04;
+}
+#inputAndBtn {
+  display: flex;
+  flex-direction: column;
+}
+
+#questionSection {
+  width: 15rem;
+  height: 15rem;
+  /* font-family: 'Lexend', sans-serif; */
+}
 #question {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 3rem;
+}
+input {
+  margin-bottom: 1rem;
 }
 </style>
