@@ -11,7 +11,8 @@ import TestPageTeacher from './views/TestPageTeacher.vue';
 import LoginPageStudent from './views/LoginPageStudent.vue';
 import LandingPageStudent from './views/LandingPageStudent.vue';
 import TestPageStudent from './views/TestPageStudent.vue';
-import ResultPageStudent from './views/ResultPageStudent.vue';
+import LandingPageTeacher from './views/LandingPageTeacher.vue'
+// import RestultPageStudent from "./views/RestultPageStudent.vue"
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -19,10 +20,10 @@ export default createRouter({
       component: LoginPageStudent,
       path: '/',
     },
-    // {
-    //   component: LandingPageTeacher,
-    //   path: '/landingpageTeacher',
-    // },
+    {
+      component: LandingPageTeacher,
+      path: "/landingpageTeacher",
+    },
     {
       component: SettingsTeacher,
       path: '/settings',
