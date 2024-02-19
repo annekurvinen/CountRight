@@ -18,10 +18,10 @@
       <input type="text" v-model="text" id="answerText" />
       <!-- {{ this.points }} -->
       <!---knappen för nästa fråga går ej att trycka på tills du fyllt i din placeholder v-show gör att knappen visas om man inte är på sista frågan.--->
+      <!-- :disabled="!text" lägg tillbara under första <b-button>-->
       <b-button
-        variant="warning"
+        variant="primary"
         class="StudentTestBtn"
-        :disabled="!text"
         @click="nextQuestion"
         v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
       >
@@ -30,7 +30,7 @@
       <!----v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på -->
       <RouterLink to="/resultStudent">
         <b-button
-          variant="warning"
+          variant="primary"
           class="studentLandingButton"
           v-show="this.currentIndex === this.algebraQuestions.length - 1"
           >Lämna in
@@ -47,7 +47,6 @@ export default {
   data() {
     return {
       algebraQuestions: questionData.algebra,
-
       text: '',
       //håller reda på vilket index (vilken av frågorna) vi befinner oss på
       currentIndex: 0,
