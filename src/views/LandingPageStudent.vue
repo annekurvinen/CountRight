@@ -16,7 +16,7 @@
 </template>
 
 <script></script>
-<style>
+<style scoped>
 .studentLandingButton {
   margin: 4rem;
   font-family: 'Lexend', sans-serif;
