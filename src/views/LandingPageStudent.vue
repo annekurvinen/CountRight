@@ -9,7 +9,7 @@
     <!-- <b-button variant="warning" class="studentLandingButton"
       >Se tidigare prov</b-button
     > -->
-    <b-button variant="warning" class="studentLandingButton"
+    <b-button variant="primary" class="studentLandingButton"
       >Ändra lösenord
     </b-button>
   </main>

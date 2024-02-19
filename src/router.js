@@ -48,9 +48,9 @@ export default createRouter({
       component: TestPageStudent,
       path: '/testStudent',
     },
-    // {
-    //   component: RestultPageStudent,
-    //   path: "/resultStudent",
-    // },
+    {
+      component: ResultPageStudent,
+      path: '/resultStudent',
+    },
   ],
 });
