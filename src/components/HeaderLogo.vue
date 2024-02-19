@@ -40,6 +40,7 @@ header {
     rgba(220, 165, 114, 0) 100%
   );
   padding-top: 41px;
+  height: 250px;
 }
 
 /*style för tablett och desktop  */
