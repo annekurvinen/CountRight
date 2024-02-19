@@ -15,7 +15,8 @@
 
     <div id="inputAndBtn">
       <p>Svar:</p>
-      <input type="text" v-model="text" id="answerText" />
+      <input type="text" v-model="text" id="answerText" ref="textInput" />
+
       <!-- {{ this.points }} -->
       <!---knappen för nästa fråga går ej att trycka på tills du fyllt i din placeholder v-show gör att knappen visas om man inte är på sista frågan.--->
       <!-- :disabled="!text" lägg tillbara under första <b-button>-->
@@ -37,6 +38,8 @@
         </b-button>
       </RouterLink>
     </div>
+    <!---kollar ifall texten är nummer eller text, om det inte är ett number ses felmeddelande-->
+    <p v-if="isNaN(text)" id="error">Fel format, skriv ett nummer istället.</p>
   </div>
 </template>
 
@@ -57,9 +60,9 @@ export default {
   methods: {
     //metod för att kolla om man skrivit i placeholder eller inte
     isDisable() {
-      return this.text.length > 0;
+      return this.text.length === 0;
     },
-    //vi sätter
+    //vi sätter en funktion nextQuestion på knappen "nästa fråga", den lägger till poäng och nollställer textfält när man klickar på knappen
     nextQuestion() {
       //if-sats som kollar om texten man skrivit in matchar med svaret på den frågan man är på, denna behöver vara först innan nästa if-sats byter till nästa fråga
       if (
@@ -71,12 +74,23 @@ export default {
       if (this.currentIndex < this.algebraQuestions.length - 1) {
         this.currentIndex++;
         this.text = '';
+        //väntat på att DOM har laddat klart, $nextTick-funktionen kollat att det är färdigladdat och sedan lägger den till fokus igen på textfältet
+        this.$nextTick(() => {
+          this.$refs.textInput.focus();
+        });
       }
     },
   },
+  //lägger till fokus i textfältet när sidan laddas $refs hjälper till att referera till vår input (textInput) när sidan har laddats klart..
+  mounted() {
+    this.$refs.textInput.focus();
+  },
 };
 </script>
-
+<!-- Källa:
+https://www.w3schools.com/vue/ref_metNextTick.php
+https://vuejs.org/guide/essentials/template-refs
+ -->
 <style scoped>
 * {
   color: #150b04;
@@ -88,6 +102,13 @@ export default {
 #inputAndBtn {
   display: flex;
   flex-direction: column;
+}
+input {
+  border-color: var(--mörkbrun);
+}
+input:focus {
+  border-color: var(--orange);
+  outline-style: groove;
 }
 
 #questionSection {
@@ -103,5 +124,8 @@ export default {
 }
 input {
   margin-bottom: 1rem;
+}
+#error {
+  color: rgb(163, 4, 4);
 }
 </style>

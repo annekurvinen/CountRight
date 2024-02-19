@@ -6,7 +6,7 @@ import '../src/scss/custom.scss';
 import './style.css';
 
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
-import { createPinia } from 'pinia';
+// import { createPinia } from 'pinia';
 
 createApp(App).use(router).mount('#app');
 
