@@ -1,4 +1,5 @@
 <template>
+  <h1>Välkommen till lärare sidan</h1>
   <nav-bar></nav-bar>
 
   <main></main>

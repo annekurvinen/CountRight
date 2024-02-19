@@ -25,14 +25,14 @@
       <div class="teacherStudent">
         <b-form-group label="" v-slot="{ ariaDescribedby }">
           <b-form-radio
-            v-model="selected"
+            v-model="teacher"
             :aria-describedby="ariaDescribedby"
             name="some-radios"
             value="teacher"
             >Lärare</b-form-radio
           >
           <b-form-radio
-            v-model="selected"
+            v-model="student"
             :aria-describedby="ariaDescribedby"
             name="some-radios"
             value="student"
@@ -40,7 +40,7 @@
           >
         </b-form-group>
       </div>
-      <button class="submit-button">Logga in</button>
+      <button class="submit-button" @click="onClick" :disabled="!disable">Logga in</button>
     </div>
   </div>
 </template>
@@ -52,8 +52,18 @@ export default {
       skola: '',
       mail: '',
       lös: '',
-      selected: '',
+      teacher: '',
+      student: "",
     };
+  },
+  computed: {
+    disable() {
+      return (this.teacher === 'teacher' || this.student === 'student') && 
+             this.skola.length >= 3 && 
+             this.mail.includes('@') && 
+             this.mail.length >= 3 && 
+             this.lös.length >= 8;
+    }
   },
   methods: {
     Skola() {
@@ -65,7 +75,19 @@ export default {
     Lös() {
       return this.lös.length >= 8;
     },
+    
+    onClick() {
+      if (this.teacher === 'teacher') {
+        this.$router.push('/landingpageTeacher');
+      } else if (this.student === 'student') {
+        this.$router.push('/landingpageStudent');
+      } 
+      
+    }
+  
   },
+  
+  
 };
 </script>
 <style scoped>
