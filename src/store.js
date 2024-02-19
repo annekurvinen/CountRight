@@ -1,10 +1,10 @@
-import { defineStore } from 'pinia'
+// import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', {
-  actions: {
-    increment() {
-      this.value++
-    }
-  },
-  state: () => ({ value: 0 })
-})
+// export const useCounterStore = defineStore('counter', {
+//   actions: {
+//     increment() {
+//       this.value++
+//     }
+//   },
+//   state: () => ({ value: 0 })
+// })

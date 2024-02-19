@@ -8,4 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
 import { createPinia } from 'pinia'
 
-createApp(App).use(router).use(pinia).mount('#app');
+createApp(App).use(router).mount('#app');
+
+// app.use(pinia)
