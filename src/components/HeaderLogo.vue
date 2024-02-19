@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 52px;
+  gap: 6vw;
   margin-left: 59px;
 }
 
@@ -28,8 +28,8 @@ h1 {
 
 img {
   border-radius: 100%;
-  height: 131px;
-  width: 131px;
+  height: 7rem;
+  width: auto;
 }
 
 header {
