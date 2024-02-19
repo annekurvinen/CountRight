@@ -40,7 +40,7 @@
           >
         </b-form-group>
       </div>
-      <button class="submit-button" @click="onClick" :disabled="!disable">Logga in</button>
+      <button class="submit-button" @click="onClick" :disabled="disable">Logga in</button>
     </div>
   </div>
 </template>
