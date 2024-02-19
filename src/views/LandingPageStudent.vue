@@ -2,11 +2,11 @@
   <h1 id="studentName">Hej Alice</h1>
   <main id="studentButton">
     <RouterLink to="/testStudent"
-      ><b-button variant="warning" class="studentLandingButton"
+      ><b-button variant="primary" class="studentLandingButton"
         >Starta prov</b-button
       ></RouterLink
     >
-    <!-- <b-button variant="warning" class="studentLandingButton"
+    <!-- <b-button variant="primary" class="studentLandingButton"
       >Se tidigare prov</b-button
     > -->
     <b-button variant="primary" class="studentLandingButton"
@@ -16,17 +16,11 @@
 </template>
 
 <script></script>
-<style scoped>
-.active {
-  background: var(--orange) !important;
-}
-
+<style>
 .studentLandingButton {
   margin: 4rem;
-  /* background-color: var(--orange); */
-}
-:hover .studentLandingButton {
-  background-color: var(--orange);
+  font-family: 'Lexend', sans-serif;
+  color: var(--mörkbrun);
 }
 #studentName {
   margin-top: 5rem;

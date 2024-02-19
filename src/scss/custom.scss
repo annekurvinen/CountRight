@@ -1,3 +1,12 @@
-$btn-primary-bg: #dca572; // Ändra färgen för primära knappar
-$btn-primary-color: #150b04; // Ändra textfärgen för primära knappar
-$btn-primary-font-family: 'Lexend', sans-serif;
+$theme-colors: (
+  'primary': #dca572,
+  'secondary': #eac8a9,
+  'success': #577717,
+  'info': #3f7679,
+  'warning': #ac5b2c,
+  'danger': #88193a,
+  'light': #c8c8c8,
+  'dark': #2f2f2f,
+);
+
+@import 'bootstrap/scss/bootstrap';

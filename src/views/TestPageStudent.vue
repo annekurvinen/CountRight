@@ -14,7 +14,7 @@
     </section>
 
     <div id="inputAndBtn">
-      Svar:
+      <p>Svar:</p>
       <input type="text" v-model="text" id="answerText" />
       <!-- {{ this.points }} -->
       <!---knappen för nästa fråga går ej att trycka på tills du fyllt i din placeholder v-show gör att knappen visas om man inte är på sista frågan.--->
@@ -80,6 +80,10 @@ export default {
 <style scoped>
 * {
   color: #150b04;
+}
+.StudentTestBtn {
+  font-family: 'Lexend', sans-serif;
+  color: var(--mörkbrun);
 }
 #inputAndBtn {
   display: flex;
