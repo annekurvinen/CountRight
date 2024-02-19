@@ -1,25 +1,33 @@
 <template>
-  <nav>
-    <ul>
-      <!--sätter en klass med v-bind och backgroundcolor på den länk man har tryckt på---->
-      <li :class="{ backgorundColor: navBarClasses }">
-        <RouterLink to="/">Klasser</RouterLink>
-      </li>
-      <li :class="{ backgorundColor: navBarTest }">
-        <RouterLink to="/testT">Prov</RouterLink>
-      </li>
-      <li :class="{ backgorundColor: navBarSettings }">
-        <RouterLink to="/settings">Inställningar</RouterLink>
-      </li>
-    </ul>
-  </nav>
+  <div id="navBar">
+    <b-navbar toggleable="lg" type="dark" variant="none">
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <ul>
+          <!--sätter en klass med v-bind och backgroundcolor på den länk man har tryckt på---->
+          <li :class="{ backgorundColor: navBarClasses }">
+            <RouterLink to="/landingpageTeacher">Klasser</RouterLink>
+          </li>
+          <li :class="{ backgorundColor: navBarTest }">
+            <RouterLink to="/testT">Prov</RouterLink>
+          </li>
+          <li :class="{ backgorundColor: navBarSettings }">
+            <RouterLink to="/settings">Inställningar</RouterLink>
+          </li>
+        </ul>
+        <!-- Right aligned nav items -->
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
+
 <script>
 export default {
   //kollar vilken sida man är på, om den ser att man är på en path som matchar någon av de vi har i computed så lägger man till en klass på länken. på så vis kan färgen på länken ändras beroende på vart vilken path man är på
   computed: {
     navBarClasses() {
-      return this.$route.path === '/';
+      return this.$route.path === '/landingpageTeacher';
     },
 
     navBarTest() {
@@ -33,18 +41,18 @@ export default {
 };
 </script>
 <style scoped>
-@import '../style.css';
 /* style för mobil*/
 a {
   text-decoration: none;
 }
 ul {
   display: flex;
+  flex-direction: column;
   list-style-type: none;
 }
 li {
   background-color: #eac8a9;
-  margin: auto;
+  margin: 0.5rem;
   padding: 1rem;
   border-radius: 0.5rem;
 }
@@ -52,8 +60,9 @@ li {
   background-color: #dca572;
 }
 /* style för tablet */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 990px) {
   ul {
+    flex-direction: row;
     margin-left: 15rem;
   }
   li {
