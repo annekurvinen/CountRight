@@ -12,12 +12,12 @@ export default {
   },
 };
 </script>
-  
+
 <template>
   <div>
     <h1>Resultat</h1>
     <h2>Godkänt</h2>
     <h2>Icke godkänt</h2>
-    <p>Du fick {{ TestStore.points }} av 12 poäng</p>
+    <p>Du fick {{ points }} av 12 poäng</p>
   </div>
 </template>

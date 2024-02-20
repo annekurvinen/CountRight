@@ -20,6 +20,13 @@
       <!-- {{ this.points }} -->
       <!---knappen för nästa fråga går ej att trycka på tills du fyllt i din placeholder v-show gör att knappen visas om man inte är på sista frågan.--->
       <!-- :disabled="!text" lägg tillbara under första <b-button>-->
+      <!-- <button
+        class="StudentTestBtn"
+        @click="nextQuestion"
+        v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
+      >
+        Nästa fråga
+      </button> -->
       <b-button
         variant="primary"
         class="StudentTestBtn"
@@ -48,10 +55,13 @@
 import questionData from '../JSON/questions.json';
 import { useTestStore } from '../store';
 
-import { mapStores } from 'pinia';
+// import { mapStores } from 'pinia';
 export default {
   computed: {
-    ...mapStores(useTestStore, ['points']), // Map only the 'points' property
+    points() {
+      return useTestStore.points;
+    },
+    // ...mapStores(useTestStore, ['points']), // Map only the 'points' property
   },
 
   data() {
@@ -71,11 +81,13 @@ export default {
     },
     //vi sätter en funktion nextQuestion på knappen "nästa fråga", den lägger till poäng och nollställer textfält när man klickar på knappen
     nextQuestion() {
+      console.log('klickat på nästaknapp');
+      useTestStore.incrementPoints();
       //if-sats som kollar om texten man skrivit in matchar med svaret på den frågan man är på, denna behöver vara först innan nästa if-sats byter till nästa fråga
       if (
         parseInt(this.text) === this.algebraQuestions[this.currentIndex].answer
       ) {
-        useTestStore.incementPoints(); //öka med 1 poäng
+        useTestStore.incrementPoints(); //öka med 1 poäng
       }
       //kollar vilket index man är på och om man inte är på sista frågan så ökar den indexet (byter till nästa fråga) med +1
       if (this.currentIndex < this.algebraQuestions.length - 1) {
@@ -88,7 +100,8 @@ export default {
       }
     },
     submitTest() {
-      useTestStore.setPoints(this.points);
+      console.log('klickat på sista knappen');
+      useTestStore.setPoints(points);
       this.$router.push('/resultStudent');
     },
   },
