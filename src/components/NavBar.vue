@@ -14,11 +14,8 @@
           </li>
           <li :class="{ backgorundColor: navBarSettings }">
             <RouterLink to="/settings">Inställningar</RouterLink>
-
           </li>
-          <li>
-            <input type="button" value="Ändra Lösenord">
-          </li>
+          <li></li>
         </ul>
         <!-- Right aligned nav items -->
       </b-collapse>
@@ -27,11 +24,11 @@
 </template>
 
 <script>
-// import ChangePassword from './ChangePassword.vue';
+import ChangePassword from './ChangePassword.vue';
 export default {
-  // components: {
-  //   ChangePassword
-  // }
+  components: {
+    ChangePassword,
+  },
   //kollar vilken sida man är på, om den ser att man är på en path som matchar någon av de vi har i computed så lägger man till en klass på länken. på så vis kan färgen på länken ändras beroende på vart vilken path man är på
   computed: {
     navBarClasses() {

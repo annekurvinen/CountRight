@@ -1,44 +1,60 @@
 <template>
   <div class="login-container">
     <div class="form-container">
+      <label for="password">Password:</label>
+      <b-form-input
+        type="password"
+        v-model="currentPassword"
+        class="input-field"
+        :state="checkPassword() ? true : false"
+        placeholder="Nuvarande lösenord (Minst 8 tecken)"
+      />
 
       <label for="password">Password:</label>
-      <b-form-input type="password" v-model="currentPassword" class="input-field" :state="checkPassword() ? true : false"
-        placeholder="Nuvarande lösenord (Minst 8 tecken)" />
+      <b-form-input
+        type="password"
+        v-model="newPassword"
+        class="input-field"
+        :state="checkPassword() ? true : false"
+        placeholder="Nytt lösenord (Minst 8 tecken)"
+      />
 
       <label for="password">Password:</label>
-      <b-form-input type="password" v-model="newPassword" class="input-field" :state="checkPassword() ? true : false"
-        placeholder="Nytt lösenord (Minst 8 tecken)" />
+      <b-form-input
+        type="password"
+        v-model="confirmPassword"
+        class="input-field"
+        :state="checkPassword() ? true : false"
+        placeholder="Bekräfta nytt lösenord (Minst 8 tecken)"
+      />
 
-      <label for="password">Password:</label>
-      <b-form-input type="password" v-model="confirmPassword" class="input-field" :state="checkPassword() ? true : false"
-        placeholder="Bekräfta nytt lösenord (Minst 8 tecken)" />
-
-
-      <b-button class="submit-button" variant="primary" @click="onClick" :disabled="disable">Ändra lösenord</b-button>
+      <b-button
+        class="submit-button"
+        variant="primary"
+        @click="onClick"
+        :disabled="disable"
+        >Ändra lösenord</b-button
+      >
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: "",
+      currentPassword: '',
+      newPassword: '',
+      confirmPassword: '',
     };
   },
   methods: {
     onClick() {
-      alert('Grattis du har ändrat ditt lösenord!')
-    }
+      alert('Grattis du har ändrat ditt lösenord!');
+    },
   },
-}
+};
 </script>
-
-
 
 <!-- <template>
   <main>
@@ -58,12 +74,12 @@ export default {
           <input type="password" v-model="confirmPassword" required />
         </label>
         <!-- <button type="submit">Byt lösenord</button> -->
-        <!-- <RouterLink to="/ChangePasswordView"> -->
+<!-- <RouterLink to="/ChangePasswordView"> -->
 <!-- <b-button variant="primary" class="changePasswordButton">Ändra lösenord -->
-        <!-- </b-button> -->
-        <!-- </RouterLink> -->
-      <!-- </form> --> -->
-    <!-- </div>
+<!-- </b-button> -->
+<!-- </RouterLink> -->
+<!-- </form> -->
+<!-- </div>
   </main>
 </template>
 
