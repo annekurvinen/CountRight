@@ -8,7 +8,7 @@ export default {
   },
   methods: {},
   computed: {
-    ...mapStores(useTestStore),
+    ...mapStores(useTestStore, ['points']), // Map only the 'points' property
   },
 };
 </script>
@@ -18,6 +18,6 @@ export default {
     <h1>Resultat</h1>
     <h2>Godkänt</h2>
     <h2>Icke godkänt</h2>
-    <p>Du fick {{ testStore.points }} av 12 poäng</p>
+    <p>Du fick {{ TestStore.points }} av 12 poäng</p>
   </div>
 </template>

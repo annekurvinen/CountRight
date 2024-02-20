@@ -29,15 +29,15 @@
         Nästa fråga
       </b-button>
       <!----v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på -->
-      <RouterLink to="/resultStudent">
-        <b-button
-          variant="primary"
-          class="studentLandingButton"
-          v-show="this.currentIndex === this.algebraQuestions.length - 1"
-          @click="submitTest"
-          >Lämna in
-        </b-button>
-      </RouterLink>
+      <!-- <RouterLink to="/resultStudent"> -->
+      <b-button
+        variant="primary"
+        class="studentLandingButton"
+        v-show="this.currentIndex === this.algebraQuestions.length - 1"
+        @click="submitTest"
+        >Lämna in
+      </b-button>
+      <!-- </RouterLink> -->
     </div>
     <!---kollar ifall texten är nummer eller text, om det inte är ett number ses felmeddelande-->
     <p v-if="isNaN(text)" id="error">Fel format, skriv ett nummer istället.</p>
@@ -47,9 +47,11 @@
 <script>
 import questionData from '../JSON/questions.json';
 import { useTestStore } from '../store';
+
+import { mapStores } from 'pinia';
 export default {
   computed: {
-    ...mapStores(useTestStore),
+    ...mapStores(useTestStore, ['points']), // Map only the 'points' property
   },
 
   data() {
