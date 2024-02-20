@@ -34,6 +34,7 @@
           variant="primary"
           class="studentLandingButton"
           v-show="this.currentIndex === this.algebraQuestions.length - 1"
+          @click="submitTest"
           >Lämna in
         </b-button>
       </RouterLink>
@@ -45,8 +46,12 @@
 
 <script>
 import questionData from '../JSON/questions.json';
-
+import { useTestStore } from '../store';
 export default {
+  computed: {
+    ...mapStores(useTestStore),
+  },
+
   data() {
     return {
       algebraQuestions: questionData.algebra,
@@ -68,7 +73,7 @@ export default {
       if (
         parseInt(this.text) === this.algebraQuestions[this.currentIndex].answer
       ) {
-        this.points++;
+        useTestStore.incementPoints(); //öka med 1 poäng
       }
       //kollar vilket index man är på och om man inte är på sista frågan så ökar den indexet (byter till nästa fråga) med +1
       if (this.currentIndex < this.algebraQuestions.length - 1) {
@@ -79,6 +84,10 @@ export default {
           this.$refs.textInput.focus();
         });
       }
+    },
+    submitTest() {
+      useTestStore.setPoints(this.points);
+      this.$router.push('/resultStudent');
     },
   },
   //lägger till fokus i textfältet när sidan laddas $refs hjälper till att referera till vår input (textInput) när sidan har laddats klart..

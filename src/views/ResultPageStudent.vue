@@ -24,17 +24,6 @@ export default {
     <h1>Resultat</h1>
     <h2>Godkänt</h2>
     <h2>Icke godkänt</h2>
-    <p>Du fick {{ points }} av 12 poäng</p>
+    <p>Du fick {{ testStore.points }} av 12 poäng</p>
   </div>
-
-  <input
-    @click="
-      {
-        counterStore.increment(2);
-        counterStore.increment(1);
-      }
-    "
-    type="button"
-    :value="counterStore.number2"
-  />
 </template>

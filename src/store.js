@@ -1,5 +1,16 @@
 import { defineStore } from 'pinia';
 
+export const useTestStore = defineStore('Test', {
+  state: () => ({
+    points: 0,
+  }),
+  actions: {
+    setPoints(points) {
+      this.points += points;
+    },
+  },
+});
+
 export const useCounterStore = defineStore('counter' /*counterStore*/, {
   //actions är lite som methods-sektionen i vue-options api
   actions: {
