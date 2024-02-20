@@ -59,7 +59,7 @@ export default {
       //håller reda på vilket index (vilken av frågorna) vi befinner oss på
       currentIndex: 0,
       //räknar poängen
-      points: 0,
+      // points: 0,
     };
   },
   methods: {

@@ -5,8 +5,11 @@ export const useTestStore = defineStore('Test', {
     points: 0,
   }),
   actions: {
-    setPoints(points) {
-      this.points += points;
+    incrementPoints() {
+      this.points += 1;
+    },
+    setPoints(value) {
+      this.points = value;
     },
   },
 });

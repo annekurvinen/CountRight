@@ -1,20 +1,14 @@
 <script>
-import { useCounterStore } from '../store';
+import { useTestStore } from '../store';
 import { mapStores } from 'pinia';
 
 export default {
   data() {
-    return {
-      // value: 0
-    };
+    return {};
   },
-  methods: {
-    // increment(amount) {
-    //   this.value++
-    // }
-  },
+  methods: {},
   computed: {
-    ...mapStores(useCounterStore),
+    ...mapStores(useTestStore),
   },
 };
 </script>
