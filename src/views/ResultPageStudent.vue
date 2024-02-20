@@ -12,7 +12,7 @@ export default {
   },
 };
 </script>
-
+  
 <template>
   <div>
     <h1>Resultat</h1>
