@@ -13,30 +13,30 @@
       <p>{{ question.question }}</p>
     </section>
 
-    <div id="inputAndBtn">
-      <p>Svar:</p>
+    <form @submit.prevent="submitTest" id="inputAndBtn">
+      <label for="answerText">Svar:</label>
       <input type="text" v-model="text" id="answerText" ref="textInput" />
-
-      <!-- :disabled="!text" lägg tillbara under första <b-button>-->
 
       <b-button
         variant="primary"
         class="StudentTestBtn"
         @click="nextQuestion"
         v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
+        :disabled="!text"
       >
         Nästa fråga
       </b-button>
-      <!----v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på -->
-
+      <!----
+          v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på
+        -->
       <b-button
         variant="primary"
         class="studentLandingButton"
         v-show="this.currentIndex === this.algebraQuestions.length - 1"
-        @click="submitTest"
+        type="submit"
         >Lämna in
       </b-button>
-    </div>
+    </form>
     <!---kollar ifall texten är nummer eller text, om det inte är ett number ses felmeddelande-->
     <p v-if="isNaN(text)" id="error">Fel format, skriv ett nummer istället.</p>
   </div>
@@ -46,12 +46,6 @@
 import questionData from '../JSON/questions.json';
 import { useTestStore } from '../store';
 export default {
-  computed: {
-    points() {
-      return useTestStore.points;
-    },
-  },
-
   data() {
     return {
       algebraQuestions: questionData.algebra,
@@ -59,7 +53,7 @@ export default {
       //håller reda på vilket index (vilken av frågorna) vi befinner oss på
       currentIndex: 0,
       //räknar poängen
-      // points: 0,
+      points: 0,
     };
   },
   methods: {
@@ -69,16 +63,12 @@ export default {
     },
     //vi sätter en funktion nextQuestion på knappen "nästa fråga", den lägger till poäng och nollställer textfält när man klickar på knappen
     nextQuestion() {
-      try {
-        console.log('klickat på nästaknapp');
-      } catch (error) {
-        console.log(error);
-      }
       //if-sats som kollar om texten man skrivit in matchar med svaret på den frågan man är på, denna behöver vara först innan nästa if-sats byter till nästa fråga
       if (
         parseInt(this.text) === this.algebraQuestions[this.currentIndex].answer
       ) {
-        useTestStore().incrementPoints(); //öka med 1 poäng
+        this.points++; //ökar poängen med 1
+        console.log(this.points);
       }
       //kollar vilket index man är på och om man inte är på sista frågan så ökar den indexet (byter till nästa fråga) med +1
       if (this.currentIndex < this.algebraQuestions.length - 1) {
@@ -90,11 +80,21 @@ export default {
         });
       }
     },
+    //knapp som tar upp alla sparade poäng och lägger till store.js så att de kan användas av annan komponent
     submitTest() {
+      if (
+        parseInt(this.text) === this.algebraQuestions[this.currentIndex].answer
+      ) {
+        this.points++;
+        console.log(this.points);
+      }
       console.log('klickat på sista knappen');
-      useTestStore().setPoints(this.points);
-      console.log(useTestStore().setPoints(this.points));
-      this.$router.push('/resultStudent');
+      try {
+        useTestStore().setPoints(this.points); //sparar poöngen i setPoints i store.js
+      } catch (error) {
+        console.log(error);
+      }
+      this.$router.push('/resultStudent'); //skickar vidare till nästa sida
     },
   },
   //lägger till fokus i textfältet när sidan laddas $refs hjälper till att referera till vår input (textInput) när sidan har laddats klart..
@@ -118,6 +118,7 @@ https://vuejs.org/guide/essentials/template-refs
 #inputAndBtn {
   display: flex;
   flex-direction: column;
+  font-family: 'Lexend', sans-serif;
 }
 input {
   border-color: var(--mörkbrun);
