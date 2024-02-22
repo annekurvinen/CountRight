@@ -7,7 +7,7 @@
     },
     methods: {
       onOk() {
-        this.$router.push('/loginpageStudent')
+        this.$router.push('/')
       }
     }
   }

@@ -4,7 +4,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 //för lärare
 // import LandingpageTeacher from "./views/LandingPageTeacher";
 // import ResultpageTeacher from "./views/ResultPageTeacher.vue"
-import SettingsTeacher from './views/SettingsTeacher.vue'
+
 import TestPageTeacher from './views/TestPageTeacher.vue'
 
 //för elever
@@ -26,10 +26,7 @@ export default createRouter({
       component: LandingPageTeacher,
       path: '/landingpageTeacher'
     },
-    {
-      component: SettingsTeacher,
-      path: '/settings'
-    },
+
     {
       component: TestPageTeacher,
       path: '/testT'
