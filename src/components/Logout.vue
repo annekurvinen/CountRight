@@ -1,17 +1,16 @@
 <script>
-export default {
-  data() {
-    return {
-      showModal: false
-    }
-  },
-  methods: {
-    onOk() {
-      console.log('Ok')
+  export default {
+    data() {
+      return {
+        showModal: true
+      }
+    },
+    methods: {
+      onOk() {
+        console.log('Ok')
+      }
     }
   }
-}
-
 </script>
 
 <template>

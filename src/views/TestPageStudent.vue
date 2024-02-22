@@ -23,19 +23,22 @@
         @click="nextQuestion"
         v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
         :disabled="!text"
+        type="button"
       >
         Nästa fråga
       </b-button>
       <!----
           v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på
         -->
-      <b-button
-        variant="primary"
-        class="studentLandingButton"
-        v-show="this.currentIndex === this.algebraQuestions.length - 1"
-        type="submit"
-        >Lämna in
-      </b-button>
+      <RouterLink to="/resultStudent">
+        <b-button
+          @click="submitTest"
+          variant="primary"
+          class="studentLandingButton"
+          v-show="this.currentIndex === this.algebraQuestions.length - 1"
+          >Lämna in
+        </b-button>
+      </RouterLink>
     </form>
     <!---kollar ifall texten är nummer eller text, om det inte är ett number ses felmeddelande-->
     <p v-if="isNaN(text)" id="error">Fel format, skriv ett nummer istället.</p>
@@ -43,106 +46,107 @@
 </template>
 
 <script>
-import questionData from '../JSON/questions.json';
-import { useTestStore } from '../store';
-export default {
-  data() {
-    return {
-      algebraQuestions: questionData.algebra,
-      text: '',
-      //håller reda på vilket index (vilken av frågorna) vi befinner oss på
-      currentIndex: 0,
-      //räknar poängen
-      points: 0,
-    };
-  },
-  methods: {
-    //metod för att kolla om man skrivit i placeholder eller inte
-    isDisable() {
-      return this.text.length === 0;
-    },
-    //vi sätter en funktion nextQuestion på knappen "nästa fråga", den lägger till poäng och nollställer textfält när man klickar på knappen
-    nextQuestion() {
-      //if-sats som kollar om texten man skrivit in matchar med svaret på den frågan man är på, denna behöver vara först innan nästa if-sats byter till nästa fråga
-      if (
-        parseInt(this.text) === this.algebraQuestions[this.currentIndex].answer
-      ) {
-        this.points++; //ökar poängen med 1
-        console.log(this.points);
-      }
-      //kollar vilket index man är på och om man inte är på sista frågan så ökar den indexet (byter till nästa fråga) med +1
-      if (this.currentIndex < this.algebraQuestions.length - 1) {
-        this.currentIndex++;
-        this.text = '';
-        //väntat på att DOM har laddat klart, $nextTick-funktionen kollat att det är färdigladdat och sedan lägger den till fokus igen på textfältet
-        this.$nextTick(() => {
-          this.$refs.textInput.focus();
-        });
+  import questionData from '../JSON/questions.json'
+  import { useTestStore } from '../store'
+  export default {
+    data() {
+      return {
+        algebraQuestions: questionData.algebra,
+        text: '',
+        //håller reda på vilket index (vilken av frågorna) vi befinner oss på
+        currentIndex: 0,
+        //räknar poängen
+        points: 0
       }
     },
-    //knapp som tar upp alla sparade poäng och lägger till store.js så att de kan användas av annan komponent
-    submitTest() {
-      if (
-        parseInt(this.text) === this.algebraQuestions[this.currentIndex].answer
-      ) {
-        this.points++;
-        console.log(this.points);
+    methods: {
+      //metod för att kolla om man skrivit i placeholder eller inte
+      isDisable() {
+        return this.text.length === 0
+      },
+      //vi sätter en funktion nextQuestion på knappen "nästa fråga", den lägger till poäng och nollställer textfält när man klickar på knappen
+      nextQuestion() {
+        //if-sats som kollar om texten man skrivit in matchar med svaret på den frågan man är på, denna behöver vara först innan nästa if-sats byter till nästa fråga
+        if (
+          parseInt(this.text) ===
+          this.algebraQuestions[this.currentIndex].answer
+        ) {
+          this.points++ //ökar poängen med 1
+          console.log(this.points)
+        }
+        //kollar vilket index man är på och om man inte är på sista frågan så ökar den indexet (byter till nästa fråga) med +1
+        if (this.currentIndex < this.algebraQuestions.length - 1) {
+          this.currentIndex++
+          this.text = ''
+          //väntat på att DOM har laddat klart, $nextTick-funktionen kollat att det är färdigladdat och sedan lägger den till fokus igen på textfältet
+          this.$nextTick(() => {
+            this.$refs.textInput.focus()
+          })
+        }
+      },
+      //knapp som tar upp alla sparade poäng och lägger till store.js så att de kan användas av annan komponent
+      submitTest() {
+        if (
+          parseInt(this.text) ===
+          this.algebraQuestions[this.currentIndex].answer
+        ) {
+          this.points++
+          console.log(this.points)
+        }
+        console.log('klickat på sista knappen')
+        try {
+          useTestStore().setPoints(this.points) //sparar poöngen i setPoints i store.js
+        } catch (error) {
+          console.log(error)
+        }
       }
-      console.log('klickat på sista knappen');
-      try {
-        useTestStore().setPoints(this.points); //sparar poöngen i setPoints i store.js
-      } catch (error) {
-        console.log(error);
-      }
-      this.$router.push('/resultStudent'); //skickar vidare till nästa sida
     },
-  },
-  //lägger till fokus i textfältet när sidan laddas $refs hjälper till att referera till vår input (textInput) när sidan har laddats klart..
-  mounted() {
-    this.$refs.textInput.focus();
-  },
-};
+    //lägger till fokus i textfältet när sidan laddas $refs hjälper till att referera till vår input (textInput) när sidan har laddats klart..
+    mounted() {
+      this.$refs.textInput.focus()
+    }
+  }
 </script>
 <!-- Källa:
 https://www.w3schools.com/vue/ref_metNextTick.php
 https://vuejs.org/guide/essentials/template-refs
  -->
 <style scoped>
-* {
-  color: #150b04;
-}
-.StudentTestBtn {
-  font-family: 'Lexend', sans-serif;
-  color: var(--mörkbrun);
-}
-#inputAndBtn {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Lexend', sans-serif;
-}
-input {
-  border-color: var(--mörkbrun);
-}
-input:focus {
-  border-color: var(--orange);
-  outline-style: groove;
-}
+  * {
+    color: #150b04;
+  }
+  .StudentTestBtn {
+    font-family: 'Lexend', sans-serif;
+    color: var(--mörkbrun);
+  }
+  #inputAndBtn {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lexend', sans-serif;
+  }
+  input {
+    border-color: var(--mörkbrun);
+  }
+  input:focus {
+    border-color: var(--orange);
+    outline-style: groove;
+  }
 
-#questionSection {
-  width: 15rem;
-  height: 15rem;
-  /* font-family: 'Lexend', sans-serif; */
-}
-#question {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3rem;
-}
-input {
-  margin-bottom: 1rem;
-}
-#error {
-  color: rgb(163, 4, 4);
-}
+  #questionSection {
+    width: 15rem;
+    height: 15rem;
+    /* font-family: 'Lexend', sans-serif; */
+  }
+  #question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  input {
+    margin-bottom: 1rem;
+  }
+  #error {
+    color: rgb(163, 4, 4);
+  }
 </style>
