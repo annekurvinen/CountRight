@@ -15,8 +15,12 @@
           <li :class="{ backgorundColor: navBarSettings }">
             <RouterLink to="/settings">Inställningar</RouterLink>
           </li>
+          <RouterLink to="/changePasswordView">
+            <b-button variant="primary" class="studentLandingButton"
+              >Ändra lösenord</b-button
+            >
+          </RouterLink>
         </ul>
-        <!-- Right aligned nav items -->
       </b-collapse>
     </b-navbar>
   </div>
