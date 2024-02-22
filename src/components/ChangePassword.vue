@@ -1,43 +1,7 @@
 <template>
-  <main>
-    <div>
-      <h2>Byt lösenord</h2>
-      <form @submit.prevent="changePassword">
-        <label>
-          Nuvarande lösenord:
-          <input type="password" v-model="currentPassword" required />
-        </label>
-        <label>
-          Nytt lösenord:
-          <input type="password" v-model="newPassword" required />
-        </label>
-        <label>
-          Bekräfta nytt lösenord:
-          <input type="password" v-model="confirmPassword" required />
-        </label>
-        <button type="submit">Byt lösenord</button>
-      </form>
-    </div>
-  </main>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: "",
-    };
-  },
-};
-</script>
-
-
-<!-- <template>
   <div class="login-container">
     <div class="form-container">
-      <label for="password">Password:</label>
+      <label for="password">Nuvarande lösernord</label>
       <b-form-input
         type="password"
         v-model="currentPassword"
@@ -46,7 +10,7 @@ export default {
         placeholder="Nuvarande lösenord (Minst 8 tecken)"
       />
 
-      <label for="password">Password:</label>
+      <label for="password">Skriv din nya</label>
       <b-form-input
         type="password"
         v-model="newPassword"
@@ -55,7 +19,7 @@ export default {
         placeholder="Nytt lösenord (Minst 8 tecken)"
       />
 
-      <label for="password">Password:</label>
+      <label for="password">Skriv om nya lösernordet</label>
       <b-form-input
         type="password"
         v-model="confirmPassword"
@@ -88,68 +52,11 @@ export default {
     onClick() {
       alert('Grattis du har ändrat ditt lösenord!');
     },
+    checkPassword() {
+  return this.currentPassword.length >= 8 && 
+         this.newPassword.length >= 8 && 
+         this.confirmPassword.length >= 8;
+},
   },
 };
-</script> -->
-
-<!-- <template>
-  <main>
-    <div>
-      <h1>Ändra lösenord</h1>
-      <form @submit.prevent="changePassword">
-        <label>
-          Nuvarande lösenord:
-          <input type="password" v-model="currentPassword" required />
-        </label>
-        <label>
-          Nytt lösenord:
-          <input type="password" v-model="newPassword" required />
-        </label>
-        <label>
-          Bekräfta nytt lösenord:
-          <input type="password" v-model="confirmPassword" required />
-        </label>
-         <button type="submit">Byt lösenord</button> -->
-<!-- <RouterLink to="/ChangePasswordView"> -->
-<!-- <b-button variant="primary" class="changePasswordButton">Ändra lösenord -->
-<!-- </b-button> -->
-<!-- </RouterLink> -->
-<!-- </form> -->
-<!-- </div>
-  </main>
-</template>
-
-<script>
-import ChangePasswordView from '../views/ChangePasswordView.vue';
-
-export default {
-  data() {
-    return {
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: "",
-    };
-  },
-  components: {
-    ChangePassword
-  }
-};
-</script>
-
-<style scoped>
-.changePasswordButton {
-  margin: 4rem;
-  font-family: 'Lexend', sans-serif;
-  color: var(--mörkbrun);
-}
-
-h1,
-label {
-  font-family: 'Lexend', sans-serif;
-  color: var(--mörkbrun);
-}
-
-b-button {
-  margin: 10rem;
-}
-</style> -->
+</script> 

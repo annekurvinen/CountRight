@@ -10,15 +10,27 @@
     <!-- <b-button variant="primary" class="studentLandingButton"
       >Se tidigare prov</b-button
     > -->
-    <!-- <RouterLink to="/changePasswordView"> -->
-    <b-button variant="primary" class="studentLandingButton"
+    <RouterLink to="/changePasswordView">
+    <b-button  variant="primary" class="studentLandingButton"
       >Ändra lösenord</b-button
     >
-    <!-- </RouterLink> -->
+    </RouterLink>
   </main>
 </template>
 
-<script></script>
+<script>
+import ChangePassword from '../components/ChangePassword.vue';
+export default {
+  components: {
+    ChangePassword
+  },
+  // methods: {
+  //   onclick() {
+  //     this.$router.push('/changePasswordView')
+  //   } 
+  // }
+}
+</script>
 <style scoped>
 .studentLandingButton {
   margin: 4rem;
