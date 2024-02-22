@@ -4,10 +4,12 @@
     <p>Du fick {{ finalPoint }} av 12 poäng</p>
     <section v-show="finalPoint >= 10" class="nextActionForTestPage">
       <h2>Godkänt</h2>
-      <RouterLink to="/loginpageStudent">
-        <Logout />
-        <!-- <b-button variant="primary">Logga ut</b-button> -->
-      </RouterLink>
+      <BButton @click="showModal = !showModal" variant="primary">
+        Logga ut
+      </BButton>
+      <BModal @ok="onOk" v-model="showModal" title="Godkänna">
+        Är du säker att du vill logga ut?
+      </BModal>
     </section>
     <section v-show="finalPoint <= 9" class="nextActionForTestPage">
       <h2>Icke godkänt</h2>
@@ -22,12 +24,16 @@
 <script setup>
   import { ref, onMounted } from 'vue'
   import { useTestStore } from '../store'
-  import Logout from '../components/Logout.vue'
-
+  import { useRouter } from 'vue-router'
   //använder information från pinia
+  const showModal = ref(false)
   const store = useTestStore()
   const finalPoint = ref(0)
+  const router = useRouter()
 
+  const onOk = () => {
+    router.push('/loginpageStudent')
+  }
   //onmounted för att DOM ska hinna laddats klar innan man sätter värdet på final points som hämtas från store.js så att det görs i rätt ordning
   onMounted(() => {
     finalPoint.value = store.finalPoint

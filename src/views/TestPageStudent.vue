@@ -36,6 +36,7 @@
           variant="primary"
           class="studentLandingButton"
           v-show="this.currentIndex === this.algebraQuestions.length - 1"
+          :disabled="!text"
           >Lämna in
         </b-button>
       </RouterLink>

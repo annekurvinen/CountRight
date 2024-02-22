@@ -2,21 +2,19 @@
   export default {
     data() {
       return {
-        showModal: true
+        showModal: false
       }
     },
     methods: {
       onOk() {
-        console.log('Ok')
+        this.$router.push('/loginpageStudent')
       }
     }
   }
 </script>
 
 <template>
-  <BButton @click="showModal = !showModal" variant="primary">
-    Logga ut
-  </BButton>
+  <BButton @click="showModal = showModal" variant="primary"> Logga ut </BButton>
   <BModal @ok="onOk" v-model="showModal" title="Godkänna">
     Är du säker att du vill logga ut?
   </BModal>
