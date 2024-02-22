@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="creatNewClassContainer">
     <h1>Skapa ny klass</h1>
     <b-form>
       <b-form-group
@@ -86,4 +86,9 @@
   }
 </script>
 
-<style></style>
+<style>
+  #creatNewClassContainer {
+    margin: auto;
+    max-width: 80vw;
+  }
+</style>
