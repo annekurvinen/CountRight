@@ -14,7 +14,7 @@ import TestPageStudent from './views/TestPageStudent.vue';
 import LandingPageTeacher from './views/LandingPageTeacher.vue';
 import ResultPageStudent from './views/ResultPageStudent.vue';
 import ChangePasswordView from './views/ChangePasswordView.vue';
-import Logout from './views/LogoutView.vue'
+import Logout from './components/Logout.vue'
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
