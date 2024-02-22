@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <div class="form-container">
+    <section class="form-container">
       <label for="school">School:</label>
       <b-form-input
         type="text"
@@ -25,7 +25,7 @@
         :state="checkPassword() ? true : false"
         placeholder="Lösenord (Minst 8 tecken)"
       />
-      <div class="teacherStudent">
+      <section>
         <b-form-group label="" v-slot="{ ariaDescribedby }">
           <b-form-radio
             v-model="teacher"
@@ -42,7 +42,7 @@
             >Elev</b-form-radio
           >
         </b-form-group>
-      </div>
+      </section>
       <b-button
         class="submit-button"
         variant="primary"
@@ -50,7 +50,7 @@
         :disabled="disable"
         >Logga in</b-button
       >
-    </div>
+    </section>
   </div>
 </template>
 

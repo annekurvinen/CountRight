@@ -24,3 +24,8 @@ a {
   color: var(--mörkbrun);
   text-decoration: none;
 }
+
+.button {
+  font-family: 'Lexend', sans-serif;
+  color: var(--mörkbrun);
+}

@@ -1,9 +1,9 @@
 <template>
   <!-- <change-passwordview></change-passwordview> -->
-  <h1 id="studentName">Hej Alice</h1>
-  <main id="studentButton">
+  <h1 id="student-name">Hej Alice</h1>
+  <section id="student-button">
     <RouterLink to="/testStudent"
-      ><b-button variant="primary" class="studentLandingButton"
+      ><b-button variant="primary" class="student-landing-button"
         >Starta prov</b-button
       >
     </RouterLink>
@@ -11,22 +11,22 @@
       >Se tidigare prov</b-button
     > -->
     <RouterLink to="/changePasswordView">
-      <b-button variant="primary" class="studentLandingButton"
+      <b-button variant="primary" class="student-landing-button"
         >Ändra lösenord</b-button
       >
     </RouterLink>
-  </main>
+  </section>
 </template>
 
 <script></script>
 <style scoped>
-  .studentLandingButton {
+  .student-landing-button {
     margin: 4rem;
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
   }
 
-  #studentName {
+  #student-name {
     margin-top: 5rem;
   }
 
@@ -35,7 +35,7 @@
     justify-content: center;
   }
 
-  #studentButton {
+  #student-button {
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@
 
   /*gör mediaquery till 750 för knapparnsas skull, texten blir på två rader på skärm mindre än 750px*/
   @media only screen and (min-width: 750px) {
-    #studentButton {
+    #student-button {
       flex-direction: row;
       justify-content: center;
     }

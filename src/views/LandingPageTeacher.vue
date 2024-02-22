@@ -1,10 +1,7 @@
 <template>
   <nav-bar />
-
-  <main>
-    <h1>Välkommen till lärare sidan</h1>
-    <create-class />
-  </main>
+  <h1>Lärare</h1>
+  <create-class />
 </template>
 
 <script>
@@ -18,4 +15,9 @@
   }
 </script>
 
-<style></style>
+<style scoped>
+  h1 {
+    display: flex;
+    justify-content: center;
+  }
+</style>

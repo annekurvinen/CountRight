@@ -1,7 +1,7 @@
 <template>
-  <div class="login-container">
-    <div class="form-container">
-      <label for="password">Nuvarande lösernord</label>
+  <div class="password-container">
+    <form class="form-container">
+      <label for="currentPassword">Nuvarande lösernord</label>
       <b-form-input
         type="password"
         v-model="currentPassword"
@@ -10,7 +10,7 @@
         placeholder="Nuvarande lösenord (Minst 8 tecken)"
       />
 
-      <label for="password">Skriv din nya</label>
+      <label for="newPassword">Skriv din nya</label>
       <b-form-input
         type="password"
         v-model="newPassword"
@@ -19,7 +19,7 @@
         placeholder="Nytt lösenord (Minst 8 tecken)"
       />
 
-      <label for="password">Skriv om nya lösernordet</label>
+      <label for="newPassword">Skriv om nya lösernordet</label>
       <b-form-input
         type="password"
         v-model="confirmPassword"
@@ -35,10 +35,11 @@
         :disabled="disable"
         >Ändra lösenord</b-button
       >
-      <RouterLink to="/landingpageStudent">
-        <b-button class="submit-button" variant="primary">Tillbaka</b-button>
-      </RouterLink>
-    </div>
+
+      <b-button class="submit-button" variant="primary" @click="back"
+        >Tillbaka</b-button
+      >
+    </form>
   </div>
 </template>
 
@@ -61,13 +62,16 @@
           this.newPassword.length >= 8 &&
           this.confirmPassword.length >= 8
         )
+      },
+      back() {
+        this.$router.go(-1)
       }
     }
   }
 </script>
 
 <style scoped>
-  .login-container {
+  .password-container {
     min-height: 100vh;
     display: flex;
     justify-content: center;

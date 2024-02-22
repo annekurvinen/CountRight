@@ -7,21 +7,22 @@
       v-for="(question, index) in algebraQuestions"
       :key="index"
       v-show="currentIndex === index"
-      id="questionSection"
+      id="question-section"
     >
       <h2>Fråga nummer {{ question.questionNumber }}</h2>
       <p>{{ question.question }}</p>
     </section>
 
-    <form @submit.prevent="submitTest" id="inputAndBtn">
+    <form @submit.prevent="submitTest" id="input-and-btn">
       <label for="answerText">Svar:</label>
       <input type="text" v-model="text" id="answerText" ref="textInput" />
-      <!-- :disabled="!text" -->
+
       <b-button
         variant="primary"
-        class="StudentTestBtn"
+        class="student-testBtn"
         @click="nextQuestion"
         v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
+        :disabled="!text"
         type="button"
       >
         Nästa fråga
@@ -29,13 +30,13 @@
       <!----
           v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på
         -->
-      <!-- :disabled="!text" -->
       <RouterLink to="/resultStudent">
         <b-button
           @click="submitTest"
           variant="primary"
-          class="studentLandingButton"
+          class="student-landing-button"
           v-show="this.currentIndex === this.algebraQuestions.length - 1"
+          :disabled="!text"
           >Lämna in
         </b-button>
       </RouterLink>
@@ -115,11 +116,11 @@ https://vuejs.org/guide/essentials/template-refs
   * {
     color: #150b04;
   }
-  .StudentTestBtn {
+  .student-testBtn {
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
   }
-  #inputAndBtn {
+  #input-and-btn {
     display: flex;
     flex-direction: column;
     font-family: 'Lexend', sans-serif;
@@ -132,7 +133,7 @@ https://vuejs.org/guide/essentials/template-refs
     outline-style: groove;
   }
 
-  #questionSection {
+  #question-section {
     width: 15rem;
     height: 15rem;
     /* font-family: 'Lexend', sans-serif; */
