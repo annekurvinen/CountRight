@@ -1,4 +1,40 @@
 <template>
+  <main>
+    <div>
+      <h2>Byt lösenord</h2>
+      <form @submit.prevent="changePassword">
+        <label>
+          Nuvarande lösenord:
+          <input type="password" v-model="currentPassword" required />
+        </label>
+        <label>
+          Nytt lösenord:
+          <input type="password" v-model="newPassword" required />
+        </label>
+        <label>
+          Bekräfta nytt lösenord:
+          <input type="password" v-model="confirmPassword" required />
+        </label>
+        <button type="submit">Byt lösenord</button>
+      </form>
+    </div>
+  </main>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    };
+  },
+};
+</script>
+
+
+<!-- <template>
   <div class="login-container">
     <div class="form-container">
       <label for="password">Password:</label>
@@ -54,7 +90,7 @@ export default {
     },
   },
 };
-</script>
+</script> -->
 
 <!-- <template>
   <main>
@@ -73,7 +109,7 @@ export default {
           Bekräfta nytt lösenord:
           <input type="password" v-model="confirmPassword" required />
         </label>
-        <!-- <button type="submit">Byt lösenord</button> -->
+         <button type="submit">Byt lösenord</button> -->
 <!-- <RouterLink to="/ChangePasswordView"> -->
 <!-- <b-button variant="primary" class="changePasswordButton">Ändra lösenord -->
 <!-- </b-button> -->
