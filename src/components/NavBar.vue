@@ -1,7 +1,7 @@
 <template>
   <div id="navBar">
     <b-navbar toggleable="lg" type="dark" variant="none">
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse" />
 
       <b-collapse id="nav-collapse" is-nav>
         <ul>
@@ -15,7 +15,6 @@
           <li :class="{ backgorundColor: navBarSettings }">
             <RouterLink to="/settings">Inställningar</RouterLink>
           </li>
-          <li></li>
         </ul>
         <!-- Right aligned nav items -->
       </b-collapse>
@@ -24,62 +23,62 @@
 </template>
 
 <script>
-import ChangePassword from './ChangePassword.vue';
-export default {
-  components: {
-    ChangePassword,
-  },
-  //kollar vilken sida man är på, om den ser att man är på en path som matchar någon av de vi har i computed så lägger man till en klass på länken. på så vis kan färgen på länken ändras beroende på vart vilken path man är på
-  computed: {
-    navBarClasses() {
-      return this.$route.path === '/landingpageTeacher';
+  import ChangePassword from './ChangePassword.vue'
+  export default {
+    components: {
+      ChangePassword
     },
+    //kollar vilken sida man är på, om den ser att man är på en path som matchar någon av de vi har i computed så lägger man till en klass på länken. på så vis kan färgen på länken ändras beroende på vart vilken path man är på
+    computed: {
+      navBarClasses() {
+        return this.$route.path === '/landingpageTeacher'
+      },
 
-    navBarTest() {
-      return this.$route.path === '/testT';
-    },
+      navBarTest() {
+        return this.$route.path === '/testT'
+      },
 
-    navBarSettings() {
-      return this.$route.path === '/settings';
-    },
-  },
-};
+      navBarSettings() {
+        return this.$route.path === '/settings'
+      }
+    }
+  }
 </script>
 <style scoped>
-/* style för mobil*/
-a {
-  text-decoration: none;
-}
+  /* style för mobil*/
+  a {
+    text-decoration: none;
+  }
 
-ul {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-}
-
-li {
-  background-color: #eac8a9;
-  margin: 0.5rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
-
-.backgorundColor {
-  background-color: #dca572;
-}
-
-/* style för tablet */
-@media only screen and (min-width: 990px) {
   ul {
-    flex-direction: row;
-    margin-left: 15rem;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
   }
 
   li {
-    margin: 0rem 2rem;
+    background-color: #eac8a9;
+    margin: 0.5rem;
     padding: 1rem;
+    border-radius: 0.5rem;
   }
-}
+
+  .backgorundColor {
+    background-color: #dca572;
+  }
+
+  /* style för tablet */
+  @media only screen and (min-width: 990px) {
+    ul {
+      flex-direction: row;
+      margin-left: 15rem;
+    }
+
+    li {
+      margin: 0rem 2rem;
+      padding: 1rem;
+    }
+  }
 </style>
 
 <!-- källa för conputed-egenskapen
