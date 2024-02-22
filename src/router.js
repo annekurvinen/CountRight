@@ -14,6 +14,7 @@ import TestPageStudent from './views/TestPageStudent.vue';
 import LandingPageTeacher from './views/LandingPageTeacher.vue';
 import ResultPageStudent from './views/ResultPageStudent.vue';
 import ChangePasswordView from './views/ChangePasswordView.vue';
+import Logout from './views/LogoutView.vue'
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -40,6 +41,11 @@ export default createRouter({
     {
       component: LoginPageStudent,
       path: '/loginpageStudent',
+    },
+
+    {
+      component: Logout,
+      path: '/logout',
     },
     {
       component: LandingPageStudent,
