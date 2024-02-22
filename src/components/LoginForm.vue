@@ -2,19 +2,24 @@
   <div class="login-container">
     <div class="form-container">
       <label for="school">School:</label>
-      <b-form-input type="text" v-model="school" class="input-field" :state="checkSchool() ? true : false"
+      <b-form-input
+      type="text" v-model="school" class="input-field" :state="checkSchool() ? true : false"
         placeholder="Skola (Minst 3 tecken)" />
       <label for="email">Email:</label>
-      <b-form-input type="text" v-model="email" class="input-field" :state="checkEmail() ? true : false"
+      <b-form-input
+      type="text" v-model="email" class="input-field" :state="checkEmail() ? true : false"
         placeholder="Email (e.g., example@example.com)" />
       <label for="password">Password:</label>
-      <b-form-input type="password" v-model="password" class="input-field" :state="checkPassword() ? true : false"
+      <b-form-input
+      type="password" v-model="password" class="input-field" :state="checkPassword() ? true : false"
         placeholder="Lösnord (Minst 8 tecken)" />
       <div class="teacherStudent">
         <b-form-group label="" v-slot="{ ariaDescribedby }">
-          <b-form-radio v-model="teacher" :aria-describedby="ariaDescribedby" name="some-radios"
+          <b-form-radio
+          v-model="teacher" :aria-describedby="ariaDescribedby" name="some-radios"
             value="teacher">Lärare</b-form-radio>
-          <b-form-radio v-model="student" :aria-describedby="ariaDescribedby" name="some-radios"
+          <b-form-radio
+          v-model="student" :aria-describedby="ariaDescribedby" name="some-radios"
             value="student">Elev</b-form-radio>
         </b-form-group>
       </div>

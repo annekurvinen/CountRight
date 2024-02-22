@@ -1,6 +1,6 @@
 <template>
   <section>
-    <change-password></change-password>
+    <change-password />
   </section>
 </template>
 

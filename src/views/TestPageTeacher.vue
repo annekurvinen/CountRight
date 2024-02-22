@@ -1,7 +1,7 @@
 <template>
-  <nav-bar></nav-bar>
+  <nav-bar />
   <h1>inne i provsidan</h1>
-  <main></main>
+  <main />
 </template>
 
 <script>
