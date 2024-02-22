@@ -16,10 +16,9 @@
             <RouterLink to="/settings">Inställningar</RouterLink>
           </li>
           <RouterLink to="/changePasswordView">
-            <b-button variant="primary" class="studentLandingButton"
-              >Ändra lösenord</b-button
-            >
+            <b-button variant="primary">Ändra lösenord</b-button>
           </RouterLink>
+          <b-button variant="primary"><log-out /></b-button>
         </ul>
       </b-collapse>
     </b-navbar>
@@ -27,10 +26,10 @@
 </template>
 
 <script>
-  import ChangePassword from './ChangePassword.vue'
+  import LogOut from './LogOut.vue'
   export default {
     components: {
-      ChangePassword
+      LogOut
     },
     //kollar vilken sida man är på, om den ser att man är på en path som matchar någon av de vi har i computed så lägger man till en klass på länken. på så vis kan färgen på länken ändras beroende på vart vilken path man är på
     computed: {

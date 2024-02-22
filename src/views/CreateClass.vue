@@ -58,9 +58,9 @@
       </li>
     </ul>
 
-    <b-card class="mt-3" header="Student Data">
+    <!-- <b-card class="mt-3" header="Student Data">
       <pre class="m-0">{{ student }}</pre>
-    </b-card>
+    </b-card> -->
   </div>
 </template>
 
@@ -85,3 +85,5 @@
     }
   }
 </script>
+
+<style></style>

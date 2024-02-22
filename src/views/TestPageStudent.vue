@@ -16,13 +16,12 @@
     <form @submit.prevent="submitTest" id="inputAndBtn">
       <label for="answerText">Svar:</label>
       <input type="text" v-model="text" id="answerText" ref="textInput" />
-
+      <!-- :disabled="!text" -->
       <b-button
         variant="primary"
         class="StudentTestBtn"
         @click="nextQuestion"
         v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
-        :disabled="!text"
         type="button"
       >
         Nästa fråga
@@ -30,13 +29,13 @@
       <!----
           v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på
         -->
+      <!-- :disabled="!text" -->
       <RouterLink to="/resultStudent">
         <b-button
           @click="submitTest"
           variant="primary"
           class="studentLandingButton"
           v-show="this.currentIndex === this.algebraQuestions.length - 1"
-          :disabled="!text"
           >Lämna in
         </b-button>
       </RouterLink>

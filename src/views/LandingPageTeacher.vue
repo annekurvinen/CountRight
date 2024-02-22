@@ -2,9 +2,8 @@
   <nav-bar />
 
   <main>
-    <!-- <h1>Välkommen till lärare sidan</h1>
+    <h1>Välkommen till lärare sidan</h1>
     <create-class />
-  </main> -->
   </main>
 </template>
 
