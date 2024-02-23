@@ -47,7 +47,7 @@
         class="submit-button"
         variant="primary"
         @click="onClick"
-        :disabled="disable"
+        :disabled="!disable"
         >Logga in</b-button
       >
     </section>
