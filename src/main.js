@@ -2,9 +2,11 @@ import { createApp } from 'vue';
 
 import App from './App.vue';
 import router from './router';
-// import './custom.scss';
+import '../src/scss/custom.scss';
 import './style.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
 
-createApp(App).use(router).mount('#app');
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
+import { createPinia } from 'pinia';
+const pinia = createPinia();
+
+createApp(App).use(pinia).use(router).mount('#app');

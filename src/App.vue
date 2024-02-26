@@ -1,5 +1,5 @@
 <template>
-  <header-logo></header-logo>
+  <header-logo />
   <main>
     <RouterView />
   </main>
