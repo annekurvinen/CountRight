@@ -1,0 +1,53 @@
+{
+  "classes": [
+    {
+      "school": "Skola",
+      "className": "8B",
+      "teacherName": "Teacher",
+      "studentNames": [
+        {
+          "name": "Elsa",
+          "login": {
+            "email": "namn@skola.se",
+            "password": "lösenord"
+          },
+          "testResults": [
+            { "date": "240210", "result": 7 },
+            { "date": "240205", "result": 3 }
+          ]
+        },
+        {
+          "name": "Kalle",
+          "testResults": [
+            { "date": "240210", "result": 5 },
+            { "date": "240205", "result": 8 }
+          ]
+        }
+      ]
+    },
+    {
+      "className": "7B",
+      "studentNames": [
+        {
+          "name": "Anna",
+          "testResults": [
+            { "date": 240211, "result": 10 },
+            { "date": 240211, "result": 10 },
+            { "date": 240211, "result": 10 },
+            { "date": 240211, "result": 10 },
+            { "date": 240211, "result": 10 },
+            { "date": 240211, "result": 10 },
+            { "date": 240205, "result": 11 }
+          ]
+        },
+        {
+          "name": "Anders",
+          "testResults": [
+            { "date": 240211, "result": 12 },
+            { "date": 240205, "result": 9 }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,6 @@
 <template>
+  <nav-bar />
+
   <div id="creat-new-class-container">
     <h1>Skapa ny klass</h1>
     <b-form>
@@ -53,8 +55,8 @@
       {{
         student.nameOfClass
       }}
-      <li :key="index" v-for="(student, index) in studentList">
-        {{ student.studentName }}
+      <li :key="index" v-for="(students, index) in studentList">
+        {{ students.studentName }}
       </li>
     </ul>
 
@@ -65,7 +67,9 @@
 </template>
 
 <script>
+  import NavBar from '../components/NavBar.vue'
   export default {
+    components: { NavBar },
     data() {
       return {
         student: {
