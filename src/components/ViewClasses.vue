@@ -42,8 +42,7 @@
                 style="display: inline"
               >
                 <b>{{ student.name }}</b>
-              </p>
-              <p style="display: inline">
+
                 Genomsnitt:
                 {{ calculateAverageStudent(student.testResults) }}/12
               </p>
@@ -97,8 +96,8 @@
         let average = 0
         let length = score.length
 
-        for (let n = 0; n < length; n++) {
-          average += score[n].result
+        for (let i = 0; i < length; i++) {
+          average += score[i].result
         }
 
         if (length > 0) {
