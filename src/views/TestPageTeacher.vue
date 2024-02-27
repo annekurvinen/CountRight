@@ -1,17 +1,20 @@
 <template>
   <nav-bar />
+  <h1>Skapa prov</h1>
   <div class="exam-container">
     <div class="menu-container">
-      <div class="menu">
-        <!-- om selectedCategory är tom visas texten "Välj klass", annars visas den valda klassen i menyn. -->
-
-        <b-dropdown id="dropdown-1" text="Välj klass">
-          <!-- <b-dropdown-item @click="selectedClass = ''"
-        ></b-dropdown-item
-      > -->
-          <!-- <b-dropdown-item @click="selectedClass= ''"
-        ></b-dropdown-item
-      > -->
+       <div class="menu">
+        <!-- om selectedCategory är tom visas texten "Välj kategori", annars visas det valda värdet i menyn. -->
+        <b-dropdown
+          id="dropdown-2"
+          :text="selectedClass ? selectedClass : 'Välj klass'"
+        >
+          <b-dropdown-item @click="selectedClass = 'Algebra'"
+            >Algebra</b-dropdown-item
+          >
+          <b-dropdown-item @click="selectedClass = 'Statistik'"
+            >Statistik</b-dropdown-item
+          >
         </b-dropdown>
       </div>
 
@@ -19,7 +22,7 @@
         <!-- om selectedCategory är tom visas texten "Välj kategori", annars visas det valda värdet i menyn. -->
         <b-dropdown
           id="dropdown-2"
-          :text="selectedCategory ? selectedCategory : 'Välj Kategori'"
+          :text="selectedCategory ? selectedCategory : 'Välj kategori'"
         >
           <b-dropdown-item @click="selectedCategory = 'Algebra'"
             >Algebra</b-dropdown-item
@@ -44,8 +47,8 @@
     },
     data() {
       return {
-        selectedCategory: ''
-        // selectedClass: ''
+        selectedCategory: '',
+        selectedClass: ''
       }
     }
   }
@@ -57,11 +60,11 @@
   }
 .exam-container{
   width: 30%;
-  margin: 3rem auto 0 auto;
-  border: 1px solid #E5852D;
-  background-color: rgba(235, 195, 136, 0.23);
+  margin: 0 auto;
+  border: 1px solid #E5852D; /* ram */
+  background-color: rgba(235, 195, 136, 0.23); /* bakgrundsfärg */
   padding: 20px; /* marginaler inuti behållaren */
-  border-radius: 5px;
+  border-radius: 5px; /* rundade hörn */
 }
   .menu-container {
     display: flex;
