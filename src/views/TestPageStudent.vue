@@ -9,7 +9,7 @@
       v-show="currentIndex === index"
       id="question-section"
     >
-      <h2>Fråga nummer {{ question.questionNumber }}</h2>
+      <h2>Fråga nr. {{ question.questionNumber }} (av 12)</h2>
       <p>{{ question.question }}</p>
     </section>
 
