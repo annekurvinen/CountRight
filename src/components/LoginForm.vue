@@ -2,29 +2,44 @@
   <div class="login-container">
     <section class="form-container">
       <label for="school">School:</label>
-      <b-form-input
-        type="text"
-        v-model="school"
-        class="input-field"
-        :state="checkSchool() ? true : false"
-        placeholder="Skola (Minst 3 tecken)"
-      />
+      <div class="input-container">
+        <b-form-input
+          type="text"
+          v-model="school"
+          class="input-field"
+          :state="checkSchool() ? true : false"
+          placeholder="Skola"
+        />
+        <span v-if="school.length < 3" class="warning"
+          >Skriv minst 3 tecken</span
+        >
+      </div>
       <label for="email">Email:</label>
+      <div class="input-container">
       <b-form-input
         type="text"
         v-model="email"
         class="input-field"
         :state="checkEmail() ? true : false"
-        placeholder="Email (e.g., example@example.com)"
+        placeholder="Email"
       />
+      <span v-if="email.length < 3 || !email.includes('@')" class="warning"
+          >Ogiltig email (minst tre tecken och @ krävs)</span
+        >
+      </div>
       <label for="password">Password:</label>
+      <div class="input-container">
       <b-form-input
         type="password"
         v-model="password"
         class="input-field"
         :state="checkPassword() ? true : false"
-        placeholder="Lösenord (Minst 8 tecken)"
+        placeholder="Lösenord"
       />
+      <span v-if="password.length < 8" class="warning"
+          >Ogiltigt lösenord (minst 8 tecken krävs)</span
+        >
+      </div>
       <section>
         <b-form-group label="" v-slot="{ ariaDescribedby }">
           <b-form-radio
@@ -113,6 +128,13 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+  }
+
+  .warning {
+    color: red;
+    font-size: 12px;
+    position: relative;
+    top: -1rem;
   }
 
   .input-field {
