@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <section class="form-container">
-      <label for="school">School:</label>
+      <label for="school">Skola:</label>
       <div class="input-container">
         <b-form-input
           type="text"
@@ -27,7 +27,7 @@
           >Ogiltig email (minst tre tecken och @ krävs)</span
         >
       </div>
-      <label for="password">Password:</label>
+      <label for="password">Lösenord:</label>
       <div class="input-container">
       <b-form-input
         type="password"
