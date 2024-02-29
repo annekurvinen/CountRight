@@ -10,7 +10,7 @@
         <b-form-input
           id="name-of-class"
           placeholder="Klassens namn"
-          v-model="student.nameOfClass"
+          v-model="className"
           required
         />
       </b-form-group>
@@ -24,7 +24,7 @@
           id="year-of-class"
           placeholder=""
           type="number"
-          v-model="student.year"
+          v-model="year"
           required
         />
       </b-form-group>
@@ -36,14 +36,14 @@
       >
         <b-form-input
           id="name-of-student"
-          v-model="student.studentName"
+          v-model="studentName"
           @keyup.enter="addStudent"
         />
 
         <label for="email">Email:</label>
         <b-form-input
           type="text"
-          v-model="email"
+          v-model="eMail"
           class="input-field"
           placeholder="Email (e.g., example@example.com)"
         />
@@ -64,86 +64,45 @@
       <b-button type="reset" variant="danger">Reset</b-button> -->
     </b-form>
 
-    <ul>
-      Klass
-      <!-- {{
+    <!-- <ul>
+      Klass -->
+    <!-- {{
         // student.nameOfClass
       }} -->
-      <li :key="index" v-for="(newStudent, index) in studentList">
+    <!-- <li :key="index" v-for="(newStudent, index) in studentList">
         {{ newStudent.studentName }}
       </li>
-    </ul>
+    </ul> -->
     <p>vi har skapat ett konto{{ studentsStore.students }}</p>
 
     <!-- <b-card class="mt-3" header="Student Data">
       <pre class="m-0">{{ student }}</pre>
     </b-card> -->
+    <!-- </ul> -->
   </div>
 </template>
-
 <script setup>
-  import { useStudentsStore } from '../store'
   import { ref } from 'vue'
+
+  import { useStudentsStore } from '../store'
 
   const studentsStore = useStudentsStore()
 
-  const studentName = ref('')
-  // const nameOfClass = ref('')
-  const year = ref('')
-  const email = ref('')
-  const password = ref('')
+  const password = ref(''),
+    eMail = ref(''),
+    result = ref(0),
+    className = ref(''),
+    year = ref(''),
+    studentName = ref('')
 
   function addStudent() {
     studentsStore.createStudent({
-      password: password.value,
-      email: email.value,
-      // nameOfClass: nameOfClass.value,
+      className: className.value,
       year: year.value,
-      studentName: studentName.value
+      studentName: studentName.value,
+      eMail: eMail.value,
+      password: password.value,
+      result: result.value
     })
   }
 </script>
-
-<!-- <script>
-  import { mapStores } from 'pinia'
-  import { useStudentsStore } from '../store'
-
-  export default {
-    computed: {
-      ...mapStores(useStudentsStore)
-    },
-    data() {
-      return {
-        student: {
-          studentName: '',
-          nameOfClass: '',
-          year: '',
-          email: '',
-          password: ''
-        },
-        studentList: []
-      }
-    },
-    methods: {
-      addStudent() {
-        this.$store.useStudentsStore({
-          password: this.student.password,
-          email: this.student.email,
-          studentName: this.student.studentName,
-          nameOfClass: this.student.nameOfClass,
-          year: this.student.year
-        })
-      }
-    }
-  }
-  // const newStudent = Object.assign({}, this.student)
-  // this.studentList.push(newStudent)
-  // localStorage.setItem('studentList', JSON.stringify(this.studentList))
-</script> -->
-
-<style>
-  #creat-new-class-container {
-    margin: auto;
-    max-width: 80vw;
-  }
-</style>

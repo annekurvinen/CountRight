@@ -23,11 +23,11 @@
 <!-- bytt till composition api -->
 <script setup>
   import { ref, onMounted } from 'vue'
-  import { useTestStore } from '../store'
+  import { useStudentsStore } from '../store'
   import { useRouter } from 'vue-router'
   //använder information från pinia
   const showModal = ref(false)
-  const store = useTestStore()
+  const store = useStudentsStore()
   const finalPoint = ref(0)
   const router = useRouter()
 

@@ -12,7 +12,7 @@
       <label for="email">Email:</label>
       <b-form-input
         type="text"
-        v-model="email"
+        v-model="eMail"
         class="input-field"
         :state="checkEmail() ? true : false"
         placeholder="Email (e.g., example@example.com)"
@@ -53,45 +53,74 @@
     </section>
   </div>
 </template>
-
 <script>
+  import { mapStores } from 'pinia'
+  import { useStudentsStore } from '../store'
   export default {
-    data() {
-      return {
-        school: '',
-        email: '',
-        password: '',
-        teacher: '',
-        student: ''
-      }
-    },
     computed: {
+      ...mapStores(useStudentsStore),
       disable() {
         return (
           (this.teacher === 'teacher' || this.student === 'student') &&
           this.school.length >= 3 &&
-          this.email.includes('@') &&
-          this.email.length >= 3 &&
+          this.eMail.includes('@') &&
+          this.eMail.length >= 3 &&
           this.password.length >= 8
         )
       }
     },
+
+    data() {
+      return {
+        school: '',
+        eMail: '',
+        password: '',
+        teacher: '',
+        student: '',
+        studentFound: false,
+        studentStore: useStudentsStore(),
+        studentName: ''
+      }
+    },
+
     methods: {
       checkSchool() {
         return this.school.length >= 3
       },
       checkEmail() {
-        return this.email.includes('@') && this.email.length >= 3
+        return this.eMail.includes('@') && this.eMail.length >= 3
       },
       checkPassword() {
         return this.password.length >= 8
       },
 
       onClick() {
+        if (this.student === 'student') {
+          for (let i = 0; i < this.studentStore.students.length; i++) {
+            console.log(
+              'checking email: ',
+              this.studentStore.students[i].eMail === this.eMail
+            )
+            console.log(
+              'checking password: ',
+              this.studentStore.students[i].password === this.password
+            )
+            console.log(this.studentStore.students[i])
+            if (
+              this.studentStore.students[i].eMail === this.eMail &&
+              this.studentStore.students[i].password === this.password
+            ) {
+              this.studentFound = true
+            }
+          }
+          if (this.studentFound) {
+            this.$router.push('/landingpageStudent')
+          } else {
+            console.log('fel avändare/lösen')
+          }
+        }
         if (this.teacher === 'teacher') {
           this.$router.push('/landingpageTeacher')
-        } else if (this.student === 'student') {
-          this.$router.push('/landingpageStudent')
         }
       }
     }

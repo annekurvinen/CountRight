@@ -48,7 +48,7 @@
 
 <script>
   import questionData from '../JSON/questions.json'
-  import { useTestStore } from '../store'
+  import { useStudentsStore } from '../store'
   export default {
     data() {
       return {
@@ -96,7 +96,7 @@
         }
         console.log('klickat på sista knappen')
         try {
-          useTestStore().setPoints(this.points) //sparar poöngen i setPoints i store.js
+          useStudentsStore().setPoints(this.points) //sparar poöngen i setPoints i store.js
         } catch (error) {
           console.log(error)
         }

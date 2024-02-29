@@ -1,6 +1,6 @@
 <template>
   <!-- <change-passwordview></change-passwordview> -->
-  <h1 id="student-name">Hej Alice</h1>
+  <h1 id="student-name">Hej {{ studentStore.studentName }}</h1>
   <section id="student-button">
     <RouterLink to="/testStudent"
       ><b-button variant="primary" class="student-landing-button"
@@ -18,7 +18,32 @@
   </section>
 </template>
 
-<script></script>
+<script setup>
+  import { ref, onMounted } from 'vue'
+  import { useStudentsStore } from '../store'
+
+  //använder information från pinia
+
+  const studentStore = useStudentsStore()
+  const studentName = ref('')
+  onMounted(() => {
+    console.log(studentStore)
+    console.log(studentStore.students.studentName)
+
+    studentName.value = studentStore.students.studentName
+    return {
+      //vi retunerar den uppdaterade finalPoint som vi fått från store.js
+      studentName
+    }
+  })
+  //onmounted för att DOM ska hinna laddats klar innan man sätter värdet på final points som hämtas från store.js så att det görs i rätt ordning
+  // onMounted(() => {
+  //   return {
+  //     studentStore.studentName.valu
+  //     //vi retunerar den uppdaterade finalPoint som vi fått från store.js
+  //   }
+  // })
+</script>
 <style scoped>
   .student-landing-button {
     margin: 4rem;
