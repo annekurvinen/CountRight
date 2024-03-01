@@ -56,7 +56,6 @@
     align-items: center;
     margin-top: 3rem;
     height: 25vh;
-    border: 3px solid black;
   }
   .redo-test-btn {
     margin-top: 100%;

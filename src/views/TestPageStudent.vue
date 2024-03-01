@@ -140,7 +140,7 @@ https://vuejs.org/guide/essentials/template-refs
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid 3px black;
+
     justify-content: center;
   }
   #question {
