@@ -56,7 +56,7 @@
 <script>
   import { mapStores } from 'pinia'
   import { useStudentsStore } from '../store'
-  import { Alert } from 'bootstrap'
+  // import { Alert } from 'bootstrap'
   export default {
     computed: {
       ...mapStores(useStudentsStore),
@@ -81,7 +81,8 @@
         studentFound: false,
         studentStore: useStudentsStore(),
         studentName: '',
-        currentStudent: null
+        currentStudent: null,
+        errorMessage: 'Fel användarnamn eller lösenord, försök igen'
       }
     },
 
@@ -99,15 +100,7 @@
       onClick() {
         if (this.student === 'student') {
           for (let i = 0; i < this.studentStore.students.length; i++) {
-            console.log(
-              'checking email: ',
-              this.studentStore.students[i].eMail === this.eMail
-            )
-            console.log(
-              'checking password: ',
-              this.studentStore.students[i].password === this.password
-            )
-            // console.log(this.studentStore.students[i])
+            //kollar att studenten man loggar in med är skapad sedan tidiagre i createClass via pinia - se createClasses.
             if (
               this.studentStore.students[i].eMail === this.eMail &&
               this.studentStore.students[i].password === this.password
@@ -117,15 +110,18 @@
               this.studentFound = true
             }
           }
+          //om student är funnen så lägger vi in den i currentStudent i pinia- sedan skickas du vidare till landingpage för studenten
           if (this.studentFound) {
             this.studentStore.isInlogged(this.currentStudent)
-            console.log('sparat i pinia?') //behöver vi kolla mer på  så att detta faktiskt sparas i pinia
 
             this.$router.push('/landingpageStudent')
           } else {
-            console.log('fel avändare/lösen')
+            console.log(
+              'fel lösenord eller användarnamn-gör om till ordentligt error-message sedan.'
+            )
           }
         }
+        //skickar vidare till landingpage för lärare
         if (this.teacher === 'teacher') {
           this.$router.push('/landingpageTeacher')
         }
