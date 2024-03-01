@@ -60,8 +60,16 @@
         >
       </b-form-group>
     </b-form>
+    
+    <div v-for="(student, index) in studentsStore.students" :key="index" class="student">
+      <h3>Elev {{ index + 1 }}</h3>
+      <p><strong>Klass:</strong> {{ student.className }}</p>
+      <p><strong>Namn:</strong> {{ student.studentName }}</p>
+      <p><strong>Email:</strong> {{ student.eMail }}</p>
+      <p><strong>Lösernord:</strong> {{ student.password }}</p>
 
-    <p>vi har skapat ett konto{{ studentsStore.students }}</p>
+
+    </div>
   </div>
 </template>
 <script setup>
@@ -89,3 +97,14 @@
     })
   }
 </script>
+
+<style scoped>
+.student {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #e5852d;
+}
+
+</style>
