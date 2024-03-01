@@ -1,7 +1,9 @@
 <template>
   <header>
-    <img src="../assets/Logo.jpg" alt="logo" />
-    <h1>Räkna Lätt</h1>
+    <div id="header">
+      <img src="../assets/Logo.jpg" alt="logo" />
+      <h1>Räkna Lätt</h1>
+    </div>
   </header>
 </template>
 
@@ -10,12 +12,14 @@
   * {
     margin: 0;
     padding: 0;
+    /* border: solid black 3px; */
   }
-  header {
+  #header {
     display: flex;
   }
+
   h1 {
-    margin-top: 2rem;
+    margin: auto 0rem;
     font-family: 'Expletus Sans', sans-serif;
   }
 
@@ -39,11 +43,13 @@
     img {
       border-radius: 100%;
       height: auto;
-      width: 15rem;
+      width: 13rem;
       margin: 1rem;
+      justify-content: center;
     }
     h1 {
-      margin-top: 7rem;
+      margin: auto 0rem;
+      font-family: 'Expletus Sans', sans-serif;
       font-size: 3rem;
     }
   }
