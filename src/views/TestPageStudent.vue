@@ -116,6 +116,7 @@ https://vuejs.org/guide/essentials/template-refs
   * {
     color: #150b04;
   }
+
   .student-testBtn {
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
@@ -134,9 +135,13 @@ https://vuejs.org/guide/essentials/template-refs
   }
 
   #question-section {
-    width: 15rem;
-    height: 15rem;
-    /* font-family: 'Lexend', sans-serif; */
+    width: 100vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 3px black;
+    justify-content: center;
   }
   #question {
     display: flex;
@@ -149,5 +154,13 @@ https://vuejs.org/guide/essentials/template-refs
   }
   #error {
     color: rgb(163, 4, 4);
+  }
+  @media only screen and (min-width: 990px) {
+    h2 {
+      font-size: 1.8rem;
+    }
+    #question-section {
+      width: 90vw;
+    }
   }
 </style>

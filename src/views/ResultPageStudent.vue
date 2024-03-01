@@ -3,8 +3,12 @@
     <h1>Resultat</h1>
     <p>Du fick {{ finalPoint }} av 12 poäng</p>
     <section v-show="finalPoint >= 10" class="nextActionForTestPage">
-      <h2>Godkänt</h2>
-      <BButton @click="showModal = !showModal" variant="primary">
+      <h3>Godkänt</h3>
+      <BButton
+        @click="showModal = !showModal"
+        variant="primary"
+        class="redo-test-btn"
+      >
         Logga ut
       </BButton>
       <BModal @ok="onOk" v-model="showModal" title="Logga ut">
@@ -12,9 +16,9 @@
       </BModal>
     </section>
     <section v-show="finalPoint <= 9" class="next-action-for-testpage">
-      <h2>Icke godkänt</h2>
+      <h3>Icke godkänt</h3>
       <RouterLink to="/testStudent">
-        <b-button variant="primary">Gör om test</b-button>
+        <b-button variant="primary" class="redo-test-btn">Gör om test</b-button>
       </RouterLink>
     </section>
   </article>
@@ -50,7 +54,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10rem;
+    margin-top: 3rem;
+    height: 25vh;
+    border: 3px solid black;
+  }
+  .redo-test-btn {
+    margin-top: 100%;
   }
 
   .next-action-for-testpage {

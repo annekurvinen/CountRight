@@ -68,15 +68,17 @@
   import { ref } from 'vue'
 
   import { useStudentsStore } from '../store'
-
+  //för att använda pinia-store som heter useStudentsStore.
   const studentsStore = useStudentsStore()
 
+  //variabler för att kunna spara ner information om studenterna
   const password = ref(''),
     eMail = ref(''),
     className = ref(''),
     year = ref(''),
     studentName = ref('')
 
+  //lägger till värden som sedan sparas i pinia och sätts till localstorage som användarre för studenter
   function addStudent() {
     studentsStore.createStudent({
       className: className.value,
