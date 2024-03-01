@@ -1,5 +1,5 @@
 <template>
-  <h2> Ändra Lösenord </h2>
+  <h2>Ändra Lösenord</h2>
   <div class="password-container">
     <form class="form-container">
       <label :for="currentPassword">Current Password: </label>
@@ -26,66 +26,60 @@
         placeholder="Bekräfta nytt lösenord"
       />
 
-
       <BButton
-      @click="showModal = !showModal"
-      class="submit-button"
-      variant="primary"
-      :state="checkPassword() ? true : false"
-      >Ändra lösenord</BButton>
-
- <!--// POPUPRUTA VID BEKRÄFTELSE ATT LÖSENORDET ÄR ÄNDRAT -->
-      <BModal
-      @ok="onOk"
-      v-model="showModal"
-      title="Bekräftelseruta"
-      >Ditt lösenord har ändrats!</BModal>
-
- <!-- // ÅNGRAKNAPP - RADERAR INNEHÅLLET I ALLA FÄLTEN
-      FLYTTA KNAPPEN SÅ DEN ÄR BREDVID ÄNDRA LÖSENORDKNAPPEN???-->
-      <BButton
-      @onClick="resetPasswordFields"
-      type="reset"
-      class="submit-button"
-      variant="primary"
-      >Ångra inmatningar</BButton>
-
-
- <!-- // DEN HÄR SKALL RÄTTAS TILL FUNGERAR INTE SOM DET ÄR TÄNKT
-   GÖRAS MINDRE ? ALLA KNAPPAR PÅ SAMMA RAD???? -->
-     <RouterLink to="/LandingPageStudent.vue">
-        <BButton
-        @click="back"
+        @click="showModal = !showModal"
         class="submit-button"
         variant="primary"
-        >Tillbaka</BButton>
-      </RouterLink>
+        :state="checkPassword() ? true : false"
+        >Ändra lösenord</BButton
+      >
 
+      <!--// POPUPRUTA VID BEKRÄFTELSE ATT LÖSENORDET ÄR ÄNDRAT -->
+      <BModal @ok="onOk" v-model="showModal" title="Bekräftelseruta"
+        >Ditt lösenord har ändrats!</BModal
+      >
+
+      <!-- // ÅNGRAKNAPP - RADERAR INNEHÅLLET I ALLA FÄLTEN
+      FLYTTA KNAPPEN SÅ DEN ÄR BREDVID ÄNDRA LÖSENORDKNAPPEN???-->
+      <BButton
+        @on-click="resetPasswordFields"
+        type="reset"
+        class="submit-button"
+        variant="primary"
+        >Ångra inmatningar</BButton
+      >
+
+      <!-- // DEN HÄR SKALL RÄTTAS TILL FUNGERAR INTE SOM DET ÄR TÄNKT
+   GÖRAS MINDRE ? ALLA KNAPPAR PÅ SAMMA RAD???? -->
+
+      <BButton @click="back" class="submit-button" variant="primary"
+        >Tillbaka</BButton
+      >
     </form>
   </div>
 </template>
 
-
 <script setup>
-
   import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
 
   const showModal = ref(false),
-    currentPassword = ref (''),
-    newPassword = ref (''),
-    confirmPassword = ref ('')
+    currentPassword = ref(''),
+    newPassword = ref(''),
+    confirmPassword = ref(''),
+    router = useRouter()
 
-// ANROPA FUNKTIONEN FÖR ATT TÖMMA LÖSENORDFÄLTEN
+  // ANROPA FUNKTIONEN FÖR ATT TÖMMA LÖSENORDFÄLTEN
   function onOk() {
     console.log('Ok')
     resetPasswordFields()
   }
   function resetPasswordFields() {
-    currentPassword.value = '',
-    newPassword.value = '',
-    confirmPassword.value = ''
+    ;(currentPassword.value = ''),
+      (newPassword.value = ''),
+      (confirmPassword.value = '')
   }
- // SKALL KONTROLLERA ATT NYTT LÖSENORD x 2 ÄR LIKA
+  // SKALL KONTROLLERA ATT NYTT LÖSENORD x 2 ÄR LIKA
   function checkPassword() {
     return (
       currentPassword.value.length >= 8 &&
@@ -94,7 +88,10 @@
       newPassword.value === confirmPassword.value
     )
   }
-
+  //funktion för att gå tillbaka till föregående sida.
+  function back() {
+    router.go(-1)
+  }
 </script>
 
 <style scoped>

@@ -26,6 +26,7 @@
 
   const studentStore = useStudentsStore()
   const studentName = ref('')
+  //onmounted för att DOM ska hinna laddats klar innan man sätter värdet på final points som hämtas från store.js så att det görs i rätt ordning
   onMounted(() => {
     console.log('inloggad student', studentName.value)
     studentName.value = studentStore.lastLoggedInStudent.studentName
@@ -34,13 +35,6 @@
       studentName
     }
   })
-  //onmounted för att DOM ska hinna laddats klar innan man sätter värdet på final points som hämtas från store.js så att det görs i rätt ordning
-  // onMounted(() => {
-  //   return {
-  //     studentStore.studentName.valu
-  //     //vi retunerar den uppdaterade finalPoint som vi fått från store.js
-  //   }
-  // })
 </script>
 <style scoped>
   .student-landing-button {
