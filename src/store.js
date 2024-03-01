@@ -1,13 +1,26 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
-export const useTestStore = defineStore('Test', {
-  state: () => ({
-    finalPoint: 0,
-  }),
+export const useStudentsStore = defineStore('students', {
   actions: {
-    setPoints(value) {
-      console.log(value);
-      this.finalPoint = value;
+    createStudent(student) {
+      this.students.push(student)
     },
+
+    setPoints(value) {
+      console.log('sparat i set points', value)
+      this.lastLoggedInStudent.result = value
+      console.log('kolla värdet i pina', this.lastLoggedInStudent.result)
+    },
+
+    isInlogged(student) {
+      console.log('loggad i piniastore', student)
+      this.lastLoggedInStudent = student
+    }
   },
-});
+  persist: true,
+
+  state: () => ({
+    students: [],
+    lastLoggedInStudent: [{ result: [] }]
+  })
+})

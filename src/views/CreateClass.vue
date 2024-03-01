@@ -10,7 +10,7 @@
         <b-form-input
           id="name-of-class"
           placeholder="Klassens namn"
-          v-model="student.nameOfClass"
+          v-model="className"
           required
         />
       </b-form-group>
@@ -24,7 +24,7 @@
           id="year-of-class"
           placeholder=""
           type="number"
-          v-model="student.year"
+          v-model="year"
           required
         />
       </b-form-group>
@@ -36,59 +36,54 @@
       >
         <b-form-input
           id="name-of-student"
-          v-model="student.studentName"
+          v-model="studentName"
           @keyup.enter="addStudent"
         />
+
+        <label for="email">Email:</label>
+        <b-form-input
+          type="text"
+          v-model="eMail"
+          class="input-field"
+          placeholder="Email (e.g., example@example.com)"
+        />
+        <label for="password">Password:</label>
+        <b-form-input
+          type="password"
+          v-model="password"
+          class="input-field"
+          placeholder="Lösenord (Minst 8 tecken)"
+        />
+
         <b-button type="submit" variant="primary" @click="addStudent"
           >Lägg till elev</b-button
         >
       </b-form-group>
-
-      <!-- <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button> -->
     </b-form>
 
-    <ul>
-      Klass
-      {{
-        student.nameOfClass
-      }}
-      <li :key="index" v-for="(student, index) in studentList">
-        {{ student.studentName }}
-      </li>
-    </ul>
-
-    <!-- <b-card class="mt-3" header="Student Data">
-      <pre class="m-0">{{ student }}</pre>
-    </b-card> -->
+    <p>vi har skapat ett konto{{ studentsStore.students }}</p>
   </div>
 </template>
+<script setup>
+  import { ref } from 'vue'
 
-<script>
-  export default {
-    data() {
-      return {
-        student: {
-          studentName: '',
-          nameOfClass: '',
-          year: ''
-        },
-        studentList: []
-      }
-    },
-    methods: {
-      addStudent() {
-        const newStudent = Object.assign({}, this.student)
-        this.studentList.push(newStudent)
-        localStorage.setItem('studentList', JSON.stringify(this.studentList))
-      }
-    }
+  import { useStudentsStore } from '../store'
+
+  const studentsStore = useStudentsStore()
+
+  const password = ref(''),
+    eMail = ref(''),
+    className = ref(''),
+    year = ref(''),
+    studentName = ref('')
+
+  function addStudent() {
+    studentsStore.createStudent({
+      className: className.value,
+      year: year.value,
+      studentName: studentName.value,
+      eMail: eMail.value,
+      password: password.value
+    })
   }
 </script>
-
-<style>
-  #creat-new-class-container {
-    margin: auto;
-    max-width: 80vw;
-  }
-</style>

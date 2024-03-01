@@ -18,7 +18,7 @@
       <div class="input-container">
       <b-form-input
         type="text"
-        v-model="email"
+        v-model="eMail"
         class="input-field"
         :state="checkEmail() ? true : false"
         placeholder="Email"
@@ -68,45 +68,77 @@
     </section>
   </div>
 </template>
-
 <script>
+  import { mapStores } from 'pinia'
+  import { useStudentsStore } from '../store'
+  // import { Alert } from 'bootstrap'
   export default {
-    data() {
-      return {
-        school: '',
-        email: '',
-        password: '',
-        teacher: '',
-        student: ''
-      }
-    },
     computed: {
+      ...mapStores(useStudentsStore),
       disable() {
         return (
           (this.teacher === 'teacher' || this.student === 'student') &&
           this.school.length >= 3 &&
-          this.email.includes('@') &&
-          this.email.length >= 3 &&
+          this.eMail.includes('@') &&
+          this.eMail.length >= 3 &&
           this.password.length >= 8
         )
       }
     },
+
+    data() {
+      return {
+        school: '',
+        eMail: '',
+        password: '',
+        teacher: '',
+        student: '',
+        studentFound: false,
+        studentStore: useStudentsStore(),
+        studentName: '',
+        currentStudent: null,
+        errorMessage: 'Fel användarnamn eller lösenord, försök igen'
+      }
+    },
+
     methods: {
       checkSchool() {
         return this.school.length >= 3
       },
       checkEmail() {
-        return this.email.includes('@') && this.email.length >= 3
+        return this.eMail.includes('@') && this.eMail.length >= 3
       },
       checkPassword() {
         return this.password.length >= 8
       },
 
       onClick() {
+        if (this.student === 'student') {
+          for (let i = 0; i < this.studentStore.students.length; i++) {
+            //kollar att studenten man loggar in med är skapad sedan tidiagre i createClass via pinia - se createClasses.
+            if (
+              this.studentStore.students[i].eMail === this.eMail &&
+              this.studentStore.students[i].password === this.password
+            ) {
+              this.currentStudent = this.studentStore.students[i]
+              console.log('denna student är inloggad', this.currentStudent)
+              this.studentFound = true
+            }
+          }
+          //om student är funnen så lägger vi in den i currentStudent i pinia- sedan skickas du vidare till landingpage för studenten
+          if (this.studentFound) {
+            this.studentStore.isInlogged(this.currentStudent)
+
+            this.$router.push('/landingpageStudent')
+          } else {
+            console.log(
+              'fel lösenord eller användarnamn-gör om till ordentligt error-message sedan.'
+            )
+          }
+        }
+        //skickar vidare till landingpage för lärare
         if (this.teacher === 'teacher') {
           this.$router.push('/landingpageTeacher')
-        } else if (this.student === 'student') {
-          this.$router.push('/landingpageStudent')
         }
       }
     }
