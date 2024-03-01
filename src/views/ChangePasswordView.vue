@@ -1,73 +1,100 @@
 <template>
+  <h2> Ändra Lösenord </h2>
   <div class="password-container">
     <form class="form-container">
-      <label for="currentPassword">Nuvarande lösernord</label>
-      <b-form-input
+      <label :for="currentPassword">Current Password: </label>
+      <BFormInput
         type="password"
         v-model="currentPassword"
         class="input-field"
-        :state="checkPassword() ? true : false"
-        placeholder="Nuvarande lösenord (Minst 8 tecken)"
+        placeholder="Nuvarande lösenord"
       />
 
-      <label for="newPassword">Skriv din nya</label>
-      <b-form-input
+      <label :for="newPassword">New Password: </label>
+      <BFormInput
         type="password"
         v-model="newPassword"
         class="input-field"
-        :state="checkPassword() ? true : false"
         placeholder="Nytt lösenord (Minst 8 tecken)"
       />
 
-      <label for="newPassword">Skriv om nya lösernordet</label>
-      <b-form-input
+      <label :for="confirmPassword">Confirm Password: </label>
+      <BFormInput
         type="password"
         v-model="confirmPassword"
         class="input-field"
-        :state="checkPassword() ? true : false"
-        placeholder="Bekräfta nytt lösenord (Minst 8 tecken)"
+        placeholder="Bekräfta nytt lösenord"
       />
 
-      <b-button
+
+      <BButton
+      @click="showModal = !showModal"
+      class="submit-button"
+      variant="primary"
+      :state="checkPassword() ? true : false"
+      >Ändra lösenord</BButton>
+
+ <!--// POPUPRUTA VID BEKRÄFTELSE ATT LÖSENORDET ÄR ÄNDRAT -->
+      <BModal
+      @ok="onOk"
+      v-model="showModal"
+      title="Bekräftelseruta"
+      >Ditt lösenord har ändrats!</BModal>
+
+ <!-- // ÅNGRAKNAPP - RADERAR INNEHÅLLET I ALLA FÄLTEN
+      FLYTTA KNAPPEN SÅ DEN ÄR BREDVID ÄNDRA LÖSENORDKNAPPEN???-->
+      <BButton
+      @onClick="resetPasswordFields"
+      type="reset"
+      class="submit-button"
+      variant="primary"
+      >Ångra inmatningar</BButton>
+
+
+ <!-- // DEN HÄR SKALL RÄTTAS TILL FUNGERAR INTE SOM DET ÄR TÄNKT
+   GÖRAS MINDRE ? ALLA KNAPPAR PÅ SAMMA RAD???? -->
+     <RouterLink to="/LandingPageStudent.vue">
+        <BButton
+        @click="back"
         class="submit-button"
         variant="primary"
-        @click="onClick"
-        :disabled="disable"
-        >Ändra lösenord</b-button
-      >
+        >Tillbaka</BButton>
+      </RouterLink>
 
-      <b-button class="submit-button" variant="primary" @click="back"
-        >Tillbaka</b-button
-      >
     </form>
   </div>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        currentPassword: '',
-        newPassword: '',
-        confirmPassword: ''
-      }
-    },
-    methods: {
-      onClick() {
-        alert('Grattis du har ändrat ditt lösenord!')
-      },
-      checkPassword() {
-        return (
-          this.currentPassword.length >= 8 &&
-          this.newPassword.length >= 8 &&
-          this.confirmPassword.length >= 8
-        )
-      },
-      back() {
-        this.$router.go(-1)
-      }
-    }
+
+<script setup>
+
+  import { ref } from 'vue'
+
+  const showModal = ref(false),
+    currentPassword = ref (''),
+    newPassword = ref (''),
+    confirmPassword = ref ('')
+
+// ANROPA FUNKTIONEN FÖR ATT TÖMMA LÖSENORDFÄLTEN
+  function onOk() {
+    console.log('Ok')
+    resetPasswordFields()
   }
+  function resetPasswordFields() {
+    currentPassword.value = '',
+    newPassword.value = '',
+    confirmPassword.value = ''
+  }
+ // SKALL KONTROLLERA ATT NYTT LÖSENORD x 2 ÄR LIKA
+  function checkPassword() {
+    return (
+      currentPassword.value.length >= 8 &&
+      newPassword.value.length >= 8 &&
+      confirmPassword.value.length >= 8 &&
+      newPassword.value === confirmPassword.value
+    )
+  }
+
 </script>
 
 <style scoped>
@@ -87,7 +114,9 @@
     border-radius: 5px;
     background-color: #f9f9f9;
   }
-
+  h2 {
+    padding: 20px;
+  }
   .input-field {
     width: 100%;
     margin-bottom: 20px;
