@@ -56,6 +56,7 @@
 <script>
   import { mapStores } from 'pinia'
   import { useStudentsStore } from '../store'
+  import { Alert } from 'bootstrap'
   export default {
     computed: {
       ...mapStores(useStudentsStore),
@@ -79,7 +80,8 @@
         student: '',
         studentFound: false,
         studentStore: useStudentsStore(),
-        studentName: ''
+        studentName: '',
+        currentStudent: null
       }
     },
 
@@ -105,15 +107,20 @@
               'checking password: ',
               this.studentStore.students[i].password === this.password
             )
-            console.log(this.studentStore.students[i])
+            // console.log(this.studentStore.students[i])
             if (
               this.studentStore.students[i].eMail === this.eMail &&
               this.studentStore.students[i].password === this.password
             ) {
+              this.currentStudent = this.studentStore.students[i]
+              console.log('denna student är inloggad', this.currentStudent)
               this.studentFound = true
             }
           }
           if (this.studentFound) {
+            this.studentStore.isInlogged(this.currentStudent)
+            console.log('sparat i pinia?') //behöver vi kolla mer på  så att detta faktiskt sparas i pinia
+
             this.$router.push('/landingpageStudent')
           } else {
             console.log('fel avändare/lösen')

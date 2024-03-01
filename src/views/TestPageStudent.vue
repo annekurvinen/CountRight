@@ -22,13 +22,14 @@
         class="student-testBtn"
         @click="nextQuestion"
         v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
-        :disabled="!text"
         type="button"
       >
         Nästa fråga
       </b-button>
       <!----
+              :disabled="!text"
           v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på
+             :disabled="!text"
         -->
       <RouterLink to="/resultStudent">
         <b-button
@@ -36,7 +37,6 @@
           variant="primary"
           class="student-landing-button"
           v-show="this.currentIndex === this.algebraQuestions.length - 1"
-          :disabled="!text"
           >Lämna in
         </b-button>
       </RouterLink>

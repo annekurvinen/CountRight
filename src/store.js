@@ -7,13 +7,22 @@ export const useStudentsStore = defineStore('students', {
     },
 
     setPoints(value) {
-      console.log(value)
-      this.students.result = value
+      console.log('sparat i set points', value)
+      this.lastLoggedInStudent.result = value
+      console.log('kolla värdet i pina', this.lastLoggedInStudent.result)
+    },
+
+    isInlogged(student) {
+      console.log('loggad i piniastore', student)
+      this.lastLoggedInStudent = student
     }
   },
-  persist: true, // localStorage
+  persist: true,
 
-  state: () => ({ students: [] })
+  state: () => ({
+    students: [],
+    lastLoggedInStudent: [{ result: [] }]
+  })
 })
 
 // export const useTestStore = defineStore('Test', {

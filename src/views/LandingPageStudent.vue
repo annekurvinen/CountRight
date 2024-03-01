@@ -1,6 +1,6 @@
 <template>
   <!-- <change-passwordview></change-passwordview> -->
-  <h1 id="student-name">Hej {{ studentStore.studentName }}</h1>
+  <h1 id="student-name">Hej {{ studentName }}</h1>
   <section id="student-button">
     <RouterLink to="/testStudent"
       ><b-button variant="primary" class="student-landing-button"
@@ -27,10 +27,8 @@
   const studentStore = useStudentsStore()
   const studentName = ref('')
   onMounted(() => {
-    console.log(studentStore)
-    console.log(studentStore.students.studentName)
-
-    studentName.value = studentStore.students.studentName
+    console.log('inloggad student', studentName.value)
+    studentName.value = studentStore.lastLoggedInStudent.studentName
     return {
       //vi retunerar den uppdaterade finalPoint som vi fått från store.js
       studentName

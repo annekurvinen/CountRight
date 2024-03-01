@@ -90,7 +90,6 @@
 
   const password = ref(''),
     eMail = ref(''),
-    result = ref(0),
     className = ref(''),
     year = ref(''),
     studentName = ref('')
@@ -101,8 +100,7 @@
       year: year.value,
       studentName: studentName.value,
       eMail: eMail.value,
-      password: password.value,
-      result: result.value
+      password: password.value
     })
   }
 </script>

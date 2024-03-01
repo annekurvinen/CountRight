@@ -27,7 +27,7 @@
   import { useRouter } from 'vue-router'
   //använder information från pinia
   const showModal = ref(false)
-  const store = useStudentsStore()
+  const studentStore = useStudentsStore()
   const finalPoint = ref(0)
   const router = useRouter()
 
@@ -36,12 +36,13 @@
   }
   //onmounted för att DOM ska hinna laddats klar innan man sätter värdet på final points som hämtas från store.js så att det görs i rätt ordning
   onMounted(() => {
-    finalPoint.value = store.finalPoint
+    finalPoint.value = studentStore.lastLoggedInStudent.result
     return {
       //vi retunerar den uppdaterade finalPoint som vi fått från store.js
       finalPoint
     }
   })
+  console.log('hej', finalPoint)
 </script>
 
 <style>
