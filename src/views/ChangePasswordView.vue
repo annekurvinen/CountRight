@@ -137,7 +137,7 @@
   .submit-button {
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
-    margin: 1rem;
+    margin: 1rem auto;
     width: 100%;
     padding: 10px;
     border-radius: 3px;

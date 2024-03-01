@@ -12,7 +12,6 @@
   * {
     margin: 0;
     padding: 0;
-    /* border: solid black 3px; */
   }
   #header {
     display: flex;
