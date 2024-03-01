@@ -59,26 +59,9 @@
           >Lägg till elev</b-button
         >
       </b-form-group>
-
-      <!-- <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button> -->
     </b-form>
 
-    <!-- <ul>
-      Klass -->
-    <!-- {{
-        // student.nameOfClass
-      }} -->
-    <!-- <li :key="index" v-for="(newStudent, index) in studentList">
-        {{ newStudent.studentName }}
-      </li>
-    </ul> -->
     <p>vi har skapat ett konto{{ studentsStore.students }}</p>
-
-    <!-- <b-card class="mt-3" header="Student Data">
-      <pre class="m-0">{{ student }}</pre>
-    </b-card> -->
-    <!-- </ul> -->
   </div>
 </template>
 <script setup>

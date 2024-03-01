@@ -24,11 +24,3 @@ export const useStudentsStore = defineStore('students', {
     lastLoggedInStudent: [{ result: [] }]
   })
 })
-
-// export const useTestStore = defineStore('Test', {
-//   state: () => ({
-//     finalPoint: 0
-//   }),
-//   actions: {
-//   }
-// })
