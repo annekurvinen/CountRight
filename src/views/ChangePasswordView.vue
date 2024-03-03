@@ -34,11 +34,12 @@
         >Ändra lösenord</BButton
       >
 
+
        <!--// BEKRÄFTELSE PÅ ATT LÖSENORDET ÄR ÄNDRAT -->
       <BModal
         @ok="onOk"
         v-model="showModal"
-        title="Ändring genomförd"
+        title="Meddelanderuta"
         >Ditt lösenord har ändrats!</BModal
       >
 
@@ -82,7 +83,8 @@
     newPassword.value = '',
     confirmPassword.value = ''
   }
-  // SKALL KONTROLLERA ATT NYTT LÖSENORD x 2 ÄR LIKA
+
+//  KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
   function checkPassword() {
     return (
       currentPassword.value.length >= 8 &&
