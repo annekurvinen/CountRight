@@ -12,22 +12,10 @@
           <li :class="{ backgroundColor: navBarTest }">
             <RouterLink to="/testT">Prov</RouterLink>
           </li>
-
-          <div id="logout-change-password">
-            <RouterLink to="/changePasswordView">
-              <b-button
-                size="sm"
-                class="my-2 my-sm-0"
-                type="primary"
-                id="logout-button-teacher"
-                >Ändra lösenord</b-button
-              >
-            </RouterLink>
-
-            <b-button size="sm" class="my-2 my-sm-0" type="primary"
-              ><log-out
-            /></b-button>
-          </div>
+          <RouterLink to="/changePasswordView">
+            <li>Ändra lösenord</li>
+          </RouterLink>
+          <li id="logout-button"><log-out /></li>
         </ul>
       </b-collapse>
     </b-navbar>
@@ -54,23 +42,13 @@
 </script>
 <style scoped>
   /* style för mobil*/
-
-  #logout-button-teacher {
+  #logout-button {
     padding: 0.5rem;
-    margin-right: 0.5rem;
-    margin-top: 2rem;
-  }
-  #logout-change-password {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1rem;
   }
   a {
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   ul {
@@ -79,6 +57,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    max-width: fit-content;
   }
 
   li {
@@ -91,35 +70,19 @@
   .backgroundColor {
     background-color: #dca572;
   }
-  @media only screen and (min-width: 569px) {
-    .my-2 {
-      margin-top: 0.5rem !important;
-      margin-bottom: 0.5rem !important;
-    }
-  }
-  /* style för tablet */
-  @media only screen and (min-width: 990px) {
-    #logout-change-password {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      margin: 0;
-    }
-    #logout-button-teacher {
-      margin-left: 0.5rem;
-    }
 
+  /* style för tablet/desktop*/
+  @media only screen and (min-width: 990px) {
     ul {
       flex-direction: row;
-      margin-left: 15rem;
+      margin-left: 10rem;
     }
 
     li {
       margin: 0rem 2rem;
-      padding: 1rem;
     }
   }
 </style>
 
-<!-- källa för conputed-egenskapen
+<!-- källa för computed-egenskapen
   https://stackoverflow.com/questions/71800155vue-3-how-to-change-body-background-color-only-in-specific-page -->

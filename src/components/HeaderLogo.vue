@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="logo">
+    <div id="header">
       <img src="../assets/Logo.jpg" alt="logo" />
       <h1>Räkna Lätt</h1>
     </div>
@@ -9,107 +9,47 @@
 
 <script></script>
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 6vw;
-  margin-left: 4rem;
-}
-
-h1 {
-  font-family: 'Expletus Sans', sans-serif;
-}
-
-img {
-  border-radius: 100%;
-  height: 14rem;
-  width: auto;
-}
-
-header {
-  background: linear-gradient(
-    180deg,
-    rgba(220, 165, 114, 1) 0%,
-    rgba(220, 165, 114, 0.41) 72%,
-    rgba(220, 165, 114, 0) 100%
-  );
-  padding-top: 41px;
-  height: 250px;
-}
-
-/*style för tablett och desktop  */
-@media only screen and (min-width: 600px) {
-  h1 {
-    margin-top: 7rem;
-    font-size: 3rem;
+  * {
+    margin: 0;
+    padding: 0;
   }
-}
-/* @media only screen and (min-width: 600px) {
-  h1 {
-    margin-top: 2rem;
+  #header {
+    display: flex;
   }
-} Nödvändigt attt ha detta? */
-</style>
 
-<!--
-<template>
-  <header>
-    <img src="../assets/Logo.jpg" alt="logo" />
-    <h1>Räkna Lätt</h1>
-  </header>
-</template>
+  h1 {
+    margin: auto 0rem;
+    font-family: 'Expletus Sans', sans-serif;
+  }
 
-<script></script>
-<style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
-header {
-  display: flex;
-}
-h1 {
-  margin-top: 2rem;
-  font-family: "Expletus Sans", sans-serif;
-}
-
-img {
-  border-radius: 100%;
-  height: auto;
-  width: 7rem;
-  margin: 0.2rem;
-}
-header {
-  background: linear-gradient(
-    180deg,
-    rgba(220, 165, 114, 1) 0%,
-    rgba(220, 165, 114, 0.41) 72%,
-    rgba(220, 165, 114, 0) 100%
-  );
-}
-
-/*style för tablett och desktop  */
-@media only screen and (min-width: 600px) {
   img {
     border-radius: 100%;
     height: auto;
-    width: 15rem;
-    margin: 1rem;
+    width: 7rem;
+    margin: 0.2rem;
   }
-  h1 {
-    margin-top: 7rem;
-    font-size: 3rem;
+  header {
+    background: linear-gradient(
+      180deg,
+      rgba(220, 165, 114, 1) 0%,
+      rgba(220, 165, 114, 0.41) 72%,
+      rgba(220, 165, 114, 0) 100%
+    );
   }
-}
-/* @media only screen and (min-width: 600px) {
-  h1 {
-    margin-top: 2rem;
+
+  /*style för tablett och desktop  */
+  @media only screen and (min-width: 600px) {
+    img {
+      border-radius: 100%;
+      height: auto;
+      width: 13rem;
+      margin: 1rem;
+      justify-content: center;
+    }
+    h1 {
+      margin: auto 0rem;
+      font-family: 'Expletus Sans', sans-serif;
+      font-size: 3rem;
+    }
   }
-} Nödvändigt attt ha detta? */
-</style> -->
+</style>

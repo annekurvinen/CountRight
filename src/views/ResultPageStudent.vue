@@ -3,8 +3,12 @@
     <h1>Resultat</h1>
     <p>Du fick {{ finalPoint }} av 12 poäng</p>
     <section v-show="finalPoint >= 10" class="nextActionForTestPage">
-      <h2>Godkänt</h2>
-      <BButton @click="showModal = !showModal" variant="primary">
+      <h3>Godkänt</h3>
+      <BButton
+        @click="showModal = !showModal"
+        variant="primary"
+        class="redo-test-btn"
+      >
         Logga ut
       </BButton>
       <BModal @ok="onOk" v-model="showModal" title="Logga ut">
@@ -12,9 +16,9 @@
       </BModal>
     </section>
     <section v-show="finalPoint <= 9" class="next-action-for-testpage">
-      <h2>Icke godkänt</h2>
+      <h3>Icke godkänt</h3>
       <RouterLink to="/testStudent">
-        <b-button variant="primary">Gör om test</b-button>
+        <b-button variant="primary" class="redo-test-btn">Gör om test</b-button>
       </RouterLink>
     </section>
   </article>
@@ -23,11 +27,11 @@
 <!-- bytt till composition api -->
 <script setup>
   import { ref, onMounted } from 'vue'
-  import { useTestStore } from '../store'
+  import { useStudentsStore } from '../store'
   import { useRouter } from 'vue-router'
   //använder information från pinia
   const showModal = ref(false)
-  const store = useTestStore()
+  const studentStore = useStudentsStore()
   const finalPoint = ref(0)
   const router = useRouter()
 
@@ -36,12 +40,13 @@
   }
   //onmounted för att DOM ska hinna laddats klar innan man sätter värdet på final points som hämtas från store.js så att det görs i rätt ordning
   onMounted(() => {
-    finalPoint.value = store.finalPoint
+    finalPoint.value = studentStore.lastLoggedInStudent.result
     return {
       //vi retunerar den uppdaterade finalPoint som vi fått från store.js
       finalPoint
     }
   })
+  console.log('hej', finalPoint)
 </script>
 
 <style>
@@ -49,7 +54,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10rem;
+    margin-top: 3rem;
+    height: 25vh;
+  }
+  .redo-test-btn {
+    margin-top: 100%;
   }
 
   .next-action-for-testpage {
