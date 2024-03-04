@@ -146,32 +146,35 @@
 </script>
 <style scoped>
   .login-container {
-    min-height: 100vh;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
   }
 
   .form-container {
-    width: 90vw;
+    width: 35vw;
+    min-width: 19rem;
     /* Adjust depending on desired width */
     padding: 20px;
     /* Adjust depending on desired distance from edges */
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    margin-top: 1rem;
   }
 
   .warning {
-    color: red;
+    color: 'warning';
     font-size: 12px;
     position: relative;
-    top: -1rem;
+    top: -0.8rem;
   }
 
   .input-field {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -191,6 +194,7 @@
 
   .submit-button {
     width: 100%;
+    margin-top: 5px;
     padding: 10px;
     border-radius: 3px;
     font-size: 16px;
