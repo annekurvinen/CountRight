@@ -2,9 +2,6 @@
   <nav-bar />
   <h1>Lärare</h1>
 
-  <RouterLink to="/createClass"><b-button>Skapa klass</b-button> </RouterLink>
-
-  <!-- <create-class /> -->
   <view-class />
 </template>
 
