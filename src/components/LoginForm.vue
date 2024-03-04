@@ -146,7 +146,6 @@
 </script>
 <style scoped>
   .login-container {
-    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -162,7 +161,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   .warning {
