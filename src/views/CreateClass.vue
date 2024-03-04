@@ -1,6 +1,6 @@
 <template>
-  <div id="creat-new-class-container">
-    <h1>Skapa ny klass</h1>
+  <h1>Skapa ny klass</h1>
+  <div id="new-class-container">
     <b-form>
       <b-form-group
         id="name-of-class-group"
@@ -55,21 +55,26 @@
           placeholder="Lösenord (Minst 8 tecken)"
         />
 
-        <b-button type="submit" variant="primary" @click="addStudent"
+        <b-button
+          type="submit"
+          variant="primary"
+          @click="addStudent"
+          id="add-student-btn"
           >Lägg till elev</b-button
         >
       </b-form-group>
     </b-form>
-    
-    <div v-for="(student, index) in studentsStore.students" :key="index" class="student">
-      <h3>Elev {{ index + 1 }}</h3>
-      <p><strong>Klass:</strong> {{ student.className }}</p>
-      <p><strong>Namn:</strong> {{ student.studentName }}</p>
-      <p><strong>Email:</strong> {{ student.eMail }}</p>
-      <p><strong>Lösernord:</strong> {{ student.password }}</p>
-
-
-    </div>
+  </div>
+  <div
+    v-for="(student, index) in studentsStore.students"
+    :key="index"
+    class="student"
+  >
+    <h3>Elev {{ index + 1 }}</h3>
+    <p><strong>Klass:</strong> {{ student.className }}</p>
+    <p><strong>Namn:</strong> {{ student.studentName }}</p>
+    <p><strong>Email:</strong> {{ student.eMail }}</p>
+    <p><strong>Lösernord:</strong> {{ student.password }}</p>
   </div>
 </template>
 <script setup>
@@ -99,12 +104,20 @@
 </script>
 
 <style scoped>
-.student {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #e5852d;
-}
+  .student {
+    max-width: 80vw;
+    margin: 20px auto auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e5852d;
+  }
 
+  #new-class-container {
+    max-width: 80vw;
+    margin: auto;
+  }
+  #add-student-btn {
+    margin-top: 1rem;
+  }
 </style>
