@@ -1,4 +1,5 @@
 <template>
+  <NavBar />
   <h1>Skapa ny klass</h1>
   <div id="new-class-container">
     <b-form>
