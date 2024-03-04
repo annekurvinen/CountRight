@@ -65,6 +65,7 @@
   /*gör mediaquery till 750 för knapparnsas skull, texten blir på två rader på skärm mindre än 750px*/
   @media only screen and (min-width: 600px) {
     #student-button {
+      margin-top: 5rem;
       flex-direction: row;
       justify-content: center;
       gap: 10rem;
