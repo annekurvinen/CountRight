@@ -22,7 +22,4 @@
     justify-content: center;
     margin-bottom: 1rem;
   }
-  /* * {
-    padding: 0 10vw 0 10vw;
-  } */
 </style>
