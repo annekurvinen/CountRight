@@ -31,6 +31,7 @@
         class="submit-button"
         variant="primary"
         :state="checkPassword() ? true : false"
+        :disabled="!isDisabled"
         >Ändra lösenord</BButton
       >
 
@@ -39,8 +40,7 @@
         >Ditt lösenord har ändrats!</BModal
       >
 
-      <!-- // ÅNGRAKNAPP - RADERAR INNEHÅLLET I ALLA FÄLTEN
-      FLYTTA KNAPPEN SÅ DEN ÄR BREDVID ÄNDRA LÖSENORDKNAPPEN???-->
+
       <BButton
         @on-click="resetPasswordFields"
         type="reset"
@@ -49,8 +49,6 @@
         >Ångra inmatningar</BButton
       >
 
-      <!-- // DEN HÄR SKALL RÄTTAS TILL FUNGERAR INTE SOM DET ÄR TÄNKT
-   GÖRAS MINDRE ? ALLA KNAPPAR PÅ SAMMA RAD???? -->
 
       <BButton @click="back" class="submit-button" variant="primary"
         >Tillbaka</BButton
@@ -60,7 +58,7 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import { computed, ref } from 'vue'
   import { useRouter } from 'vue-router'
 
   const showModal = ref(false),
@@ -69,7 +67,20 @@
     confirmPassword = ref(''),
     router = useRouter()
 
+
+    const isDisabled=computed(() => {
+    return (
+      currentPassword.value.length >= 8 &&
+      newPassword.value.length >= 8 &&
+      confirmPassword.value.length >= 8 &&
+      newPassword.value === confirmPassword.value
+    )
+
+  })
+
+
   // ANROPA FUNKTIONEN FÖR ATT TÖMMA LÖSENORDFÄLTEN
+
   function onOk() {
     console.log('Ok')
     resetPasswordFields()
