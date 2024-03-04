@@ -36,15 +36,18 @@
     }
   })
 </script>
+
 <style scoped>
   .student-landing-button {
-    margin: 4rem;
+    margin: 1rem;
+    padding: 0.5rem;
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
+    width: 10rem;
   }
 
   #student-name {
-    margin-top: 5rem;
+    margin-top: 1rem;
   }
 
   h1 {
@@ -59,15 +62,12 @@
     align-items: center;
   }
 
-  b-button {
-    margin: 10rem;
-  }
-
   /*gör mediaquery till 750 för knapparnsas skull, texten blir på två rader på skärm mindre än 750px*/
-  @media only screen and (min-width: 750px) {
+  @media only screen and (min-width: 600px) {
     #student-button {
       flex-direction: row;
       justify-content: center;
+      gap: 10rem;
     }
   }
 </style>
