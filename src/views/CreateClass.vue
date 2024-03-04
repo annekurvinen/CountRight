@@ -110,7 +110,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #e5852d;
+    background-color: #f5ad6b;
   }
 
   #new-class-container {
