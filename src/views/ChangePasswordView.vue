@@ -34,31 +34,27 @@
         >Ändra lösenord</BButton
       >
 
-
-       <!--// BEKRÄFTELSE PÅ ATT LÖSENORDET ÄR ÄNDRAT -->
-      <BModal
-        @ok="onOk"
-        v-model="showModal"
-        title="Meddelanderuta"
+      <!--// POPUPRUTA VID BEKRÄFTELSE ATT LÖSENORDET ÄR ÄNDRAT -->
+      <BModal @ok="onOk" v-model="showModal" title="Bekräftelseruta"
         >Ditt lösenord har ändrats!</BModal
       >
 
-       <!--// ÅNGRAKNAPP - RADERAR INNEHÅLLET I ALLA FÄLTEN -->
+      <!-- // ÅNGRAKNAPP - RADERAR INNEHÅLLET I ALLA FÄLTEN
+      FLYTTA KNAPPEN SÅ DEN ÄR BREDVID ÄNDRA LÖSENORDKNAPPEN???-->
       <BButton
-        @click="resetPasswordFields"
+        @on-click="resetPasswordFields"
         type="reset"
         class="submit-button"
         variant="primary"
         >Ångra inmatningar</BButton
       >
 
-      <BButton
-        @click="back"
-        class="submit-button"
-        variant="primary"
+      <!-- // DEN HÄR SKALL RÄTTAS TILL FUNGERAR INTE SOM DET ÄR TÄNKT
+   GÖRAS MINDRE ? ALLA KNAPPAR PÅ SAMMA RAD???? -->
+
+      <BButton @click="back" class="submit-button" variant="primary"
         >Tillbaka</BButton
       >
-
     </form>
   </div>
 </template>
@@ -73,18 +69,19 @@
     confirmPassword = ref(''),
     router = useRouter()
 
-  // ANROPAR FUNKTIONEN FÖR ATT TÖMMA LÖSENORDFÄLTEN
+  // ANROPA FUNKTIONEN FÖR ATT TÖMMA LÖSENORDFÄLTEN
   function onOk() {
     console.log('Ok')
     resetPasswordFields()
   }
   function resetPasswordFields() {
-    currentPassword.value = '',
-    newPassword.value = '',
-    confirmPassword.value = ''
+    (currentPassword.value = ''),
+      (newPassword.value = ''),
+      (confirmPassword.value = '')
   }
 
 //  KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
+  // SKALL KONTROLLERA ATT NYTT LÖSENORD x 2 ÄR LIKA
   function checkPassword() {
     return (
       currentPassword.value.length >= 8 &&

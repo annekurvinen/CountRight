@@ -22,13 +22,14 @@
         class="student-testBtn"
         @click="nextQuestion"
         v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
-        :disabled="!text"
         type="button"
       >
         Nästa fråga
       </b-button>
       <!----
+              :disabled="!text"
           v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på
+             :disabled="!text"
         -->
       <RouterLink to="/resultStudent">
         <b-button
@@ -36,7 +37,6 @@
           variant="primary"
           class="student-landing-button"
           v-show="this.currentIndex === this.algebraQuestions.length - 1"
-          :disabled="!text"
           >Lämna in
         </b-button>
       </RouterLink>
@@ -48,7 +48,7 @@
 
 <script>
   import questionData from '../JSON/questions.json'
-  import { useTestStore } from '../store'
+  import { useStudentsStore } from '../store'
   export default {
     data() {
       return {
@@ -96,7 +96,7 @@
         }
         console.log('klickat på sista knappen')
         try {
-          useTestStore().setPoints(this.points) //sparar poöngen i setPoints i store.js
+          useStudentsStore().setPoints(this.points) //sparar poöngen i setPoints i store.js
         } catch (error) {
           console.log(error)
         }
@@ -116,6 +116,7 @@ https://vuejs.org/guide/essentials/template-refs
   * {
     color: #150b04;
   }
+
   .student-testBtn {
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
@@ -134,9 +135,13 @@ https://vuejs.org/guide/essentials/template-refs
   }
 
   #question-section {
-    width: 15rem;
-    height: 15rem;
-    /* font-family: 'Lexend', sans-serif; */
+    width: 100vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: center;
   }
   #question {
     display: flex;
@@ -149,5 +154,13 @@ https://vuejs.org/guide/essentials/template-refs
   }
   #error {
     color: rgb(163, 4, 4);
+  }
+  @media only screen and (min-width: 990px) {
+    h2 {
+      font-size: 1.8rem;
+    }
+    #question-section {
+      width: 90vw;
+    }
   }
 </style>
