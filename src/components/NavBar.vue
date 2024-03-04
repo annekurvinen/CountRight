@@ -2,7 +2,6 @@
   <section>
     <b-navbar toggleable="lg" type="dark" variant="none">
       <b-navbar-toggle target="nav-collapse" />
-
       <b-collapse id="nav-collapse" is-nav>
         <ul>
           <!--sätter en klass med v-bind och backgroundcolor på den länk man har tryckt på---->
@@ -10,7 +9,7 @@
             <RouterLink to="/landingpageTeacher">Klasser</RouterLink>
           </li>
           <li :class="{ backgroundColor: navBarTest }">
-            <RouterLink to="/testT">Prov</RouterLink>
+            <RouterLink to="/testT">Skapa prov</RouterLink>
           </li>
           <RouterLink to="/changePasswordView">
             <li>Ändra lösenord</li>
