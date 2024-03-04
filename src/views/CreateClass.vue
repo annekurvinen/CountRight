@@ -1,85 +1,126 @@
 <template>
   <NavBar />
-  <h1>Skapa ny klass</h1>
-  <div id="new-class-container">
-    <b-form>
-      <b-form-group
-        id="name-of-class-group"
-        label="Klassens namn:"
-        label-for="name-of-class"
-      >
-        <b-form-input
-          id="name-of-class"
-          placeholder="Klassens namn"
-          v-model="className"
-          required
-        />
-      </b-form-group>
 
-      <b-form-group
-        id="year-of-class-group"
-        label="Årskurs:"
-        label-for="year-of-class"
-      >
-        <b-form-input
-          id="year-of-class"
-          placeholder=""
-          type="number"
-          v-model="year"
-          required
-        />
-      </b-form-group>
-
-      <b-form-group
-        id="student-names-group"
-        label="Elevernas namn:"
-        label-for="name-of-students"
-      >
-        <b-form-input
-          id="name-of-student"
-          v-model="studentName"
-          @keyup.enter="addStudent"
-        />
-
-        <label for="email">Email:</label>
-        <b-form-input
-          type="text"
-          v-model="eMail"
-          class="input-field"
-          placeholder="Email (e.g., example@example.com)"
-        />
-        <label for="password">Password:</label>
-        <b-form-input
-          type="password"
-          v-model="password"
-          class="input-field"
-          placeholder="Lösenord (Minst 8 tecken)"
-        />
-
-        <b-button
-          type="submit"
-          variant="primary"
-          @click="addStudent"
-          id="add-student-btn"
-          >Lägg till elev</b-button
+  <div class="content">
+    <div id="new-class-container">
+      <h1>Skapa ny klass</h1>
+      <b-form>
+        <b-form-group
+          id="name-of-class-group"
+          label="Klassens namn:"
+          label-for="name-of-class"
         >
-      </b-form-group>
-    </b-form>
-  </div>
-  <div
-    v-for="(student, index) in studentsStore.students"
-    :key="index"
-    class="student"
-  >
-    <h3>Elev {{ index + 1 }}</h3>
-    <p><strong>Klass:</strong> {{ student.className }}</p>
-    <p><strong>Namn:</strong> {{ student.studentName }}</p>
-    <p><strong>Email:</strong> {{ student.eMail }}</p>
-    <p><strong>Lösernord:</strong> {{ student.password }}</p>
+          <b-form-input
+            id="name-of-class"
+            placeholder="Klassens namn"
+            class="input-field"
+            v-model="className"
+            required
+          />
+        </b-form-group>
+        <b-form-group
+          id="year-of-class-group"
+          label="Årskurs:"
+          label-for="year-of-class"
+        >
+          <b-form-input
+            id="year-of-class"
+            class="input-field"
+            placeholder=""
+            type="number"
+            v-model="year"
+            required
+          />
+        </b-form-group>
+        <b-form-group
+          id="student-names-group"
+          label="Elevernas namn:"
+          label-for="name-of-students"
+        >
+          <b-form-input
+            id="name-of-student"
+            class="input-field"
+            v-model="studentName"
+            @keyup.enter="addStudent"
+          />
+          <b-form-group label="E-post:" label-for="email">
+            <b-form-input
+              type="text"
+              id="email"
+              v-model="eMail"
+              class="input-field"
+              placeholder="Email (e.g., example@example.com)"
+            />
+          </b-form-group>
+          <b-form-group label="Lösenord:" label-for="password">
+            <b-form-input
+              type="password"
+              id="password"
+              v-model="password"
+              class="input-field"
+              placeholder="Lösenord (Minst 8 tecken)"
+            />
+          </b-form-group>
+          <b-button
+            type="submit"
+            variant="primary"
+            @click="addStudent"
+            id="add-student-btn"
+            >Lägg till elev</b-button
+          >
+        </b-form-group>
+      </b-form>
+    </div>
+    <!-- <b-card id="student-table">
+      <b-table
+        striped
+        outlined
+        hover
+        responsive
+        :items="studentsStore.students"
+        :fields="studentField"
+      />
+    </b-card> -->
+    <b-card
+      v-for="(student, index) in studentsStore.students"
+      :key="index"
+      class="student-card"
+      ><div class="student">
+        <h3>{{ student.studentName }}</h3>
+        <div class="student-info">
+          <p><strong>Klass:</strong> {{ student.className }}</p>
+          <p><strong>Email:</strong> {{ student.eMail }}</p>
+          <p><strong>Lösernord:</strong> {{ student.password }}</p>
+        </div>
+      </div>
+    </b-card>
   </div>
 </template>
 <script setup>
   import { ref } from 'vue'
+
+  // const studentField = [
+  //   {
+  //     key: 'studentName',
+  //     label: 'Namn',
+  //     sortable: true
+  //     // stickyColumn: true
+  //   },
+  //   {
+  //     key: 'className',
+  //     label: 'Klass',
+  //     sortable: true
+  //   },
+
+  //   {
+  //     key: 'eMail',
+  //     label: 'E-post'
+  //   },
+  //   {
+  //     key: 'password',
+  //     label: 'Lösenord'
+  //   }
+  // ]
 
   import { useStudentsStore } from '../store'
   //för att använda pinia-store som heter useStudentsStore.
@@ -105,20 +146,94 @@
 </script>
 
 <style scoped>
-  .student {
-    max-width: 80vw;
-    margin: 20px auto auto;
-    padding: 10px;
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin: auto;
+    width: 0vw;
+  }
+
+  /* .student {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #e5852d;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: ;
+  } */
+
+  .student-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .student-card {
+    width: 80vw;
+    min-width: 19rem;
+    /* background-color: #f4e2d1; */
+  }
+
+  /* Om man vill */
+  h3 {
+    border-bottom: 1px solid lightgray;
+  }
+
+  #student-table {
+    width: 70vw;
+  }
+
+  .input-field {
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 0;
   }
 
   #new-class-container {
-    max-width: 80vw;
-    margin: auto;
+    width: 80vw;
+    margin-bottom: 1rem;
+    min-width: 19rem;
   }
   #add-student-btn {
     margin-top: 1rem;
   }
+
+  @media screen and (min-width: 800px) {
+    .student-info {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+
+    .student-card {
+      width: 60vw;
+      min-width: 19rem;
+    }
+  }
+  @media screen and (min-width: 700px) {
+    .student-card {
+      width: 70vw;
+    }
+    #new-class-container {
+      width: 70vw;
+    }
+  }
+
+  /* @media screen and (min-width: 700px) {
+    #new-class-container {
+      width: 30vw;
+      min-width: 25rem;
+    }
+  } */
 </style>
