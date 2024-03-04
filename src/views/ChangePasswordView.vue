@@ -1,6 +1,6 @@
 <template>
-  <h2>Ändra Lösenord</h2>
   <div class="password-container">
+    <h1>Ändra Lösenord</h1>
     <form class="form-container">
       <label :for="currentPassword">Nuvarande lösenord: </label>
       <BFormInput
@@ -40,7 +40,6 @@
         >Ditt lösenord har ändrats!</BModal
       >
 
-
       <BButton
         @on-click="resetPasswordFields"
         type="reset"
@@ -48,7 +47,6 @@
         variant="primary"
         >Ångra inmatningar</BButton
       >
-
 
       <BButton @click="back" class="submit-button" variant="primary"
         >Tillbaka</BButton
@@ -67,17 +65,14 @@
     confirmPassword = ref(''),
     router = useRouter()
 
-
-    const isDisabled=computed(() => {
+  const isDisabled = computed(() => {
     return (
       currentPassword.value.length >= 8 &&
       newPassword.value.length >= 8 &&
       confirmPassword.value.length >= 8 &&
       newPassword.value === confirmPassword.value
     )
-
   })
-
 
   // ANROPA FUNKTIONEN FÖR ATT TÖMMA LÖSENORDFÄLTEN
 
@@ -86,12 +81,12 @@
     resetPasswordFields()
   }
   function resetPasswordFields() {
-    (currentPassword.value = ''),
+    ;(currentPassword.value = ''),
       (newPassword.value = ''),
       (confirmPassword.value = '')
   }
 
-//  KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
+  //  KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
   // SKALL KONTROLLERA ATT NYTT LÖSENORD x 2 ÄR LIKA
   function checkPassword() {
     return (
@@ -109,14 +104,15 @@
 
 <style scoped>
   .password-container {
-    min-height: 100vh;
-    display: flex;
+    margin: auto;
     justify-content: center;
     align-items: center;
   }
 
   .form-container {
-    width: 90vw;
+    width: 35vw;
+    min-width: 19rem;
+    margin: auto;
     /* Adjust depending on desired width */
     padding: 20px;
     /* Adjust depending on desired distance from edges */
@@ -124,12 +120,13 @@
     border-radius: 5px;
     background-color: #f9f9f9;
   }
-  h2 {
+  h1 {
     padding: 20px;
+    text-align: center;
   }
   .input-field {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -150,9 +147,9 @@
   .submit-button {
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
-    margin: 1rem auto;
+    margin: 0.45rem auto;
     width: 100%;
-    padding: 10px;
+    padding: 7px;
     border-radius: 3px;
     font-size: 16px;
     cursor: pointer;
