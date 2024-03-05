@@ -37,6 +37,10 @@ export default createRouter({
     //   component: ResultPageTeacher,
     //   path: "/resultTeacher",
     // },
+    {
+      component: CreateClass,
+      path: '/createClass'
+    },
 
     {
       component: LandingPageStudent,
