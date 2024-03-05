@@ -9,6 +9,7 @@
           class="input-field"
           :state="checkSchool() ? true : false"
           placeholder="Skola"
+          readonly
         />
         <!-- Kollar om längen på inmatningen stämmer med vårat krav annars visas förklarande medelande -->
         <span v-if="school.length < 3" class="warning"
@@ -89,7 +90,7 @@
 
     data() {
       return {
-        school: '',
+        school: 'It-högskolan',
         eMail: '',
         password: '',
         teacher: '',
