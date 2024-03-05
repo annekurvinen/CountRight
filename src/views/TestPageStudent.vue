@@ -135,7 +135,8 @@ https://vuejs.org/guide/essentials/template-refs
   }
 
   #question-section {
-    width: 100vw;
+    text-align: center;
+    width: 95vw;
     height: 25vh;
     display: flex;
     flex-direction: column;
@@ -147,7 +148,6 @@ https://vuejs.org/guide/essentials/template-refs
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
   }
   input {
     margin-bottom: 1rem;

@@ -1,6 +1,7 @@
 <template>
   <article id="result-container">
     <h1>Resultat</h1>
+    <!-- visar poängen från testet -->
     <p>Du fick {{ finalPoint }} av 12 poäng</p>
     <section v-show="finalPoint >= 10" class="nextActionForTestPage">
       <h3>Godkänt</h3>
@@ -35,6 +36,7 @@
   const finalPoint = ref(0)
   const router = useRouter()
 
+  //trycker man på button kopplad till funktionen onOK så hamnar man på första sidan.
   const onOk = () => {
     router.push('/')
   }
@@ -46,7 +48,6 @@
       finalPoint
     }
   })
-  console.log('hej', finalPoint)
 </script>
 
 <style>
@@ -54,7 +55,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
+
     height: 25vh;
   }
   .redo-test-btn {
