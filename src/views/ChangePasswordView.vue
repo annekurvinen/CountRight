@@ -35,12 +35,12 @@
         >Ändra lösenord</BButton
       >
 
-      <!--// POPUPRUTA VID BEKRÄFTELSE ATT LÖSENORDET ÄR ÄNDRAT -->
+<!-- RUTA MED EN BEKRÄFTELSE PÅ ATT LÖSENORDET HAR ÄNDRATS -->
       <BModal @ok="onOk" v-model="showModal" title="Bekräftelseruta"
         >Ditt lösenord har ändrats!</BModal
       >
 
-
+<!-- TÖMMER INMATAD TEXT I SAMTLIGA TEXT FÄLT -->
       <BButton
         @on-click="resetPasswordFields"
         type="reset"
@@ -49,7 +49,7 @@
         >Ångra inmatningar</BButton
       >
 
-
+<!-- ÅTERGÅR TILL FÖREGÅENDE SIDA -->
       <BButton @click="back" class="submit-button" variant="primary"
         >Tillbaka</BButton
       >
@@ -68,31 +68,30 @@
     router = useRouter()
 
 
-    const isDisabled=computed(() => {
+// KNAPP KLICKBAR FÖRST NÄR RÄTT INFORMATION SKRIVITS IN I SAMTLIGA FÄLT
+  const isDisabled=computed(() => {
     return (
       currentPassword.value.length >= 8 &&
       newPassword.value.length >= 8 &&
       confirmPassword.value.length >= 8 &&
       newPassword.value === confirmPassword.value
     )
-
   })
 
-
-  // ANROPA FUNKTIONEN FÖR ATT TÖMMA LÖSENORDFÄLTEN
-
+// ANROPAR FUNKTIONEN FÖR ATT TÖMMA SAMTLIGA LÖSENORDSFÄLT
   function onOk() {
     console.log('Ok')
     resetPasswordFields()
   }
+
+// TÖMMER SAMTLIGA LÖSENORDSFÄLT
   function resetPasswordFields() {
-    (currentPassword.value = ''),
-      (newPassword.value = ''),
-      (confirmPassword.value = '')
+    currentPassword.value = '',
+    newPassword.value = '',
+    confirmPassword.value = ''
   }
 
-//  KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
-  // SKALL KONTROLLERA ATT NYTT LÖSENORD x 2 ÄR LIKA
+// KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
   function checkPassword() {
     return (
       currentPassword.value.length >= 8 &&
@@ -101,7 +100,8 @@
       newPassword.value === confirmPassword.value
     )
   }
-  //funktion för att gå tillbaka till föregående sida.
+
+// FUNKTION FÖR ATT GÅ TILLBAKA TILL FÖREGÅENDE SIDA
   function back() {
     router.go(-1)
   }
@@ -127,6 +127,7 @@
   h2 {
     padding: 20px;
   }
+
   .input-field {
     width: 100%;
     margin-bottom: 20px;
