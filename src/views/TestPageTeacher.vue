@@ -15,11 +15,23 @@
                     :text="selectedClass ? selectedClass : 'Välj klass'"
                     class="dropdown-menu-right"
                   >
+                    <b-dropdown-item @click="selectedClass = '3a'"
+                      >3a</b-dropdown-item
+                    >
+                    <b-dropdown-item @click="selectedClass = '4a'"
+                      >4a</b-dropdown-item
+                    >
+                    <b-dropdown-item @click="selectedClass = '5a'"
+                      >5a</b-dropdown-item
+                    >
+                    <b-dropdown-item @click="selectedClass = '3b'"
+                      >3b</b-dropdown-item
+                    >
                     <b-dropdown-item @click="selectedClass = '4b'"
                       >4b</b-dropdown-item
                     >
-                    <b-dropdown-item @click="selectedClass = '5h'"
-                      >5h</b-dropdown-item
+                    <b-dropdown-item @click="selectedClass = '5b'"
+                      >5b</b-dropdown-item
                     >
                   </b-dropdown>
                 </div>
@@ -46,14 +58,13 @@
               </div>
             </div>
           </div>
-<!-- :disabled="!allFieldsFilled" -->
           <div class="button-container">
             <b-button variant="primary" @click="showModal = true" :disabled="!allFieldsFilled"
               >Skapa prov</b-button
             >
           </div>
           <b-modal v-model="showModal">
-            <p>Vill du spara detta prov?</p>
+            <p>Vill du skapa detta prov?</p>
             <template #modal-footer="{ cancel, ok }">
               <b-button @click="cancel">Avbryt</b-button>
               <b-button @click="ok" variant="primaty">Ja</b-button>
