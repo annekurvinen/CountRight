@@ -1,6 +1,6 @@
 <template>
   <nav-bar />
-  <h1>Skapa prov</h1>
+  <h1 id="h1-text">Skapa prov</h1>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
@@ -58,8 +58,12 @@
               </div>
             </div>
           </div>
+<!-- :disabled="!allFieldsFilled" -->
           <div class="button-container">
-            <b-button variant="primary" @click="showModal = true" :disabled="!allFieldsFilled"
+            <b-button
+              variant="primary"
+              @click="showModal = true"
+              :disabled="!allFieldsFilled"
               >Skapa prov</b-button
             >
           </div>
@@ -77,52 +81,55 @@
 </template>
 
 <script>
-import NavBar from '../components/NavBar.vue'
-export default {
-  components: {
-    NavBar
-  },
-  data() {
-    return {
-      selectedCategory: '',
-      selectedClass: '',
-      text: '',
-      showModal: false
-    };
-  },
-   computed: {
-   allFieldsFilled(){
-   return this.selectedCategory !== '' && this.selectedClass !== ''
-   }
- }
-}
-
+  import NavBar from '../components/NavBar.vue'
+  export default {
+    components: {
+      NavBar
+    },
+    data() {
+      return {
+        selectedCategory: '',
+        selectedClass: '',
+        text: '',
+        showModal: false
+      }
+    },
+    computed: {
+      allFieldsFilled() {
+        return this.selectedCategory !== '' && this.selectedClass !== ''
+      }
+    }
+  }
 </script>
 
 <style>
-  h1 {
+  #h1-text {
     text-align: center;
+    margin-bottom: 1rem;
   }
   .exam-container {
     border: 1px solid #e5852d;
     background-color: rgba(235, 195, 136, 0.23);
     padding: 15px;
     border-radius: 5px;
+    width: 30vw;
+    min-width: 25rem;
+    margin: auto;
   }
   .menu-container {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
-  #chooseClass{
+  #chooseClass {
     padding-bottom: 1rem;
   }
 
   .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
   }
 </style>

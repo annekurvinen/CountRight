@@ -9,13 +9,13 @@
 * {
   color: var(--mörkbrun);
 }
+
 h1,
 h2 {
   font-family: 'Expletus Sans', sans-serif;
 }
 
-p,
-a {
+p {
   font-family: 'Lexend', sans-serif;
   color: var(--mörkbrun);
 }

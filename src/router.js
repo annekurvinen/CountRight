@@ -14,6 +14,7 @@ import TestPageStudent from './views/TestPageStudent.vue'
 import LandingPageTeacher from './views/LandingPageTeacher.vue'
 import ResultPageStudent from './views/ResultPageStudent.vue'
 import ChangePasswordView from './views/ChangePasswordView.vue'
+import CreateClass from './views/CreateClass.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -51,6 +52,10 @@ export default createRouter({
     {
       component: ChangePasswordView,
       path: '/changePasswordView'
+    },
+    {
+      component: CreateClass,
+      path: '/createClass'
     }
   ]
 })
