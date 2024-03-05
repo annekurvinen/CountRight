@@ -90,7 +90,7 @@
 
     data() {
       return {
-        school: 'It-högskolan',
+        school: 'IT-Högskolan',
         eMail: '',
         password: '',
         teacher: '',
