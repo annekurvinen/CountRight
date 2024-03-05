@@ -26,7 +26,7 @@
     border-radius: 100%;
     height: auto;
     width: 7rem;
-    margin: 0.2rem;
+    margin: 0.5rem 1rem;
   }
   header {
     background: linear-gradient(
@@ -35,6 +35,7 @@
       rgba(220, 165, 114, 0.41) 72%,
       rgba(220, 165, 114, 0) 100%
     );
+    margin-bottom: 1rem;
   }
 
   /*style för tablett och desktop  */
@@ -42,8 +43,8 @@
     img {
       border-radius: 100%;
       height: auto;
-      width: 13rem;
-      margin: 1rem;
+      width: 11rem;
+      margin: 1rem 2rem;
       justify-content: center;
     }
     h1 {
