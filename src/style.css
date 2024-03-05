@@ -14,7 +14,8 @@ h2 {
   font-family: 'Expletus Sans', sans-serif;
 }
 
-p {
+p,
+a {
   font-family: 'Lexend', sans-serif;
   color: var(--mörkbrun);
 }
