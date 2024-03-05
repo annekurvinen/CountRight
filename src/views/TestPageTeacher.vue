@@ -58,7 +58,6 @@
               </div>
             </div>
           </div>
-<!-- :disabled="!allFieldsFilled" -->
           <div class="button-container">
             <b-button
               variant="primary"

@@ -24,7 +24,7 @@
         placeholder="Email"
       />
       <span v-if="eMail.length < 3 || !eMail.includes('@')" class="warning"
-          >Ogiltig email (minst tre tecken och @ krävs)</span
+          >Ogiltig email (Minst tre tecken och @ krävs)</span
         >
       </div>
       <label for="password">Lösenord:</label>
@@ -37,7 +37,7 @@
         placeholder="Lösenord"
       />
       <span v-if="password.length < 8" class="warning"
-          >Ogiltigt lösenord (minst 8 tecken krävs)</span
+          >Ogiltigt lösenord (Minst 8 tecken krävs)</span
         >
       </div>
       <section>
