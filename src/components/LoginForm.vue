@@ -9,35 +9,37 @@
           class="input-field"
           :state="checkSchool() ? true : false"
           placeholder="Skola"
+          readonly
         />
+        <!-- Kollar om längen på inmatningen stämmer med vårat krav annars visas förklarande medelande -->
         <span v-if="school.length < 3" class="warning"
           >Skriv minst 3 tecken</span
         >
       </div>
       <label for="email">Email:</label>
       <div class="input-container">
-        <b-form-input
-          type="text"
-          v-model="eMail"
-          class="input-field"
-          :state="checkEmail() ? true : false"
-          placeholder="Email"
-        />
-        <span v-if="eMail.length < 3 || !eMail.includes('@')" class="warning"
-          >Ogiltig email (minst tre tecken och @ krävs)</span
+      <b-form-input
+        type="text"
+        v-model="eMail"
+        class="input-field"
+        :state="checkEmail() ? true : false"
+        placeholder="Email"
+      />
+      <span v-if="eMail.length < 3 || !eMail.includes('@')" class="warning"
+          >Ogiltig email (Minst tre tecken och @ krävs)</span
         >
       </div>
       <label for="password">Lösenord:</label>
       <div class="input-container">
-        <b-form-input
-          type="password"
-          v-model="password"
-          class="input-field"
-          :state="checkPassword() ? true : false"
-          placeholder="Lösenord"
-        />
-        <span v-if="password.length < 8" class="warning"
-          >Ogiltigt lösenord (minst 8 tecken krävs)</span
+      <b-form-input
+        type="password"
+        v-model="password"
+        class="input-field"
+        :state="checkPassword() ? true : false"
+        placeholder="Lösenord"
+      />
+      <span v-if="password.length < 8" class="warning"
+          >Ogiltigt lösenord (Minst 8 tecken krävs)</span
         >
       </div>
       <section>
@@ -88,7 +90,7 @@
 
     data() {
       return {
-        school: '',
+        school: 'IT-Högskolan',
         eMail: '',
         password: '',
         teacher: '',
@@ -146,32 +148,34 @@
 </script>
 <style scoped>
   .login-container {
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
   }
 
   .form-container {
-    width: 90vw;
+    width: 35vw;
+    min-width: 19rem;
     /* Adjust depending on desired width */
     padding: 20px;
     /* Adjust depending on desired distance from edges */
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    margin-top: 2rem;
   }
 
   .warning {
-    color: red;
+    color: 'warning';
     font-size: 12px;
     position: relative;
-    top: -1rem;
+    top: -0.8rem;
   }
 
   .input-field {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -191,6 +195,7 @@
 
   .submit-button {
     width: 100%;
+    margin-top: 5px;
     padding: 10px;
     border-radius: 3px;
     font-size: 16px;

@@ -14,13 +14,15 @@ import TestPageStudent from './views/TestPageStudent.vue'
 import LandingPageTeacher from './views/LandingPageTeacher.vue'
 import ResultPageStudent from './views/ResultPageStudent.vue'
 import ChangePasswordView from './views/ChangePasswordView.vue'
+import CreateClass from './views/CreateClass.vue'
+import FrontPage from './views/FrontPage.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       component: LoginPage,
-      path: '/'
+      path: '/login'
     },
     {
       component: LandingPageTeacher,
@@ -35,6 +37,10 @@ export default createRouter({
     //   component: ResultPageTeacher,
     //   path: "/resultTeacher",
     // },
+    {
+      component: CreateClass,
+      path: '/createClass'
+    },
 
     {
       component: LandingPageStudent,
@@ -51,6 +57,10 @@ export default createRouter({
     {
       component: ChangePasswordView,
       path: '/changePasswordView'
+    },
+    {
+      component: FrontPage,
+      path: '/'
     }
   ]
 })

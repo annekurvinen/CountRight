@@ -1,6 +1,6 @@
 <template>
-  <h2>Ändra Lösenord</h2>
   <div class="password-container">
+    <h1>Ändra Lösenord</h1>
     <form class="form-container">
       <label :for="currentPassword">Nuvarande lösenord: </label>
       <BFormInput
@@ -9,15 +9,18 @@
         class="input-field"
         placeholder="Nuvarande lösenord"
       />
-
-      <label :for="newPassword">Nytt lösenord: </label>
-      <BFormInput
-        type="password"
-        v-model="newPassword"
-        class="input-field"
-        placeholder="Nytt lösenord (Minst 8 tecken)"
-      />
-
+      <div class="input-container">
+        <label :for="newPassword">Nytt lösenord: </label>
+        <BFormInput
+          type="password"
+          v-model="newPassword"
+          class="input-field"
+          placeholder="Nytt lösenord"
+        />
+        <span v-if="newPassword.length < 8" class="warning"
+          >Ogiltigt lösenord (Minst 8 tecken krävs)</span
+        >
+      </div>
       <label :for="confirmPassword">Bekräfta nytt lösenord: </label>
       <BFormInput
         type="password"
@@ -109,14 +112,15 @@
 
 <style scoped>
   .password-container {
-    min-height: 100vh;
-    display: flex;
+    margin: auto;
     justify-content: center;
     align-items: center;
   }
 
   .form-container {
-    width: 90vw;
+    width: 35vw;
+    min-width: 19rem;
+    margin: auto;
     /* Adjust depending on desired width */
     padding: 20px;
     /* Adjust depending on desired distance from edges */
@@ -124,13 +128,21 @@
     border-radius: 5px;
     background-color: #f9f9f9;
   }
-  h2 {
+
+  .warning {
+    color: 'warning';
+    font-size: 12px;
+    position: relative;
+    top: -0.8rem;
+  }
+  h1 {
     padding: 20px;
+    text-align: center;
   }
 
   .input-field {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -151,9 +163,9 @@
   .submit-button {
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
-    margin: 1rem auto;
+    margin: 0.45rem auto;
     width: 100%;
-    padding: 10px;
+    padding: 7px;
     border-radius: 3px;
     font-size: 16px;
     cursor: pointer;

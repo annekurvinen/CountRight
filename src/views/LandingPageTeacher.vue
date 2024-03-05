@@ -1,16 +1,17 @@
 <template>
   <nav-bar />
   <h1>Lärare</h1>
-  <create-class />
+
+  <view-class />
 </template>
 
 <script>
   import NavBar from '../components/NavBar.vue'
-  import CreateClass from './CreateClass.vue'
+  import ViewClass from '../components/ViewClasses.vue'
   export default {
     components: {
       NavBar,
-      CreateClass
+      ViewClass
     }
   }
 </script>
@@ -19,5 +20,6 @@
   h1 {
     display: flex;
     justify-content: center;
+    margin-bottom: 1rem;
   }
 </style>
