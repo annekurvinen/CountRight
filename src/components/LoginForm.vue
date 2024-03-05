@@ -16,27 +16,27 @@
       </div>
       <label for="email">Email:</label>
       <div class="input-container">
-        <b-form-input
-          type="text"
-          v-model="eMail"
-          class="input-field"
-          :state="checkEmail() ? true : false"
-          placeholder="Email"
-        />
-        <span v-if="eMail.length < 3 || !eMail.includes('@')" class="warning"
+      <b-form-input
+        type="text"
+        v-model="eMail"
+        class="input-field"
+        :state="checkEmail() ? true : false"
+        placeholder="Email"
+      />
+      <span v-if="eMail.length < 3 || !eMail.includes('@')" class="warning"
           >Ogiltig email (minst tre tecken och @ krävs)</span
         >
       </div>
       <label for="password">Lösenord:</label>
       <div class="input-container">
-        <b-form-input
-          type="password"
-          v-model="password"
-          class="input-field"
-          :state="checkPassword() ? true : false"
-          placeholder="Lösenord"
-        />
-        <span v-if="password.length < 8" class="warning"
+      <b-form-input
+        type="password"
+        v-model="password"
+        class="input-field"
+        :state="checkPassword() ? true : false"
+        placeholder="Lösenord"
+      />
+      <span v-if="password.length < 8" class="warning"
           >Ogiltigt lösenord (minst 8 tecken krävs)</span
         >
       </div>

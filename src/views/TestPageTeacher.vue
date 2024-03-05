@@ -15,23 +15,23 @@
                     :text="selectedClass ? selectedClass : 'Välj klass'"
                     class="dropdown-menu-right"
                   >
-                    <b-dropdown-item @click="selectedClass = '3a'"
-                      >3a</b-dropdown-item
+                    <b-dropdown-item @click="selectedClass = '6A'"
+                      >6A</b-dropdown-item
                     >
-                    <b-dropdown-item @click="selectedClass = '4a'"
-                      >4a</b-dropdown-item
+                    <b-dropdown-item @click="selectedClass = '6B'"
+                      >6B</b-dropdown-item
                     >
-                    <b-dropdown-item @click="selectedClass = '5a'"
-                      >5a</b-dropdown-item
+                    <b-dropdown-item @click="selectedClass = '7A'"
+                      >7A</b-dropdown-item
                     >
-                    <b-dropdown-item @click="selectedClass = '3b'"
-                      >3b</b-dropdown-item
+                    <b-dropdown-item @click="selectedClass = '7B'"
+                      >7B</b-dropdown-item
                     >
-                    <b-dropdown-item @click="selectedClass = '4b'"
-                      >4b</b-dropdown-item
+                    <b-dropdown-item @click="selectedClass = '8A'"
+                      >8A</b-dropdown-item
                     >
-                    <b-dropdown-item @click="selectedClass = '5b'"
-                      >5b</b-dropdown-item
+                    <b-dropdown-item @click="selectedClass = '8B'"
+                      >8B</b-dropdown-item
                     >
                   </b-dropdown>
                 </div>
