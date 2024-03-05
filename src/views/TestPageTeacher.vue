@@ -9,7 +9,7 @@
             <div class="row">
               <div class="col-md-6" id="chooseClass">
                 <div class="menu">
-                  <!-- om selectedClass är tom visas texten "Välj klass", annars visas den valda klassen i menyn. -->
+                  <!-- Om selectedClass är tom visas texten "Välj klass", annars visas den valda klassen i menyn. -->
                   <b-dropdown
                     id="dropdown-1"
                     :text="selectedClass ? selectedClass : 'Välj klass'"
@@ -39,7 +39,7 @@
 
               <div class="col-md-6">
                 <div class="menu">
-                  <!-- om selectedCategory är tom visas texten "Välj kategori", annars visas det valda värdet i menyn. -->
+                  <!-- Om selectedCategory är tom visas texten "Välj kategori", annars visas det valda värdet i menyn. -->
                   <b-dropdown
                     id="dropdown-2"
                     :text="
