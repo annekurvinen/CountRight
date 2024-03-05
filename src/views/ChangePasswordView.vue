@@ -38,12 +38,12 @@
         >Ändra lösenord</BButton
       >
 
-<!-- RUTA MED EN BEKRÄFTELSE PÅ ATT LÖSENORDET HAR ÄNDRATS -->
+      <!-- RUTA MED EN BEKRÄFTELSE PÅ ATT LÖSENORDET HAR ÄNDRATS -->
       <BModal @ok="onOk" v-model="showModal" title="Bekräftelseruta"
         >Ditt lösenord har ändrats!</BModal
       >
 
-<!-- TÖMMER INMATAD TEXT I SAMTLIGA TEXT FÄLT -->
+      <!-- TÖMMER INMATAD TEXT I SAMTLIGA TEXT FÄLT -->
       <BButton
         @on-click="resetPasswordFields"
         type="reset"
@@ -52,7 +52,7 @@
         >Ångra inmatningar</BButton
       >
 
-<!-- ÅTERGÅR TILL FÖREGÅENDE SIDA -->
+      <!-- ÅTERGÅR TILL FÖREGÅENDE SIDA -->
       <BButton @click="back" class="submit-button" variant="primary"
         >Tillbaka</BButton
       >
@@ -70,30 +70,29 @@
     confirmPassword = ref(''),
     router = useRouter()
 
-
-// KNAPP KLICKBAR FÖRST NÄR RÄTT INFORMATION SKRIVITS IN I SAMTLIGA FÄLT
-  const isDisabled=computed(() => {
+  // KNAPP KLICKBAR FÖRST NÄR RÄTT INFORMATION SKRIVITS IN I SAMTLIGA FÄLT
+  const isDisabled = computed(() => {
     return (
       currentPassword.value.length >= 8 &&
       newPassword.value.length >= 8 &&
       confirmPassword.value.length >= 8 &&
       newPassword.value === confirmPassword.value
-      )
+    )
   })
 
-// ANROPAR FUNKTIONEN FÖR ATT TÖMMA SAMTLIGA LÖSENORDSFÄLT
+  // ANROPAR FUNKTIONEN FÖR ATT TÖMMA SAMTLIGA LÖSENORDSFÄLT
   function onOk() {
     resetPasswordFields()
   }
 
-// TÖMMER SAMTLIGA LÖSENORDSFÄLT
+  // TÖMMER SAMTLIGA LÖSENORDSFÄLT
   function resetPasswordFields() {
-    currentPassword.value = '',
-    newPassword.value = '',
-    confirmPassword.value = ''
+    ;(currentPassword.value = ''),
+      (newPassword.value = ''),
+      (confirmPassword.value = '')
   }
 
-// KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
+  // KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
   function checkPassword() {
     return (
       currentPassword.value.length >= 8 &&
@@ -103,7 +102,7 @@
     )
   }
 
-// FUNKTION FÖR ATT GÅ TILLBAKA TILL FÖREGÅENDE SIDA
+  // FUNKTION FÖR ATT GÅ TILLBAKA TILL FÖREGÅENDE SIDA
   function back() {
     router.go(-1)
   }
