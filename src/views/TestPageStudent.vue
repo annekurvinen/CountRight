@@ -92,9 +92,8 @@
           this.algebraQuestions[this.currentIndex].answer
         ) {
           this.points++
-          console.log(this.points)
         }
-        console.log('klickat på sista knappen')
+        //lagt in en try-catch pga tidiagre error
         try {
           useStudentsStore().setPoints(this.points) //sparar poöngen i setPoints i store.js
         } catch (error) {
@@ -116,7 +115,6 @@ https://vuejs.org/guide/essentials/template-refs
   * {
     color: #150b04;
   }
-
   .student-testBtn {
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
@@ -141,7 +139,6 @@ https://vuejs.org/guide/essentials/template-refs
     display: flex;
     flex-direction: column;
     align-items: center;
-
     justify-content: center;
   }
   #question {
