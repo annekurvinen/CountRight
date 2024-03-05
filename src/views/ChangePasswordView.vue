@@ -78,12 +78,11 @@
       newPassword.value.length >= 8 &&
       confirmPassword.value.length >= 8 &&
       newPassword.value === confirmPassword.value
-    )
+      )
   })
 
 // ANROPAR FUNKTIONEN FÖR ATT TÖMMA SAMTLIGA LÖSENORDSFÄLT
   function onOk() {
-    console.log('Ok')
     resetPasswordFields()
   }
 
