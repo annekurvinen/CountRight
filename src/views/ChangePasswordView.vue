@@ -9,15 +9,18 @@
         class="input-field"
         placeholder="Nuvarande lösenord"
       />
-
-      <label :for="newPassword">Nytt lösenord: </label>
-      <BFormInput
-        type="password"
-        v-model="newPassword"
-        class="input-field"
-        placeholder="Nytt lösenord (Minst 8 tecken)"
-      />
-
+      <div class="input-container">
+        <label :for="newPassword">Nytt lösenord: </label>
+        <BFormInput
+          type="password"
+          v-model="newPassword"
+          class="input-field"
+          placeholder="Nytt lösenord"
+        />
+        <span v-if="newPassword.length < 8" class="warning"
+          >Ogiltigt lösenord (Minst 8 tecken krävs)</span
+        >
+      </div>
       <label :for="confirmPassword">Bekräfta nytt lösenord: </label>
       <BFormInput
         type="password"
@@ -81,7 +84,7 @@
     resetPasswordFields()
   }
   function resetPasswordFields() {
-    ;(currentPassword.value = ''),
+      (currentPassword.value = ''),
       (newPassword.value = ''),
       (confirmPassword.value = '')
   }
@@ -119,6 +122,13 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+  }
+
+  .warning {
+    color: 'warning';
+    font-size: 12px;
+    position: relative;
+    top: -0.8rem;
   }
   h1 {
     padding: 20px;
