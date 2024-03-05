@@ -47,17 +47,12 @@
                 {{ calculateAverageStudent(student.testResults) }}/12
               </p>
               <b-collapse :id="'accordion-' + student.name">
-                <!-- <b-card class="mt-3" header="Form Data Result">
-                  <pre class="m-0">{{ student.testResults }}</pre>
-                </b-card> -->
-                <b-card>
-                  <b-table
-                    striped
-                    hover
-                    :items="student.testResults"
-                    :fields="studentField"
-                  />
-                </b-card>
+                <b-table
+                  striped
+                  hover
+                  :items="student.testResults"
+                  :fields="studentField"
+                />
               </b-collapse>
             </b-list-group-item>
           </b-list-group>
@@ -112,6 +107,7 @@
 
 <style>
   .classes {
-    padding: 0 10vw 0 10vw;
+    width: 80vw;
+    margin: auto;
   }
 </style>

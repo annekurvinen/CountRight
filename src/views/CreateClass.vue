@@ -71,16 +71,6 @@
         </b-form-group>
       </b-form>
     </div>
-    <!-- <b-card id="student-table">
-      <b-table
-        striped
-        outlined
-        hover
-        responsive
-        :items="studentsStore.students"
-        :fields="studentField"
-      />
-    </b-card> -->
     <b-card
       v-for="(student, index) in studentsStore.students"
       :key="index"
@@ -98,29 +88,6 @@
 </template>
 <script setup>
   import { ref } from 'vue'
-
-  // const studentField = [
-  //   {
-  //     key: 'studentName',
-  //     label: 'Namn',
-  //     sortable: true
-  //     // stickyColumn: true
-  //   },
-  //   {
-  //     key: 'className',
-  //     label: 'Klass',
-  //     sortable: true
-  //   },
-
-  //   {
-  //     key: 'eMail',
-  //     label: 'E-post'
-  //   },
-  //   {
-  //     key: 'password',
-  //     label: 'Lösenord'
-  //   }
-  // ]
 
   import { useStudentsStore } from '../store'
   //för att använda pinia-store som heter useStudentsStore.
@@ -155,16 +122,6 @@
     width: 0vw;
   }
 
-  /* .student {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #e5852d;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    padding: ;
-  } */
-
   .student-info {
     display: flex;
     flex-direction: column;
@@ -174,12 +131,11 @@
   .student-card {
     width: 80vw;
     min-width: 19rem;
-    /* background-color: #f4e2d1; */
+    background-color: #f4e2d1;
   }
 
-  /* Om man vill */
   h3 {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid gray;
   }
 
   #student-table {
@@ -223,10 +179,10 @@
   }
   @media screen and (min-width: 700px) {
     .student-card {
-      width: 70vw;
+      width: 60vw;
     }
     #new-class-container {
-      width: 70vw;
+      width: 60vw;
     }
   }
 
