@@ -22,7 +22,6 @@
             <li>Ändra lösenord</li>
           </RouterLink>
           <li id="logout-button"><log-out /></li>
-
         </ul>
       </b-collapse>
     </b-navbar>

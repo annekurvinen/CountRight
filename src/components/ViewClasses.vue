@@ -1,28 +1,18 @@
 <template>
   <div class="classes" role="tablist">
-    <!-- Show classes data -->
-    <!-- <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ classes }}</pre>
-    </b-card> -->
-
-    <!-- for each class -->
-    <b-card
-      no-body
-      class="mb-1"
-      v-for="(classItem, index) in classes"
-      :key="index"
-    >
-      <!-- class name -->
-      <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button
-          block
-          v-b-toggle="'accordion-' + classItem.className"
-          variant="info"
-          >{{ classItem.className }}</b-button
-        >
-        <p style="display: inline">
-          <!-- Genomsnitt: {{ calculateAverage(classItem.className) }} -->
-        </p>
+    <!-- för varje klass -->
+    <b-card no-body v-for="(classItem, index) in classes" :key="index">
+      <!-- klassnamn -->
+      <b-card-header
+        header-tag="header"
+        role="tab"
+        class="class-header"
+        v-b-toggle="'accordion-' + classItem.className"
+      >
+        <h6 id="class-name">{{ classItem.className }}</h6>
+        <!-- <b-button variant="primary">{{ classItem.className }}</b-button> -->
+        <!-- Klassens genomsnitt (funkar ej) -->
+        <p style="margin-bottom: 0">Klassens genomsnitt:</p>
       </b-card-header>
       <b-collapse
         :id="'accordion-' + classItem.className"
@@ -42,7 +32,6 @@
                 style="display: inline"
               >
                 <b>{{ student.name }}</b>
-
                 Genomsnitt:
                 {{ calculateAverageStudent(student.testResults) }}/12
               </p>
@@ -109,5 +98,18 @@
   .classes {
     width: 80vw;
     margin: auto;
+  }
+
+  .class-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #class-name {
+    margin-bottom: 0;
+    padding: 0.4rem;
+    background-color: var(--orange);
+    border-radius: 0.3rem;
   }
 </style>
