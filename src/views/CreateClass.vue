@@ -119,7 +119,6 @@
     gap: 1rem;
     align-items: center;
     margin: auto;
-    width: 0vw;
   }
 
   .student-info {
@@ -136,10 +135,6 @@
 
   h3 {
     border-bottom: 1px solid gray;
-  }
-
-  #student-table {
-    width: 70vw;
   }
 
   .input-field {
@@ -165,31 +160,38 @@
     margin-top: 1rem;
   }
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 550px) {
+    .student-card {
+      width: 60vw;
+    }
+    #new-class-container {
+      width: 60vw;
+    }
+
+    .content {
+      width: 60vw;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    .student-card {
+      width: 60vw;
+    }
+
+    #new-class-container {
+      width: 60vw;
+    }
+
+    .content {
+      width: 60vw;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
     .student-info {
       display: flex;
       flex-direction: row;
       gap: 1.5rem;
     }
-
-    .student-card {
-      width: 60vw;
-      min-width: 19rem;
-    }
   }
-  @media screen and (min-width: 700px) {
-    .student-card {
-      width: 60vw;
-    }
-    #new-class-container {
-      width: 60vw;
-    }
-  }
-
-  /* @media screen and (min-width: 700px) {
-    #new-class-container {
-      width: 30vw;
-      min-width: 25rem;
-    }
-  } */
 </style>
