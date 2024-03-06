@@ -33,10 +33,7 @@
               :key="studentIndex"
               id="student-list"
               style="padding: 0.4rem"
-              ><p
-                v-b-toggle="'accordion-' + student.name"
-                style="margin: 0.2rem 0.4rem"
-              >
+              ><p v-b-toggle="'accordion-' + student.name" id="student-name">
                 <b>{{ student.name }}</b>
                 Genomsnitt:
                 {{ calculateAverageStudent(student.testResults) }}/12
@@ -173,6 +170,10 @@
     border-radius: 0.3rem;
   }
 
+  #student-name {
+    margin: 0.2rem 0.4rem;
+  }
+
   .student-card {
     width: 100%;
     background-color: #f4e2d1;
@@ -187,7 +188,7 @@
   #student-results {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
     align-items: center;
     margin: auto;
     width: 100%;
