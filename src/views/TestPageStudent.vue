@@ -1,7 +1,6 @@
 <template>
   <div id="question">
     <h1>Välkommen till dagens prov</h1>
-
     <!---vi använder (question, index) för att vi ska kunna ha reda på vilket index vi senare vill visa, vi använder v-show för att visa en fråga i taget basserat på indexet.--->
     <section
       v-for="(question, index) in algebraQuestions"
@@ -19,24 +18,22 @@
 
       <b-button
         variant="primary"
-        class="student-testBtn"
+        class="student-test-btn"
         @click="nextQuestion"
         v-show="!(this.currentIndex === this.algebraQuestions.length - 1)"
         type="button"
+        :disabled="!text"
       >
         Nästa fråga
       </b-button>
-      <!----
-              :disabled="!text"
-          v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på
-             :disabled="!text"
-        -->
+      <!---- v-show gör att denna knappen visas när man är på sista fårgan. currentIndex kollar hela tiden vilken fråga man är på -->
       <RouterLink to="/resultStudent">
         <b-button
           @click="submitTest"
           variant="primary"
           class="student-landing-button"
           v-show="this.currentIndex === this.algebraQuestions.length - 1"
+          :disabled="!text"
           >Lämna in
         </b-button>
       </RouterLink>
@@ -73,7 +70,6 @@
           this.algebraQuestions[this.currentIndex].answer
         ) {
           this.points++ //ökar poängen med 1
-          console.log(this.points)
         }
         //kollar vilket index man är på och om man inte är på sista frågan så ökar den indexet (byter till nästa fråga) med +1
         if (this.currentIndex < this.algebraQuestions.length - 1) {
@@ -115,7 +111,7 @@ https://vuejs.org/guide/essentials/template-refs
   * {
     color: #150b04;
   }
-  .student-testBtn {
+  .student-test-btn {
     font-family: 'Lexend', sans-serif;
     color: var(--mörkbrun);
   }
@@ -131,7 +127,6 @@ https://vuejs.org/guide/essentials/template-refs
     border-color: var(--orange);
     outline-style: groove;
   }
-
   #question-section {
     text-align: center;
     width: 95vw;

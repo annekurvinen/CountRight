@@ -9,15 +9,18 @@
         class="input-field"
         placeholder="Nuvarande lösenord"
       />
-
-      <label :for="newPassword">Nytt lösenord: </label>
-      <BFormInput
-        type="password"
-        v-model="newPassword"
-        class="input-field"
-        placeholder="Nytt lösenord (Minst 8 tecken)"
-      />
-
+      <div class="input-container">
+        <label :for="newPassword">Nytt lösenord: </label>
+        <BFormInput
+          type="password"
+          v-model="newPassword"
+          class="input-field"
+          placeholder="Nytt lösenord"
+        />
+        <span v-if="newPassword.length < 8" class="warning"
+          >Ogiltigt lösenord (Minst 8 tecken krävs)</span
+        >
+      </div>
       <label :for="confirmPassword">Bekräfta nytt lösenord: </label>
       <BFormInput
         type="password"
@@ -35,11 +38,12 @@
         >Ändra lösenord</BButton
       >
 
-      <!--// POPUPRUTA VID BEKRÄFTELSE ATT LÖSENORDET ÄR ÄNDRAT -->
+      <!-- RUTA MED EN BEKRÄFTELSE PÅ ATT LÖSENORDET HAR ÄNDRATS -->
       <BModal @ok="onOk" v-model="showModal" title="Bekräftelseruta"
         >Ditt lösenord har ändrats!</BModal
       >
 
+      <!-- TÖMMER INMATAD TEXT I SAMTLIGA TEXT FÄLT -->
       <BButton
         @on-click="resetPasswordFields"
         type="reset"
@@ -48,6 +52,7 @@
         >Ångra inmatningar</BButton
       >
 
+      <!-- ÅTERGÅR TILL FÖREGÅENDE SIDA -->
       <BButton @click="back" class="submit-button" variant="primary"
         >Tillbaka</BButton
       >
@@ -65,6 +70,7 @@
     confirmPassword = ref(''),
     router = useRouter()
 
+  // KNAPP KLICKBAR FÖRST NÄR RÄTT INFORMATION SKRIVITS IN I SAMTLIGA FÄLT
   const isDisabled = computed(() => {
     return (
       currentPassword.value.length >= 8 &&
@@ -74,20 +80,19 @@
     )
   })
 
-  // ANROPA FUNKTIONEN FÖR ATT TÖMMA LÖSENORDFÄLTEN
-
+  // ANROPAR FUNKTIONEN FÖR ATT TÖMMA SAMTLIGA LÖSENORDSFÄLT
   function onOk() {
-    console.log('Ok')
     resetPasswordFields()
   }
+
+  // TÖMMER SAMTLIGA LÖSENORDSFÄLT
   function resetPasswordFields() {
     ;(currentPassword.value = ''),
       (newPassword.value = ''),
       (confirmPassword.value = '')
   }
 
-  //  KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
-  // SKALL KONTROLLERA ATT NYTT LÖSENORD x 2 ÄR LIKA
+  // KONTROLLERAR ATT SAMTLIGA FÄLT ÄR KORREKT IFYLLA
   function checkPassword() {
     return (
       currentPassword.value.length >= 8 &&
@@ -96,7 +101,8 @@
       newPassword.value === confirmPassword.value
     )
   }
-  //funktion för att gå tillbaka till föregående sida.
+
+  // FUNKTION FÖR ATT GÅ TILLBAKA TILL FÖREGÅENDE SIDA
   function back() {
     router.go(-1)
   }
@@ -120,10 +126,18 @@
     border-radius: 5px;
     background-color: #f9f9f9;
   }
+
+  .warning {
+    color: 'warning';
+    font-size: 12px;
+    position: relative;
+    top: -0.8rem;
+  }
   h1 {
     padding: 20px;
     text-align: center;
   }
+
   .input-field {
     width: 100%;
     margin-bottom: 10px;

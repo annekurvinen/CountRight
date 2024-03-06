@@ -80,7 +80,7 @@
   @media only screen and (min-width: 990px) {
     ul {
       flex-direction: row;
-      margin-left: 10rem;
+      margin: auto;
     }
     li {
       margin: 0rem 1rem 1rem;
