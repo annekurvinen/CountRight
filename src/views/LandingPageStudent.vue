@@ -10,6 +10,7 @@
     <!-- <b-button variant="primary" class="studentLandingButton"
       >Se tidigare prov</b-button
     > -->
+  
     <RouterLink to="/changePasswordView">
       <b-button variant="primary" class="student-landing-button"
         >Ändra lösenord</b-button

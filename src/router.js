@@ -46,6 +46,7 @@ export default createRouter({
       component: LandingPageStudent,
       path: '/landingpageStudent'
     },
+
     {
       component: TestPageStudent,
       path: '/testStudent'
