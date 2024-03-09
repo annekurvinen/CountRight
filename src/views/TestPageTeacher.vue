@@ -2,8 +2,6 @@
   <nav-bar />
   <h1 id="h1-text">Skapa prov</h1>
   <div class="exam-container">
-    <!-- <div class="menu-container"> -->
-    <!-- <div class="col-md-6" id="chooseClass"> -->
     <!-- Om selectedClass är tom visas texten "Välj klass", annars visas den valda klassen i menyn. -->
     <b-dropdown
       id="dropdown-1"
@@ -17,9 +15,6 @@
       <b-dropdown-item @click="selectedClass = '8A'">8A</b-dropdown-item>
       <b-dropdown-item @click="selectedClass = '8B'">8B</b-dropdown-item>
     </b-dropdown>
-    <!-- </div> -->
-
-    <!-- <div class="col-md-6"> -->
     <!-- Om selectedCategory är tom visas texten "Välj kategori", annars visas det valda värdet i menyn. -->
     <b-dropdown
       id="dropdown-2"
@@ -33,9 +28,6 @@
         >Statistik</b-dropdown-item
       >
     </b-dropdown>
-    <!-- </div> -->
-    <!-- </div> -->
-    <!-- <div class="button-container"> -->
     <b-button
       id="button"
       variant="primary"
@@ -43,7 +35,6 @@
       :disabled="!allFieldsFilled"
       >Skapa prov</b-button
     >
-    <!-- </div> -->
     <b-modal v-model="showModal">
       <p>Vill du skapa detta prov?</p>
       <template #modal-footer="{ cancel, ok }">
@@ -94,29 +85,15 @@
     width: 90vw;
     margin: auto;
   }
-  /* .menu-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  } */
 
   #chooseClass {
     padding-bottom: 1rem;
   }
 
-  /* .button-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-    width: fit-content;
-  } */
-
   @media only screen and (min-width: 730px) {
       .exam-container{
         width: 40vw;
         min-width: 15rem;
-        /* padding: 1rem; */
       }
   }
 </style>
